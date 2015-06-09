@@ -21,7 +21,7 @@
         @if(!$conversation->hasCorrectAnswer())
 
             @if($reply->isCorrect())
-Esta es
+                This is the best answer!
             @endif
 
         @else
