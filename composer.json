@@ -1,0 +1,21 @@
+{
+    "name": "socieboy/forum",
+    "description": "Laravel Forum Integration Pack",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Francisco Sepulveda",
+            "email": "socieboy@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "league/commonmark": "0.8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Socieboy\\Forum\\": "/src"
+        }
+    }
+}
