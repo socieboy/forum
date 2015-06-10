@@ -15,6 +15,9 @@
             @include('Forum::Conversations.Partials.question')
 
 
+            @include('Forum::Conversations.Partials.correct-answer')
+
+
             {{-- Display each reply on this conversation --}}
             @foreach($replies as $reply)
 

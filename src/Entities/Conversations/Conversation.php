@@ -62,4 +62,17 @@ class Conversation extends Model
 
         return false;
     }
+
+
+    /**
+     *
+     * @return mixed
+     */
+    public function correctAnswer()
+    {
+        foreach($this->replies as $reply)
+        {
+            if($reply->isCorrect()) return $reply;
+        }
+    }
 } 
