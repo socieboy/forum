@@ -464,6 +464,51 @@
     }
 
 
+
+    .item.is-correct{
+      .bubble-header{
+        background: #fafafa;
+        border: darkolivegreen solid 1px;
+        border-bottom: #ddd solid 0px;
+
+      }
+
+      .bubble-body{
+        background: #fdfdfd;
+        border: darkolivegreen solid 1px;
+
+
+        @media @desktop, @desktop-xl
+        {
+          &:after{
+            border-color: transparent #fdfdfd;
+          }
+
+          &:before{
+            border-color: transparent darkolivegreen;
+          }
+        }
+
+      }
+
+      .bubble-footer{
+        background: darkseagreen;
+        border: darkolivegreen solid 1px;
+
+
+        .liked{
+          color: darkolivegreen;
+          &:hover{
+            color: white;
+            cursor: pointer;
+          }
+        }
+
+
+      }
+
+    }
+
   }
 
   .forum-pagination{
