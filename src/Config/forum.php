@@ -55,7 +55,7 @@ return [
          * If you need avatars on the forum.
          */
 
-        'avatar'        => true,
+        'avatar'        => false,
 
         /**
          * Required if the avatar key is true.
