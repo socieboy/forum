@@ -4,6 +4,6 @@
 
         <img class="img-thumbnail img-circle avatar" src="{{ asset($user->{config('forum.user.user-avatar')} ) }}" alt="{{ $user->{config('forum.user.username')} }}"/>
 
-    @if($userProfileRequired) </a> @endif
+    @if(config('forum.user.profile')) </a> @endif
 
 @endif
