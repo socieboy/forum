@@ -55,7 +55,7 @@ class Conversation extends Model
      */
     public function hasCorrectAnswer()
     {
-        foreach($this->replies() as $reply)
+        foreach($this->replies as $reply)
         {
             if($reply->isCorrect()) return true;
         }

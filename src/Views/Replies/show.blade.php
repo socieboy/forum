@@ -1,11 +1,15 @@
-<article class="item">
+@if( ! $reply->isCorrect())
 
-    @include('Forum::Partials.avatar', ['user' => $reply->user])
+    <article class="item">
 
-    @include('Forum::Replies.Partials.Bubble.header')
+        @include('Forum::Partials.avatar', ['user' => $reply->user])
 
-    @include('Forum::Replies.Partials.Bubble.body')
+        @include('Forum::Replies.Partials.Bubble.header')
 
-    @include('Forum::Replies.Partials.Bubble.footer')
+        @include('Forum::Replies.Partials.Bubble.body')
 
-</article>
+        @include('Forum::Replies.Partials.Bubble.footer')
+
+    </article>
+
+@endif

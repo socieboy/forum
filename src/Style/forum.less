@@ -80,6 +80,10 @@
   }
 
   .forum-body{
+    padding: 0px 100px;
+    @media @mobile, @tablet {
+      padding: 0px 3px;
+    }
     border: 1px solid #ccc;
 
     ul{
@@ -155,11 +159,7 @@
     .form-reply{
       margin-top: 80px !important;
       margin-left: 25px !important;
-      width: 90%;
-
-      @media @mobile, @tablet {
-        width: 100%;
-      }
+      width: 100%;
 
       .avatar{
         float:left;
@@ -177,11 +177,10 @@
       .form-post{
         position: relative;
         margin-top: -50px;
-
+        width: 100%;
 
         @media @mobile, @tablet {
           margin-left: -25px;
-          width: 100%;
         }
 
         textarea{
@@ -230,10 +229,35 @@
     }
 
     .tread-summary{
-      background: lightblue !important;
-      border-color: darken(lightblue, 10) !important;
-      border-radius: 5px !important;
-      width: 300px !important;
+
+      background: none !important;
+      border: none !important;
+      margin-left: -86px!important;
+
+      .icon{
+        border-radius: 50px;
+        width: 60px;
+        height: 60px;
+        float: left;
+        padding: 15px;
+        background: #4682b4;
+        border: 2px solid #fcfcfc;
+        margin-top: -18px;
+
+        i{
+          font-size: 2em;
+          color: white;
+        }
+      }
+      .icon:hover{
+        border: 2px solid @main-color;
+      }
+
+      .info{
+        margin-left: 15px;
+        font-size: 1.1em;
+      }
+
       @media @mobile, @tablet {
         width: 100% !important;
       }
@@ -264,7 +288,6 @@
         background: #fafafa;
         left: 25px;
         position: relative;
-        width: 90%;
         padding: 10px;
         height: 70px;
         border-top-left-radius: 3px;
@@ -283,8 +306,8 @@
       .bubble-body{
         font-size:1.2em;
         left: 25px;
+        width: 100%;
         position: relative;
-        width: 90%;
         min-height: 80px;
         padding: 20px;
         background: #fdfdfd;
@@ -298,7 +321,6 @@
 
         @media @mobile, @tablet {
           margin-left: -25px;
-          width: 100%;
         }
 
         @media @desktop, @desktop-xl
@@ -355,11 +377,11 @@
         background: #fafafa;
         left: 25px;
         position: relative;
-        width: 90%;
         padding: 10px;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
+        width: 100%;
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
         border: #ddd solid 1px;
@@ -368,7 +390,6 @@
 
         @media @mobile, @tablet {
           margin-left: -25px;
-          width: 100%;
         }
 
         .like_legend{
@@ -410,10 +431,7 @@
           border: none;
           background: transparent;
           float: right;
-          margin-right: 15%;
-          @media @tablet {
-            margin-right: 8%;
-          }
+          margin-right: 6%;
           @media @mobile {
             margin-right: 0%;
           }
@@ -450,7 +468,6 @@
 
   .forum-pagination{
     text-align: right;
-    width: 92%;
 
     @media @mobile, @tablet {
       width: 100%;

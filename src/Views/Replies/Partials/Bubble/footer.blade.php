@@ -16,21 +16,11 @@
         @endif
 
 
-        {{-- CORRECT ANSWER BUTTON
-
         @if(!$conversation->hasCorrectAnswer())
 
-            @if($reply->isCorrect())
+            @include('Forum::Replies.Partials.Actions.form-correct-answer')
 
-
-            @endif
-
-        @else
-
-           @include('Forum::Replies.Partials.Actions.form-correct-answer')
-
-        @endif --}}
-
+        @endif
 
 
         </div>
