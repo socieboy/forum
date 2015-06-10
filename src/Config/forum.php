@@ -63,7 +63,21 @@ return [
          * Define the field avatar on your users table.
          */
 
-        'user-avatar'  => 'avatar'
+        'user-avatar'  => 'avatar',
+
+
+        /**
+         * Require links to user profile
+         */
+
+        'profile' => false,
+
+        /**
+         * Route name to user profile.
+         * Has to accept one parameter like the user ID.
+         */
+
+        'profile-route' => 'profile.show'
 
     ],
 

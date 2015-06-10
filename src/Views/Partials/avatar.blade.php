@@ -1,3 +1,9 @@
 @if(config('forum.user.avatar'))
-    <img class="img-thumbnail img-circle avatar" src="{{ asset($user->{config('forum.user.user-avatar')} ) }}" alt="{{ $user->{config('forum.user.username')} }}"/>
+
+    @if(config('forum.user.profile')) <a href="{{ route(config('profile-route')) }}"> @endif
+
+        <img class="img-thumbnail img-circle avatar" src="{{ asset($user->{config('forum.user.user-avatar')} ) }}" alt="{{ $user->{config('forum.user.username')} }}"/>
+
+    @if($userProfileRequired) </a> @endif
+
 @endif
