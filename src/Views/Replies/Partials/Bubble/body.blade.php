@@ -10,7 +10,7 @@
 
     <p class="posted_by pull-right">{{ $reply->created_at->diffForHumans() }}</p>
 
-    <p class="posted_by">Posted by <a href="#">{{ $reply->user->{config('forum.user.username')} }}</a></p>
+    <p class="posted_by">Posted by @include('Forum::Partials.user-name', ['user' => $reply->user])</p>
 
     {!! $reply->message !!}
 </div>

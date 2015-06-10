@@ -16,19 +16,20 @@
         @endif
 
 
-        {{-- CORRECT ANSWER BUTTON --}}
+        {{-- CORRECT ANSWER BUTTON
 
         @if(!$conversation->hasCorrectAnswer())
 
             @if($reply->isCorrect())
-                This is the best answer!
+
+
             @endif
 
         @else
 
            @include('Forum::Replies.Partials.Actions.form-correct-answer')
 
-        @endif
+        @endif --}}
 
 
 

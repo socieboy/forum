@@ -12,17 +12,21 @@
             <h3>{{ $conversation->title}}</h3>
         </a>
         <span class="conversation_date">
+
             @if($conversation->replies()->count() > 0)
-                 Updated {{ $conversation->replies->first()->created_at->diffForHumans() }} by {{ $conversation->replies->first()->user->{config('forum.user.username')} }}
+
+                 Updated {{ $conversation->replies->first()->created_at->diffForHumans() }}
+
             @else
+
                 Posted {{ $conversation->created_at->diffForHumans() }}
-                by
-                    @if(config('forum.user.profile')) <a href="{{ route(config('profile-route')) }}"> @endif
 
-                    {{ $conversation->user->{config('forum.user.username')} }}
-
-                    @if($userProfileRequired) </a> @endif
             @endif
+
+            by
+
+            @include('Forum::Partials.user-name', ['user' => $conversation->user])
+
         </span>
         <div class="topic">
             <div class="label label-success"><span class="glyphicon glyphicon-tag"></span> {{ $conversation->topic }}</div>

@@ -77,7 +77,7 @@ return [
          * Has to accept one parameter like the user ID.
          */
 
-        'profile-route' => 'profile.show'
+        'profile-route' => 'forum.user.profile'
 
     ],
 
