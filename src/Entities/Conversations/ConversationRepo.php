@@ -4,7 +4,6 @@ namespace Socieboy\Forum\Entities\Conversations;
 
 use Socieboy\Forum\Entities\Libs\BaseRepo;
 
-
 class ConversationRepo extends BaseRepo
 {
 

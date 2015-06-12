@@ -4,7 +4,6 @@ namespace Socieboy\Forum\Entities\Conversations;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Conversation extends Model
 {
 

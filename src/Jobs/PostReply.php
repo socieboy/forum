@@ -7,6 +7,7 @@ use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Support\Facades\Auth;
 use League\CommonMark\CommonMarkConverter;
 use Socieboy\Forum\Entities\Replies\Reply;
+use Socieboy\Forum\Entities\Replies\ReplyRepo;
 
 class PostReply extends Job implements SelfHandling
 {
@@ -44,11 +45,12 @@ class PostReply extends Job implements SelfHandling
     /**
      * Execute the job.
      *
+     * @param ReplyRepo $replyRepo
      * @return void
      */
-    public function handle()
+    public function handle(ReplyRepo $replyRepo)
     {
-        $reply = new Reply();
+        $reply = $replyRepo->model();
 
         $reply->fill($this->prepareData());
 

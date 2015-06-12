@@ -5,7 +5,6 @@ namespace Socieboy\Forum\Entities\Replies;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-
 class Reply extends Model
 {
 

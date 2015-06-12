@@ -2,7 +2,6 @@
 
 namespace Socieboy\Forum\Entities\Libs;
 
-
 abstract class BaseRepo
 {
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use League\CommonMark\CommonMarkConverter;
 use Socieboy\Forum\Entities\Conversations\Conversation;
 use EasySlug\EasySlug\EasySlugFacade as Slug;
+use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 
 class StartConversation extends Job implements SelfHandling
 {
@@ -52,11 +53,12 @@ class StartConversation extends Job implements SelfHandling
     /**
      * Execute the job.
      *
+     * @param ConversationRepo $conversationRepo
      * @return void
      */
-    public function handle()
+    public function handle(ConversationRepo $conversationRepo)
     {
-        $conversation = new Conversation();
+        $conversation = $conversationRepo->model();
 
         $conversation->fill( $this->prepareDate() );
 

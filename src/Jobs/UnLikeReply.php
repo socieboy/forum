@@ -10,9 +10,14 @@ use Socieboy\Forum\Entities\Likes\LikeRepo;
 class UnLikeReply extends Job implements SelfHandling
 {
 
+    /**
+     * @var
+     */
     protected $reply_id;
+
     /**
      * Create a new job instance.
+     *
      * @param $reply_id
      */
     public function __construct($reply_id)
@@ -23,13 +28,15 @@ class UnLikeReply extends Job implements SelfHandling
     /**
      * Execute the job.
      *
+     * @param LikeRepo $likeRepo
+     * @param Guard $auth
      * @return void
      */
     public function handle(LikeRepo $likeRepo, Guard $auth)
     {
         $like = $likeRepo->where('user_id', $auth->user()->id)
-                         ->where('reply_id', $this->reply_id)
-                         ->first();
+            ->where('reply_id', $this->reply_id)
+            ->first();
 
         $like->delete();
 

@@ -4,7 +4,6 @@ namespace Socieboy\Forum\Requests;
 
 use App\Http\Requests\Request;
 
-
 class CreateReplyRequest extends Request
 {
 

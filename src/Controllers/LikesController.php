@@ -53,7 +53,6 @@ class LikesController extends Controller
         $this->dispatchFrom('Socieboy\Forum\Jobs\UnLikeReply', $request);
 
         return redirect()->route('forum.conversation.show', $slug);
-
     }
 
 
