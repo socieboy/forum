@@ -75,20 +75,9 @@ class StartConversation extends Job implements SelfHandling
             'title' => $this->title,
             'topic_id' => $this->topic_id,
             'message' => $this->converter->convertToHtml($this->message),
-            'slug' => $this->setSlug(),
+            'slug' => Slug::generateUniqueSlug($this->title, 'conversations')
         ];
     }
 
-
-    /**
-     * Create a slug.
-     *
-     * @return string
-     */
-    protected function setSlug()
-    {
-        return Slug::generateUniqueSlug($this->title, 'conversations');
-
-    }
 
 }
