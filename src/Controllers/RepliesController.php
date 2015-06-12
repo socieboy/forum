@@ -42,15 +42,11 @@ class RepliesController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function bestAnswer(CorrectAnswerRequest $request)
+    public function correctAnswer(CorrectAnswerRequest $request)
     {
-        $id = $request->only('reply_id');
+        $this->dispatchFrom('Socieboy\Forum\Jobs\CheckCorrectAnswer', $request);
 
-        $reply = $this->replyRepo->findOrFail($id)->first();
-
-        (new SetCorrectAnswerStatus($reply))->handle();
-
-        return redirect()->route('forum.conversation.show', $reply->conversation->slug);
+        return redirect()->back();
     }
 
 }

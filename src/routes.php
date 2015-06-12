@@ -14,6 +14,6 @@ Route::post('forum/conversation/{slug}/reply/like', ['as' => 'forum.conversation
 
 Route::post('forum/conversation/{slug}/reply/unlike', ['as' => 'forum.conversation.reply.unlike', 'uses' => 'Socieboy\Forum\Controllers\LikesController@unlike']);
 
-Route::post('forum/conversation/{slug}/reply/{conversation_user_id}/best-answer', ['as' => 'forum.conversation.reply.best-answer', 'uses' => 'Socieboy\Forum\Controllers\RepliesController@bestAnswer']);
+Route::post('forum/conversation/{slug}/reply/{conversation_user_id}/best-answer', ['as' => 'forum.conversation.reply.best-answer', 'uses' => 'Socieboy\Forum\Controllers\RepliesController@correctAnswer']);
 
 Route::get('forum/{id}/profile', ['as' => 'forum.user.profile', 'uses' => 'Socieboy\Forum\Controllers\ProfileController@show']);
