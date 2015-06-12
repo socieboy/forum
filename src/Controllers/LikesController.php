@@ -41,6 +41,12 @@ class LikesController extends Controller
         return redirect()->route('forum.conversation.show', $slug);
     }
 
+    /**
+     * @param LikeRequest $request
+     * @param $slug
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function unlike(LikeRequest $request, $slug)
     {
 
