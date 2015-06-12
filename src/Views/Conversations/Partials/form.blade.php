@@ -10,7 +10,6 @@
     <label for="title">Topic</label>
     <select name="topic_id" class="form-control">
 
-            <option value="#">Select</option>
         @foreach(config('forum.topics') as $key => $topic)
             <option value="{{ $key }}">{{ $topic }}</option>
         @endforeach
