@@ -51,7 +51,7 @@ class ForumServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../Config/forum.php' => base_path('config/forum.php'),
-            __DIR__.'/../Style/forum.less' => base_path('resources/assets/less/forum.php'),
+            __DIR__.'/../Style/forum.less' => base_path('resources/assets/less/forum.less'),
         ]);
     }
 
