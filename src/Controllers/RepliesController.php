@@ -26,7 +26,7 @@ class RepliesController extends Controller
      *
      * @param CreateReplyRequest $request
      * @param $slug
-     * 
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CreateReplyRequest $request, $slug)

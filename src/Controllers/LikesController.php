@@ -36,11 +36,13 @@ class LikesController extends Controller
      */
     public function like(LikeRequest $request, $slug)
     {
-        $like = $this->likeRepo->model();
 
-        $manager = new LikeManager($like, $request->except('_token'));
+        $this->dispatchFrom('Socieboy\Forum\Jobs\LikeReply', $request);
+        //$like = $this->likeRepo->model();
 
-        $manager->save();
+        //$manager = new LikeManager($like, $request->except('_token'));
+
+        //$manager->save();
 
         return redirect()->route('forum.conversation.show', $slug);
 
