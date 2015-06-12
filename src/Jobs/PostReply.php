@@ -6,7 +6,6 @@ use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Support\Facades\Auth;
 use League\CommonMark\CommonMarkConverter;
-use Socieboy\Forum\Entities\Replies\Reply;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
 
 class PostReply extends Job implements SelfHandling

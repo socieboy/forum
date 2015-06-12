@@ -2,7 +2,6 @@
 
 namespace Socieboy\Forum\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Socieboy\Forum\Entities\Likes\LikeManager;
 use Socieboy\Forum\Entities\Likes\LikeRepo;
 use App\Http\Controllers\Controller;

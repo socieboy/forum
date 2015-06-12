@@ -6,7 +6,6 @@ use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Support\Facades\Auth;
 use League\CommonMark\CommonMarkConverter;
-use Socieboy\Forum\Entities\Conversations\Conversation;
 use EasySlug\EasySlug\EasySlugFacade as Slug;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 

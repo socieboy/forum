@@ -3,7 +3,6 @@
 namespace Socieboy\Forum\Controllers;
 
 use \App\Http\Controllers\Controller;
-use Socieboy\Forum\Entities\Conversations\Conversation;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 
 class ForumController extends Controller
