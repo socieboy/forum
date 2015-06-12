@@ -5,7 +5,7 @@ namespace Socieboy\Forum\Providers;
 use Illuminate\Support\ServiceProvider;
 use Socieboy\Forum\Commands\MigrationForum;
 use Socieboy\Forum\Commands\MigrateForumCommand;
-
+use Illuminate\Support\Facades\App;
 
 class ForumServiceProvider extends ServiceProvider
 {
@@ -31,6 +31,7 @@ class ForumServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
+        App::register(\EasySlug\EasySlug\EasySlugServiceProvider::class);
 
         $this->app->bindShared('command.forum.table', function ($app) {
             return new MigrateForumCommand();
@@ -38,10 +39,8 @@ class ForumServiceProvider extends ServiceProvider
 
         $this->commands('command.forum.table');
 
-        /**
-         * Include routes for the forum.
-         */
         include __DIR__ . '/../routes.php';
+
 	}
 
     /**
@@ -50,8 +49,11 @@ class ForumServiceProvider extends ServiceProvider
     protected function publishFiles()
     {
         $this->publishes([
+
             __DIR__.'/../Config/forum.php' => base_path('config/forum.php'),
+
             __DIR__.'/../Style/forum.less' => base_path('resources/assets/less/forum.less'),
+
         ]);
     }
 

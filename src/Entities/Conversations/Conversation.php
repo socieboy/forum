@@ -16,7 +16,7 @@ class Conversation extends Model
     /**
      * @var array
      */
-    protected $fillable = ['title', 'message', 'topic_id', 'slug'];
+    protected $fillable = ['user_id', 'title', 'message', 'topic_id', 'slug'];
 
     /**
      * Return the user owner of this conversation.

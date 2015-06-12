@@ -51,12 +51,8 @@ class ConversationController extends Controller
      */
     public function store(ConversationRequest $request)
     {
-        $job = new StartConversationJob(
-                new Conversation(),
-                $request->except('_token')
-        );
 
-        $job->handle();
+        $this->dispatchFrom('Socieboy\Forum\Jobs\StartConversation', $request);
 
         return redirect()->route('forum');
     }
