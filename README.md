@@ -76,7 +76,7 @@ f.- If you want to include link to profile users, (When you hit the avatar or th
    'profile' => true,
 ```
 
-By the fault the forum include a simple user profile. If you want to implement your own just set the route name on this key, ust make sure that the route name recive the ID of the user.
+By the fault the forum include a simple user profile. If you want to implement your own just set the route name on this key, just make sure that the route name recive the ID of the user.
 ```
 'profile-route' => 'forum.user.profile'
 ```
