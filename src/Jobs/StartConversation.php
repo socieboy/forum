@@ -71,10 +71,11 @@ class StartConversation extends Job implements SelfHandling
     public function prepareDate()
     {
         return [
-             'user_id' => Auth::User()->id,
-             'title' => $this->title,
-             'message' => $this->converter->convertToHtml($this->message),
-             'slug' => $this->setSlug(),
+            'user_id' => Auth::User()->id,
+            'title' => $this->title,
+            'topic_id' => $this->topic_id,
+            'message' => $this->converter->convertToHtml($this->message),
+            'slug' => $this->setSlug(),
         ];
     }
 
