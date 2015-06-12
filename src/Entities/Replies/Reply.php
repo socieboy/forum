@@ -17,7 +17,7 @@ class Reply extends Model
     /**
      * @var array
      */
-    protected $fillable = ['message'];
+    protected $fillable = ['user_id', 'conversation_id', 'message'];
 
     /**
      * Return the conversation parent of this reply.

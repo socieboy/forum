@@ -64,7 +64,7 @@ class StartConversation extends Job implements SelfHandling
     }
 
     /**
-     * Prepare array of all data before save it.
+     * Prepare array to fill the conversation model.
      *
      * @return array
      */
