@@ -8,7 +8,6 @@ use Socieboy\Forum\Entities\Likes\LikeRepo;
 use App\Http\Controllers\Controller;
 use Socieboy\Forum\Requests\LikeRequest;
 
-
 class LikesController extends Controller
 {
 

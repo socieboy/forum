@@ -7,7 +7,6 @@ use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 use Socieboy\Forum\Jobs\StartConversationJob;
 use Socieboy\Forum\Requests\ConversationRequest;
 
-
 class ConversationController extends Controller
 {
 
