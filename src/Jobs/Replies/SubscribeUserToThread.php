@@ -44,35 +44,31 @@ class SubscribeUserToThread extends Job implements SelfHandling, ShouldQueue
         $subscriber->subscribe(
             $this->list,
             $this->reply->user->email,
-            $this->setGroup($group)
+            $this->setGroups($group)
         );
     }
 
 
     /**
+     * Return an array of with all groups of the subscriber user on the list of MailChimp.
+     *
      * @param $group
      * @return array
      */
-    public function setGroup($group)
+    public function setGroups($group)
     {
-        /*
-        /$subscriberGroups = $group->subscriberGroups(
+        $memberGroups = $group->memberGroups(
             $this->list,                //  List name
             $this->reply->user->email   //  Subscriber email
         );
 
-        $groupName = array_merge($subscriberGroups, [$this->reply->conversation->slug]);
-
-
-        dd($groupName);
-
-        */
+        $groupName = array_merge([$this->reply->conversation->slug], $memberGroups);
 
         return [
             'GROUPINGS' => [
                 [
                     'name' => 'Forum',
-                    'groups' => [$this->reply->conversation->slug]
+                    'groups' => $groupName
                 ]
             ]
         ];
