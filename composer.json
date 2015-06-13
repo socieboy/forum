@@ -12,7 +12,8 @@
     "minimum-stability": "dev",
     "require": {
         "league/commonmark": "0.8.0",
-        "easy-slug/easy-slug": "~2.0"
+        "easy-slug/easy-slug": "~2.0",
+        "mailchimp/mailchimp": "2.0.6"
     },
     "autoload": {
         "psr-4": {
