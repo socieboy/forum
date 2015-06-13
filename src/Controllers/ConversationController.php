@@ -53,12 +53,9 @@ class ConversationController extends Controller
 
         $conversation = $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
 
-        if(config('forum.emails.fire'))
-        {
-            $this->dispatch(
-                new CreateConversationThread($conversation)
-            );
-        }
+        $this->dispatch(
+            new CreateConversationThread($conversation)
+        );
 
         return redirect()->route('forum');
     }

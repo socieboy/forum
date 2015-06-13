@@ -3,6 +3,7 @@
 namespace Socieboy\Forum\Controllers;
 
 use App\Http\Controllers\Controller;
+use Socieboy\Forum\Jobs\Replies\SubscribeUserToThread;
 use Socieboy\Forum\Jobs\SetCorrectAnswerStatus;
 use Socieboy\Forum\Requests\CorrectAnswerRequest;
 use Socieboy\Forum\Requests\CreateReplyRequest;
@@ -31,7 +32,11 @@ class RepliesController extends Controller
      */
     public function store(CreateReplyRequest $request, $slug)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\PostReply', $request);
+        $reply = $this->dispatchFrom('Socieboy\Forum\Jobs\PostReply', $request);
+
+        $this->dispatch(
+            new SubscribeUserToThread($reply)
+        );
 
         return redirect()->route('forum.conversation.show', $slug);
     }
