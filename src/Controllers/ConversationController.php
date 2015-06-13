@@ -53,7 +53,7 @@ class ConversationController extends Controller
 
         $conversation = $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
 
-        if(config('forum.email.fire'))
+        if(config('forum.emails.fire'))
         {
             $this->dispatch(
                 new CreateConversationThread($conversation)
