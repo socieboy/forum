@@ -21,7 +21,7 @@ class ConversationController extends Controller
      */
     function __construct(ConversationRepo $conversationRepo)
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['only' => ['store']]);
 
         $this->conversationRepo = $conversationRepo;
 

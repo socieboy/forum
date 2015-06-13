@@ -26,6 +26,7 @@
             @endforeach
 
 
+        
             {{-- Paginate replies --}}
             <div class="forum-pagination">
 
@@ -33,9 +34,10 @@
 
             </div>
 
-            {{-- Post a new reply form --}}
-            @include('Forum::Replies.form')
-
+            @if(Auth::check())
+                {{-- Post a new reply form --}}
+                @include('Forum::Replies.form')
+            @endif        
        </div>
 
     </div>

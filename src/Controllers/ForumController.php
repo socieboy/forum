@@ -18,8 +18,6 @@ class ForumController extends Controller
      */
     function __construct(ConversationRepo $conversationRepo)
     {
-        $this->middleware('auth');
-
         $this->conversationRepo = $conversationRepo;
     }
 
