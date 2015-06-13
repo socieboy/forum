@@ -63,9 +63,8 @@ class StartConversation extends Job implements SelfHandling
 
         $conversation->save();
 
-        $thread = new CreateConversationThread($conversation);
+        return $conversation;
 
-        $thread->handle();
     }
 
     /**

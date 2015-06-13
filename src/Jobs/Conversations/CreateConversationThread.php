@@ -57,7 +57,7 @@ class CreateConversationThread extends Job implements SelfHandling, ShouldQueue
 
         $subscriber->subscribe(
             $this->list,
-            $this->conversation->user()->email,
+            $this->conversation->user->email,
             $this->setGroup()
         );
 

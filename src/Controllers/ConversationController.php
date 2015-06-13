@@ -4,6 +4,7 @@ namespace Socieboy\Forum\Controllers;
 
 use App\Http\Controllers\Controller;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
+use Socieboy\Forum\Jobs\Conversations\CreateConversationThread;
 use Socieboy\Forum\Jobs\StartConversationJob;
 use Socieboy\Forum\Requests\ConversationRequest;
 
@@ -49,7 +50,12 @@ class ConversationController extends Controller
      */
     public function store(ConversationRequest $request)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
+
+        $conversation = $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
+
+        $this->dispatch(
+            new CreateConversationThread($conversation)
+        );
 
         return redirect()->route('forum');
     }
