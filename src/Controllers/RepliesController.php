@@ -32,7 +32,7 @@ class RepliesController extends Controller
      */
     public function store(CreateReplyRequest $request, $slug)
     {
-        $reply = $this->dispatchFrom('Socieboy\Forum\Jobs\PostReply', $request);
+        $reply = $this->dispatchFrom('Socieboy\Forum\Jobs\Replies\PostReply', $request);
 
         $this->dispatch(
             new SubscribeUserToThread($reply)

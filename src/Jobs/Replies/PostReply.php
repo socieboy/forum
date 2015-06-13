@@ -1,6 +1,6 @@
 <?php
 
-namespace Socieboy\Forum\Jobs;
+namespace Socieboy\Forum\Jobs\Replies;
 
 use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;

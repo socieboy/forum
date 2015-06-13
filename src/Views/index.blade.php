@@ -6,7 +6,10 @@
 
     <div class="forum-header">
         <h1>Forum</h1>
+
         @include('Forum::Conversations.create')
+
+
     </div>
 
     <div class="forum-body">
