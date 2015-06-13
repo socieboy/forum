@@ -1,6 +1,6 @@
 <?php
 
-namespace Socieboy\Forum\Jobs;
+namespace Socieboy\Forum\Jobs\Conversations;
 
 use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -62,6 +62,10 @@ class StartConversation extends Job implements SelfHandling
         $conversation->fill( $this->prepareDate() );
 
         $conversation->save();
+
+        $thread = new CreateConversationThread($conversation);
+
+        $thread->handle();
     }
 
     /**

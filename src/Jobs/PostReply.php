@@ -54,6 +54,7 @@ class PostReply extends Job implements SelfHandling
         $reply->fill($this->prepareData());
 
         $reply->save();
+
     }
 
     /**

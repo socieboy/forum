@@ -49,7 +49,7 @@ class ConversationController extends Controller
      */
     public function store(ConversationRequest $request)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\StartConversation', $request);
+        $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
 
         return redirect()->route('forum');
     }
