@@ -55,7 +55,8 @@ class SubscribeUserToThread extends Job implements SelfHandling, ShouldQueue
      */
     public function setGroup($group)
     {
-        $subscriberGroups = $group->subscriberGroups(
+        /*
+        /$subscriberGroups = $group->subscriberGroups(
             $this->list,                //  List name
             $this->reply->user->email   //  Subscriber email
         );
@@ -64,6 +65,8 @@ class SubscribeUserToThread extends Job implements SelfHandling, ShouldQueue
 
 
         dd($groupName);
+
+        */
 
         return [
             'GROUPINGS' => [
