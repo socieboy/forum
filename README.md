@@ -116,4 +116,4 @@ Finally just set the subject for the emails fired.
 'subject' => 'My app Forum - you have a new reply on your post',
 ```
 
-No that's it, easy and you are ready to go!
+Now that's it, easy and you are ready to go!
