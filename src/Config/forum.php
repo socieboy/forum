@@ -84,18 +84,10 @@ return [
 
 
     /**
-     * The forum use MailChimp API to create groups for each thread on conversations, and fire emails
-     * to each participant on the conversation.
+     * Send an email to the conversation owner each time someone left a reply
      */
 
-    'emails' => [
-
-        'fire' => false,
-
-        // List name for the MailChimp newsletter config file array
-        'list' => '',
-
-    ],
+    'emails' => false,
 
 
 ];

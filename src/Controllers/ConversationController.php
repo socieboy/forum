@@ -51,11 +51,7 @@ class ConversationController extends Controller
     public function store(ConversationRequest $request)
     {
 
-        $conversation = $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
-
-        $this->dispatch(
-            new CreateConversationThread($conversation)
-        );
+        $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
 
         return redirect()->route('forum');
     }
