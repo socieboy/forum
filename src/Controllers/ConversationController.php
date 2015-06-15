@@ -35,7 +35,7 @@ class ConversationController extends Controller
      */
     public function show($slug)
     {
-        $conversation = $this->conversationRepo->where('slug', $slug)->get()->first();
+        $conversation = $this->conversationRepo->findBySlug($slug);
 
         $replies = $conversation->replies()->orderBy('created_at', 'ASC')->paginate(15);
 
