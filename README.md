@@ -28,13 +28,13 @@ php artisan migrate
 
 ## Configuration
 
-#### General
+### General
 
 The forum provide a simple custom template, this is published on the resoruces/assets directory, feel free to edit.
 
 On the config/forum.php file, set the right information of your app.
 
-#### Template
+### Template
 
 This is the master template view of your project.
 ```
@@ -49,7 +49,7 @@ The key content is the name of your yield tag on your master template file where
 With those values the forum can be adapted to your project really easy and match with your application design.
 
 
-#### Topics or Categories
+### Topics or Categories
 
 Define the array of topics for your forum. (By default this include just the general tag, you can add as many you want)
 ```
@@ -58,7 +58,7 @@ Define the array of topics for your forum. (By default this include just the gen
     ],
 ```
 
-#### User settings
+### User settings
 
 The user configuration with the forum includes.
 
@@ -92,7 +92,7 @@ By the fault the forum include a simple user profile. If you want to implement y
 'profile-route' => 'forum.user.profile'
 ```
 
-#### Emails
+### Emails
 
 On the array emails are 4 different values.
 
