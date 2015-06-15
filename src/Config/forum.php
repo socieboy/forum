@@ -87,7 +87,22 @@ return [
      * Send an email to the conversation owner each time someone left a reply
      */
 
-    'emails' => false,
+    'emails' => [
+
+        'fire' => false,
+
+        /**
+         * Set the email from
+         */
+        'from' => '',
+
+        'from-name' => 'Admin',
+
+
+        'subject' => 'Forum'
+
+
+    ],
 
 
 ];

@@ -63,8 +63,6 @@ class StartConversation extends Job implements SelfHandling
 
         $conversation->save();
 
-        return $conversation;
-
     }
 
     /**
