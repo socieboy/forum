@@ -64,6 +64,14 @@ return [
          */
 
         'user-avatar'  => 'avatar',
+        
+        /**
+         * By default the forum uses gravatar.
+         * 
+         * Set this to false to use your own avatars on the users table
+         */
+         
+         'gravatar' => true,
 
 
         /**
