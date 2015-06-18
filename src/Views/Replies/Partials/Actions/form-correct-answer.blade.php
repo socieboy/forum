@@ -1,5 +1,6 @@
 @if(Auth::check())
-	@if($reply->user->id == Auth::User()->id)
+
+	@if($reply->conversation->user->id == Auth::User()->id)
 
 	    <form action="{{ route('forum.conversation.reply.best-answer', [$conversation->slug, $conversation->user->id])}}" method="POST">
 
