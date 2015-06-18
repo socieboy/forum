@@ -51,7 +51,11 @@ return [
 
         'username'    => 'name',
 
+        /**
+         * Need avatars on your forum.
+         */
 
+        'user-avatar'  => 'avatar',
         /**
          * By default the forum uses gravatar.
          *
@@ -67,13 +71,7 @@ return [
 
         'avatar'        => false,
 
-        /**
-         * Required if the avatar key is true.
-         *
-         * Define the field avatar on your users table.
-         */
 
-        'user-avatar'  => 'avatar',
 
 
 
