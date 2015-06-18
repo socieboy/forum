@@ -85,7 +85,7 @@ return [
 
         /**
          * Route name to user profile.
-         * Has to accept one parameter like the user ID.
+         * Has to accept one parameter > user ID.
          */
 
         'profile-route' => 'forum.user.profile'
