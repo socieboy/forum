@@ -62,7 +62,7 @@ return [
 
         /*
          * If you don't want to use gravatar
-         * Place this key to true if you wan to use your own avatars.
+         * Place this key to true to use your own avatars.
          */
 
         'avatar'        => false,
