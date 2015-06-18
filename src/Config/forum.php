@@ -51,8 +51,18 @@ return [
 
         'username'    => 'name',
 
+
+        /**
+         * By default the forum uses gravatar.
+         *
+         * Set this to false to use your own avatars on the users table
+         */
+
+        'gravatar' => true,
+
         /*
-         * If you need avatars on the forum.
+         * If you don't want to use gravatar
+         * Place this key to true if you wan to use your own avatars.
          */
 
         'avatar'        => false,
@@ -64,14 +74,7 @@ return [
          */
 
         'user-avatar'  => 'avatar',
-        
-        /**
-         * By default the forum uses gravatar.
-         * 
-         * Set this to false to use your own avatars on the users table
-         */
-         
-         'gravatar' => true,
+
 
 
         /**

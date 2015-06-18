@@ -74,4 +74,4 @@ class Conversation extends Model
             if($reply->isCorrect()) return $reply;
         }
     }
-} 
+}

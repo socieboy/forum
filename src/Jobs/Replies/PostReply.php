@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use League\CommonMark\CommonMarkConverter;
 use Socieboy\Forum\Entities\Replies\Reply;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
-use Socieboy\Newsletter\Subscriber\SubscriberList;
 
 class PostReply extends Job implements SelfHandling
 {

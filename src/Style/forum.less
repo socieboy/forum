@@ -8,12 +8,15 @@
 @desktop:     ~"only screen and (min-width: 950px) and (max-width: 1128px)";
 @desktop-xl:  ~"only screen and (min-width: 1129px)";
 
-@import (css) "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
-
 @main-color: darkorange;
 
 .forum{
   color: #333;
+
+  h1{
+    text-transform: uppercase;
+    font-size: 3em;
+  }
 
   .avatar{
     margin:20px;
@@ -82,14 +85,15 @@
   }
 
   .forum-body{
+
     padding: 0px 100px;
     @media @mobile, @tablet {
       padding: 0px 3px;
     }
     border: 1px solid #ccc;
+    margin-top: 0px;
 
     ul{
-      margin-top: -3px;
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
       border: 0px;
