@@ -56,6 +56,7 @@ return [
          */
 
         'user-avatar'  => 'avatar',
+        
         /**
          * By default the forum uses gravatar.
          *
