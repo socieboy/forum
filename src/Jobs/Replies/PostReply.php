@@ -38,7 +38,7 @@ class PostReply extends Job implements SelfHandling
     {
         $this->conversation_id = $conversation_id;
 
-        $this->message = $message;
+        $this->message = strip_tags($message);
 
         $this->converter = new CommonMarkConverter();
     }

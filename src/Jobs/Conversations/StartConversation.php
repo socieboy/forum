@@ -43,7 +43,7 @@ class StartConversation extends Job implements SelfHandling
 
         $this->title = $title;
 
-        $this->message = $message;
+        $this->message = strip_tags($message);
 
         $this->converter = new CommonMarkConverter();
     }

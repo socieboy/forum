@@ -1,7 +1,7 @@
 @extends($template)
 @section($content)
 
-<div class="row" style="margin-top: -20px;">
+
     <div class="forum">
 
         <div class="forum-header">
@@ -29,5 +29,5 @@
         </div>
 
     </div>
-</div>
+
 @stop

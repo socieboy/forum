@@ -9,7 +9,7 @@
 
     <div class="details">
         <a href="{{ route('forum.conversation.show', $conversation->slug) }}">
-            <h3>{{ $conversation->title}}</h3>
+            <h3>{{ $conversation->title }}</h3>
         </a>
         <span class="conversation_date">
 

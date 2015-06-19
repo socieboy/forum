@@ -12,5 +12,5 @@
 
     <p class="posted_by">Posted by @include('Forum::Partials.user-name', ['user' => $reply->user])</p>
 
-    {!! strip_tags($reply->message) !!}
+    {!! $reply->message !!}
 </div>
