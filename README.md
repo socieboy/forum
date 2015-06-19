@@ -119,6 +119,3 @@ Finally just set the subject for the emails fired.
 Now that's it, easy and you are ready to go!
 
 
-### Demo
-
-http://forum.laravel.org.uk/
