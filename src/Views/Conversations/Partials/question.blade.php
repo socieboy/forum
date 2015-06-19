@@ -4,7 +4,7 @@
 
     <div class="bubble-body">
 
-        {!! $conversation->message !!}
+        {!! strip_tags($conversation->message) !!}
 
     </div>
 

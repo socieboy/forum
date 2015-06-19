@@ -56,7 +56,7 @@ return [
          */
 
         'user-avatar'  => 'avatar',
-        
+
         /**
          * By default the forum uses gravatar.
          *
@@ -71,10 +71,6 @@ return [
          */
 
         'avatar'        => false,
-
-
-
-
 
         /**
          * Require links to user profile
@@ -91,8 +87,6 @@ return [
 
     ],
 
-
-
     /**
      * Send an email to the conversation owner each time someone left a reply
      */
@@ -108,9 +102,7 @@ return [
 
         'from-name' => 'Admin',
 
-
         'subject' => 'Forum'
-
 
     ],
 
