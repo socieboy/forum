@@ -9,6 +9,11 @@
 
             @include('Forum::Conversations.create')
 
+        </div>
+
+        <div class="forum-topics">
+
+             @include('Forum::Topics.index')
 
         </div>
 
