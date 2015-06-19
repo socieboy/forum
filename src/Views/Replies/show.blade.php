@@ -8,7 +8,11 @@
 
         @include('Forum::Replies.Partials.Bubble.body')
 
-        @include('Forum::Replies.Partials.Bubble.footer')
+        @if(auth()->check())
+
+            @include('Forum::Replies.Partials.Bubble.footer')
+
+        @endif
 
     </article>
 
