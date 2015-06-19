@@ -4,21 +4,24 @@
 
 
         {{-- LIKE BUTTON --}}
-        
-        @if(!$reply->userLiked())
+        @if(auth()->check())
 
-            @include('Forum::Replies.Partials.Actions.form-like')
+            @if(!$reply->userLiked())
 
-        @else
+                @include('Forum::Replies.Partials.Actions.form-like')
 
-            @include('Forum::Replies.Partials.Actions.form-unlike')
+            @else
 
-        @endif
+                @include('Forum::Replies.Partials.Actions.form-unlike')
+
+            @endif
 
 
-        @if(!$conversation->hasCorrectAnswer())
+            @if(!$conversation->hasCorrectAnswer())
 
-            @include('Forum::Replies.Partials.Actions.form-correct-answer')
+                @include('Forum::Replies.Partials.Actions.form-correct-answer')
+
+            @endif
 
         @endif
 
