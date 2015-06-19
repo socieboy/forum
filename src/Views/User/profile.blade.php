@@ -1,7 +1,7 @@
 @extends($template)
 @section($content)
 
-<div class="container text-center">
+<div class="container text-center" style="margin-top: 20px;">
 
     @include('Forum::Partials.avatar')
 
