@@ -16,7 +16,7 @@ Route::group(['prefix' => 'forum', 'namespace' => 'Socieboy\Forum\Controllers'],
   
   Route::post('/conversation/{slug}/reply/unlike', ['as' => 'forum.conversation.reply.unlike', 'uses' => 'LikesController@unlike']);
   
-  Route::post('/conversation/{slug}/reply/{conversation_user_id}/best-answer', ['as' => 'forum.conversation.reply.best-answer', 'uses' => 'RepliesController@correctAnswer']);
+  Route::post('/conversation/{slug}/reply/{conversation_user_id}/correct-answer', ['as' => 'forum.conversation.reply.correct-answer', 'uses' => 'RepliesController@correctAnswer']);
   
   Route::get('/{id}/profile', ['as' => 'forum.user.profile', 'uses' => 'ProfileController@show']);
 });
