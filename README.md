@@ -1,4 +1,4 @@
-# Laravel Forum Integration Package
+# Laravel 5.1 Forum Integration Package
 
 ## Installation
 
