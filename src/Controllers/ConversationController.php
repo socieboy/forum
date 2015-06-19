@@ -37,7 +37,7 @@ class ConversationController extends Controller
     {
         $conversation = $this->conversationRepo->findBySlug($slug);
 
-        $replies = $conversation->replies()->orderBy('created_at', 'ASC')->paginate(15);
+        $replies = $conversation->replies()->orderBy('created_at', 'DESC')->paginate(15);
 
         return view('Forum::Conversations.show', compact('conversation', 'replies'));
     }
