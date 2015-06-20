@@ -1,10 +1,8 @@
-    <div class="bubble-footer">
+    <div class="bubble-footer hidden-xs">
 
         <div class="container">
 
-
         {{-- LIKE BUTTON --}}
-
 
         @if(!$reply->userLiked())
 
@@ -22,8 +20,6 @@
             @include('Forum::Replies.Partials.Actions.form-correct-answer')
 
         @endif
-
-
 
         </div>
 
