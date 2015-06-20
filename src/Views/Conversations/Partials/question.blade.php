@@ -4,6 +4,8 @@
 
     <div class="bubble-body">
 
+        <p class="posted_by pull-right">{{ $conversation->created_at->diffForHumans() }}</p>
+
         {!! $conversation->message !!}
 
     </div>
