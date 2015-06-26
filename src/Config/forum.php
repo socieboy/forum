@@ -51,6 +51,13 @@ return [
 
         'username'    => 'name',
 
+        /*
+         * If you don't want to use gravatar
+         * Place this key to true to use your own avatars.
+         */
+
+        'avatar'        => false,
+
         /**
          * Need avatars on your forum.
          */
@@ -65,12 +72,7 @@ return [
 
         'gravatar' => true,
 
-        /*
-         * If you don't want to use gravatar
-         * Place this key to true to use your own avatars.
-         */
 
-        'avatar'        => false,
 
         /**
          * Require links to user profile
