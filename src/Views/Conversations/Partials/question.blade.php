@@ -17,7 +17,7 @@
     <div class="bubble-footer tread-summary">
 
         <div class="icon">
-            <i class="fa fa-comment"></i>
+            <i class="fa fa-comments"></i>
         </div>
 
         <span class="info">
