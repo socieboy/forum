@@ -1,3 +1,3 @@
 <form action="">
-    <button type="submit"><i class="glyphicon glyphicon-pencil"></i></button>
+    <button type="submit"><i class="fa fa-edit"></i></button>
 </form>

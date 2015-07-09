@@ -1,3 +1,3 @@
 <form action="">
-    <button type="submit"><i class="glyphicon glyphicon-trash"></i></button>
+    <button type="submit"><i class="fa fa-trash-o"></i></button>
 </form>
