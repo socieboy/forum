@@ -6,7 +6,7 @@
 
 	        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 	        <input type="hidden" name="reply_id" value="{{ $reply->id }}"/>
-	        <button type="submit" class="glyphicon glyphicon-ok best_answer"></button>
+	        <button type="submit" class="fa fa-check best_answer"></button>
 
 	    </form>
 

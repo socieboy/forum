@@ -5,7 +5,7 @@
 
         <input type="hidden" name="reply_id" value="{{ $reply->id }}"/>
 
-        <button type="submit" class="glyphicon glyphicon-thumbs-up @if($reply->userLiked()) liked @endif"></button>
+        <button type="submit" class="fa fa-thumbs-o-up @if($reply->userLiked()) liked @endif"></button>
 
         @if($reply->likes()->count())
             <span class="like_legend">{{ $reply->likes()->count() }} likes</span>
