@@ -57,8 +57,10 @@ class PostReply extends Job implements SelfHandling
         $reply->fill($this->prepareData());
 
         $reply->save();
+        if(config('config.forum.emails.fire')) {
 
-        $this->sendEmail($mailer, $reply);
+            $this->sendEmail($mailer, $reply);
+        }
 
     }
 
@@ -86,22 +88,16 @@ class PostReply extends Job implements SelfHandling
     {
         $data = [
             'posted_by' => $reply->user->{config('forum.user.username')},
-            'link' => route('forum.conversation.show', $reply->conversation->slug)
+            'link'      => route('forum.conversation.show', $reply->conversation->slug)
         ];
 
-        $mailer->queue('Forum::Emails.template', ['data' => $data], function($message) use ($reply){
+        $mailer->queue('Forum::Emails.template', ['data' => $data], function ($message) use ($reply) {
 
-            $message->from(
-                config('forum.emails.from',
-                    config('forum.emails.from-name'))
-            );
+            $message->from(config('forum.emails.from'), config('forum.emails.from-name'));
 
-            $message->to(
-                $reply->user->email,
-                $reply->user->{config('forum.user.username')}
-            )->subject(
-                config('forum.emails.subject')
-            );
+            $message->to($reply->user->email,
+                $reply->user->{config('forum.user.username')})
+                ->subject(config('forum.emails.subject'));
 
         });
     }
