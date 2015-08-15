@@ -7,12 +7,12 @@
 "socieboy/forum" : "dev-master"
 ```
 
-2.- After install this package you ahve to set the service provider on your config/app.php file
+2.- After installing this package, you have to set the service provider on your config/app.php file
 ```
 'Socieboy\Forum\Providers\ForumServiceProvider',
 ```
 
-3.- Publish the forum config file on your config folder and publish the default template to your resources/assets/less/ folder, hit the fallow command.
+3.- Publish the forum config file on your config folder and publish the default template to your resources/assets/less/ folder, hit the follow command.
 ```
 php artisan vendor:publish
 ```
@@ -21,7 +21,7 @@ php artisan vendor:publish
 ```
 php artisan forum:migrate
 ```
-This command will create the migration files, for conversations, replies, and like_replies. Then just excute your migration.
+This command will create the migration files, for conversations, replies, and like_replies. Then just execute your migration:
 ```
 php artisan migrate
 ```
@@ -30,28 +30,28 @@ php artisan migrate
 
 ### General
 
-The forum provide a simple custom template, this is published on the resoruces/assets directory, feel free to edit.
+The forum provides a simple custom template, this is published on the resoruces/assets directory, feel free to edit.
 
 On the config/forum.php file, set the right information of your app.
 
 ### Template
 
-This is the master template view of your project.
+This is the master template view of your project:
 ```
     'template'  => 'app',
 ```
 
-The key content is the name of your yield tag on your master template file where you would like to have display the forum.
+The key content is the name of your yield tag on your master template file where you would like to display the forum:
 ```
     'content'   => 'content',
 ```
 
-With those values the forum can be adapted to your project really easy and match with your application design.
+With those values the forum can be adapted to your project really easily and match your application design.
 
 
 ### Topics or Categories
 
-Define the array of topics for your forum. (By default this include just the general tag, you can add as many you want)
+Define the array of topics for your forum (By default this includes just the general tag, you can add as many you want):
 ```
     'topics' => [
         'general' => 'General',
@@ -62,7 +62,7 @@ Define the array of topics for your forum. (By default this include just the gen
 
 The user configuration with the forum includes.
 
-The model key, set the namespace + class name of your users model. By default is App\User as Laravel use.
+The model key, set the namespace + class name of your users model. By default is App\User as Laravel uses.
 ```
 'model'         => 'App\User',
 ```
