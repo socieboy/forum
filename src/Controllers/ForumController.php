@@ -29,7 +29,7 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $conversations = $this->conversationRepo->latest()->paginate(15);
+        $conversations = $this->conversationRepo->latest()->paginate(5);
         return view('Forum::index', compact('conversations'));
     }
 

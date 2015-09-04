@@ -2,38 +2,61 @@
 @section($content)
 
 
-    <div class="forum">
+    <div class="forum" id="socieboy">
 
-        <div class="forum-header">
-            <h1>Forum</h1>
+        <div class="row header">
 
-            @if(auth()->check())
-                @include('Forum::Conversations.create')
-            @endif
+            <div class="col-md-3">
+
+                @if(auth()->check())
+
+                    @include('Forum::Conversations.create')
+
+                @else
+
+                    @include('Forum::Partials.login-button')
+
+                @endif
+
+            </div>
+
+            <div class="col-md-9">
+
+                @include('Forum::Partials.top-bar')
+
+            </div>
+
         </div>
 
-        <div class="forum-topics">
 
-             @include('Forum::Topics.index')
+        <div class="row body">
 
-        </div>
+            <div class="hidden-xs hidden-sm col-md-3 topics">
 
-        <div class="forum-body">
+                 @include('Forum::Topics.index')
 
-            <ul class="list-group">
+            </div>
 
-                @foreach($conversations as $conversation)
+            <div class="col-md-9 conversations">
 
-                    @include('Forum::Conversations.Partials.conversation')
+                <ul>
 
-                @endforeach
+                    @foreach($conversations as $conversation)
 
-            </ul>
+                        @include('Forum::Conversations.Partials.conversation')
 
-            {!! $conversations->render() !!}
+                    @endforeach
+
+                </ul>
+
+                {!! $conversations->render() !!}
+
+            </div>
+
 
         </div>
 
     </div>
 
 @stop
+

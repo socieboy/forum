@@ -11,7 +11,7 @@
     <select name="topic_id" class="form-control">
 
         @foreach(config('forum.topics') as $key => $topic)
-            <option value="{{ $key }}">{{ $topic }}</option>
+            <option value="{{ $key }}">{{ $topic['name'] }}</option>
         @endforeach
 
     </select>

@@ -44,7 +44,27 @@ class Conversation extends Model
      */
     public function getTopicAttribute()
     {
-        return config('forum.topics.'.$this->topic_id);
+        return config('forum.topics.'.$this->topic_id)['name'];
+    }
+
+    /**
+     * Return the topic icon.
+     *
+     * @return mixed
+     */
+    public function getTopicIconAttribute()
+    {
+        return config('forum.topics.'.$this->topic_id)['icon'];
+    }
+
+    /**
+     * Return the topic color.
+     *
+     * @return mixed
+     */
+    public function getTopicColorAttribute()
+    {
+        return config('forum.topics.'.$this->topic_id)['color'];
     }
 
     /**

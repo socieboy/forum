@@ -16,11 +16,15 @@ return [
     'content'   => 'content',
 
     /*
-     * Define topics for the forum
+     * Define topics for the forum.
+     *
+     * Create the key for each topic and assign an array with the name and the icon
+     * The icon can be anyone of your prefer css framework like glyphicon or Font Awesome
+     * Also you can and the key color, with the value of the representative color of the topic.
      */
 
     'topics' => [
-        'general' => 'General',
+        'general' => ['name' => 'General', 'icon' => 'fa fa-tags', 'color' => 'rgb(78, 137, 218)']
     ],
 
 
@@ -85,7 +89,19 @@ return [
          * Has to accept one parameter > user ID.
          */
 
-        'profile-route' => 'forum.user.profile'
+        'profile-route' => 'forum.user.profile',
+
+    ],
+
+    /**
+     * User authentication
+     */
+    'auth' => [
+
+        /**
+         * Redirect to the login form.
+         */
+        'login-url' => 'auth/login'
 
     ],
 

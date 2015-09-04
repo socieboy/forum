@@ -21,6 +21,8 @@ class ForumServiceProvider extends ServiceProvider
         $this->shareGlobalVariables();
 
         $this->loadViewsFrom(__DIR__.'/../Views', 'Forum');
+
+        $this->loadTranslationsFrom(__DIR__.'/../Lang', 'Forum');
     }
 
 	/**

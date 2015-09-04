@@ -1,41 +1,40 @@
-<li class="list-group-item">
+<a href="{{ route('forum.conversation.show', $conversation->slug) }}">
 
-    @include('Forum::Partials.avatar', ['user' => $conversation->user])
+    <li>
 
-    <div class="replies hidden-xs">
-        <span>{{ $conversation->replies->count() }}</span>
-        <p>replies</p>
-    </div>
+        <div class="hidden-xs col-sm-2 text-center">
 
-    <div class="details">
-        <a href="{{ route('forum.conversation.show', $conversation->slug) }}">
-            <h3>{{ $conversation->title }}</h3>
-        </a>
-        <span class="conversation_date">
+            @include('Forum::Partials.avatar', ['user' => $conversation->user])
 
-            @if($conversation->replies()->count() > 0)
-
-                 Updated {{ $conversation->replies->first()->created_at->diffForHumans() }}
-
-                 by
-
-                 @include('Forum::Partials.user-name', ['user' => $conversation->replies->first()->user])
-
-            @else
-
-                Posted {{ $conversation->created_at->diffForHumans() }}
-
-                by
-
-                 @include('Forum::Partials.user-name', ['user' => $conversation->user])
-
-            @endif
-
-        </span>
-        <div class="topic">
-            <div class="label label-success"><span class="fa fa-tag"></span> {{ $conversation->topic }}</div>
         </div>
-    </div>
+
+        <div class="col-sm-8">
+
+            <div class="hidden-xs topic">
+
+                <i  class="{{ $conversation->topicIcon }}"
+                    style="background: {{ $conversation->topicColor }}">
+                </i>
+
+                {{--{{ $conversation->topic}}--}}
+
+            </div>
+
+            <h3>{{ $conversation->title }}</h3>
 
 
-</li>
+            @include('Forum::Conversations.Partials.timing-information')
+
+
+        </div>
+
+        <div class="hidden-xs col-sm-2">
+
+                @include('Forum::Conversations.Partials.replies-counter')
+
+        </div>
+
+
+    </li>
+
+</a>
