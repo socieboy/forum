@@ -110,7 +110,8 @@ return [
      * By default we use icons from bootstrap
      */
     'icons' => [
-        'like'          => 'glyphicon glyphicon-thumbs-up',
+        'like'              => 'glyphicon glyphicon-thumbs-up',
+        'correct-answer'    => 'glyphicon glyphicon-ok',
     ],
 
     /**

@@ -13,7 +13,7 @@
         @endif
 
 
-        @if(!$conversation->hasCorrectAnswer())
+        @if( ! $conversation->hasCorrectAnswer())
 
             @include('Forum::Replies.Partials.Actions.form-correct-answer')
 

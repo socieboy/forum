@@ -12,59 +12,16 @@
 
         <div class="body">
 
-            <p class="owner">{{ $conversation->ownerName }}</p>
+            <span class="name">{{ $conversation->ownerName }}</span>
 
-            {!! nl2br($conversation->message) !!}
+            <span class="hidden-xs time">{{ $conversation->created_at->diffForHumans() }}</span>
+
+            <div class="content">
+                {!! nl2br($conversation->message) !!}
+            </div>
 
         </div>
 
     </div>
 
 </div>
-
-
-
-
-
-            {{--<div class="bubble">--}}
-
-                {{--<div class="header">--}}
-
-                    {{--<h3>{{ $conversation->title }}</h3>--}}
-                    {{--<p class="owner">{{ $conversation->user->{config('forum.user.username')} }}</p>--}}
-
-                {{--</div>--}}
-
-                {{--<div class="body">--}}
-
-                    {{--{!! nl2br($conversation->message) !!}--}}
-
-                {{--</div>--}}
-
-            {{--</div>--}}
-
-
-
-{{--<div class="item">--}}
-
-    {{--<div class="bubble-footer tread-summary">--}}
-
-        {{----}}
-
-        {{--<span class="info">--}}
-            {{--{{ $conversation->replies->count() }} replies--}}
-
-            {{--@if($conversation->hasCorrectAnswer())--}}
-
-                {{--with 1 correct answer.--}}
-
-            {{--@else--}}
-
-                {{--with no correct answer yet.--}}
-
-            {{--@endif--}}
-        {{--</span>--}}
-
-    {{--</div>--}}
-
-{{--</div>--}}

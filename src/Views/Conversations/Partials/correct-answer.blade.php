@@ -1,44 +1,40 @@
 @if($conversation->hasCorrectAnswer())
 
-   <article class="item is-correct">
 
-        @include('Forum::Partials.avatar', ['user' => $conversation->correctAnswer()->user])
+    <div class="col-md-12 item">
 
-        <div class="bubble-header">
             @include('Forum::Partials.avatar', ['user' => $conversation->correctAnswer()->user])
-            <div class="username">
-                {{ $conversation->correctAnswer()->user->{config('forum.user.username')} }}
-            </div>
-        </div>
 
-        <div class="bubble-body">
+            <div class="bubble">
 
-            <p class="posted_by pull-right">{{ $conversation->correctAnswer()->created_at->diffForHumans() }}</p>
+                <div class="best-answer">
+                    <i class="glyphicon glyphicon-ok"></i>
+                </div>
 
-            <p class="posted_by">Posted by @include('Forum::Partials.user-name', ['user' => $conversation->correctAnswer()->user])</p>
+                <div class="body">
 
-            {!! $conversation->correctAnswer()->message !!}
-        </div>
+                    <span class="name">
+                        {{ $conversation->correctAnswer()->user->{config('forum.user.username')} }}
+                    </span>
 
-            <div class="bubble-footer">
+                    <span class="hidden-xs time">
+                        {{ $conversation->correctAnswer()->created_at->diffForHumans() }}
+                    </span>
 
-                <div class="container">
+                    <div class="content">
 
+                        {!! nl2br($conversation->correctAnswer()->message) !!}
 
-                @if(!$conversation->correctAnswer()->userLiked())
+                    </div>
 
-                    @include('Forum::Replies.Partials.Actions.form-like', ['reply' => $conversation->correctAnswer()])
-
-                @else
-
-                    @include('Forum::Replies.Partials.Actions.form-unlike', ['reply' => $conversation->correctAnswer()])
-
-                @endif
 
                 </div>
 
+
+                @include('Forum::Replies.Partials.footer', ['reply' => $conversation->correctAnswer()])
+
             </div>
 
-    </article>
+        </div>
 
 @endif

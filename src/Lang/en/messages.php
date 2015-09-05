@@ -17,7 +17,11 @@ return [
     'no-conversations'  => 'There are no conversations for this query',
     'replies-counter'   => ':replies replies in this conversation with :best-answer correct answer',
     'post'              => 'Post your reply',
+    'post-conversation' => 'Post conversation',
     'cancel'            => 'Cancel',
-    'text-like'         => 'like',
+    'text-like'         => 'Like',
+    'title'             => 'What\'s your question?',
+    'topic'             => 'Select a chanel',
+    'message'           => 'Describe your question...',
 
 ];

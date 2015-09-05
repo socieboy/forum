@@ -21,6 +21,7 @@
                 </div>
             </div>
 
+            @include('Forum::Conversations.Partials.correct-answer')
 
             @foreach($replies as $reply)
 
@@ -46,7 +47,7 @@
 
 
 
-            {{--@include('Forum::Conversations.Partials.correct-answer')--}}
+
 
 
 
