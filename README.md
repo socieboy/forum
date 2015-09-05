@@ -51,10 +51,12 @@ With those values the forum can be adapted to your project really easily and mat
 
 ### Topics or Categories
 
-Define the array of topics for your forum (By default this includes just the general tag, you can add as many you want):
+Define the array of topics for your forum.
+Now you can define the key for the topic, give a name and the representative icon for the topic, you can use any font class of your preference here.
+Also you can set the representative color for this topic in the las parameter.
 ```
     'topics' => [
-        'general' => 'General',
+        'general' => ['name' => 'General', 'icon' => 'fa fa-tags', 'color' => 'rgb(78, 137, 218)']
     ],
 ```
 
@@ -90,6 +92,26 @@ If you want to include link to profile users, (When you hit the avatar or the na
 By the fault the forum include a simple user profile. If you want to implement your own just set the route name on this key, just make sure that the route name recive the ID of the user.
 ```
 'profile-route' => 'forum.user.profile'
+```
+
+Now if the user is not log in, the button for start a conversation will redirect the user to your login page, just set the url of your login page in this key. 
+```
+'auth' => [
+
+    /**
+     * Redirect to the login form.
+     */
+    'login-url' => 'auth/login'
+
+],
+```
+
+If you want you can change the icons to do like and choise the best answer on replies.
+```
+'icons' => [
+    'like'              => 'glyphicon glyphicon-thumbs-up',
+    'correct-answer'    => 'glyphicon glyphicon-ok',
+],
 ```
 
 ### Emails
