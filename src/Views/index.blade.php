@@ -41,11 +41,15 @@
 
                 <ul>
 
-                    @foreach($conversations as $conversation)
+                    @forelse($conversations as $conversation)
 
                         @include('Forum::Conversations.Partials.conversation')
 
-                    @endforeach
+                    @empty
+
+                        @include('Forum::Partials.no-conversations')
+
+                    @endforelse
 
                 </ul>
 

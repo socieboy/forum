@@ -1,6 +1,6 @@
 
 <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#start-conversation-modal">
-    {{ trans('Forum::messages.new_conversation') }}
+    {{ trans('Forum::messages.new-conversation') }}
 </button>
 
 <div class="modal fade" id="start-conversation-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

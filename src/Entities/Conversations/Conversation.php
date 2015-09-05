@@ -37,6 +37,10 @@ class Conversation extends Model
         return $this->hasMany('Socieboy\Forum\Entities\Replies\Reply')->latest();
     }
 
+    public function getOwnerNameAttribute()
+    {
+        return $this->user->{config('forum.user.username')};
+    }
     /**
      * Return the topic name.
      *

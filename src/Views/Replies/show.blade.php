@@ -1,19 +1,31 @@
 @if( ! $reply->isCorrect())
 
-    <article class="item">
+    <div class="col-md-12 item">
 
         @include('Forum::Partials.avatar', ['user' => $reply->user])
 
-        @include('Forum::Replies.Partials.Bubble.header')
+        <div class="bubble">
 
-        @include('Forum::Replies.Partials.Bubble.body')
 
-        @if(auth()->check())
+            <div class="body">
 
-            @include('Forum::Replies.Partials.Bubble.footer')
+                <span class="name">{{ $reply->user->{config('forum.user.username')} }}</span>
 
-        @endif
+                <span class="hidden-xs time">{{ $reply->created_at->diffForHumans() }}</span>
 
-    </article>
+                <div class="content">
+
+                    {!! nl2br($reply->message) !!}
+
+                </div>
+
+
+            </div>
+
+            @include('Forum::Replies.Partials.footer')
+
+        </div>
+
+    </div>
 
 @endif

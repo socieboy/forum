@@ -12,7 +12,7 @@
 
         @endif
 	
-	
+
     @if(config('forum.user.profile')) </a> @endif
 
 @endif

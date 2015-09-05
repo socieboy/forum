@@ -1,8 +1,6 @@
-    <div class="bubble-footer hidden-xs">
+ @if(auth()->check())
 
-        <div class="container">
-
-        {{-- LIKE BUTTON --}}
+    <div class="footer">
 
         @if(!$reply->userLiked())
 
@@ -21,6 +19,6 @@
 
         @endif
 
-        </div>
-
     </div>
+
+@endif

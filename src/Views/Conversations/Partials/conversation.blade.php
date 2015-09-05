@@ -20,7 +20,7 @@
 
             </div>
 
-            <h3>{{ $conversation->title }}</h3>
+            <h3>{{ str_limit($conversation->title, 50) }}</h3>
 
 
             @include('Forum::Conversations.Partials.timing-information')

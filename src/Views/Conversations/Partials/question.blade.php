@@ -1,39 +1,70 @@
-<article class="item">
+<div class="col-md-12 item">
 
     @include('Forum::Partials.avatar', ['user' => $conversation->user])
 
-    <div class="bubble-body">
+    <div class="bubble question">
 
-        <p class="posted_by pull-right">{{ $conversation->created_at->diffForHumans() }}</p>
+        <div class="header">
 
-        {!! $conversation->message !!}
+            <h3>{{ $conversation->title }}</h3>
 
-    </div>
-
-</article>
-
-<article class="item">
-
-    <div class="bubble-footer tread-summary">
-
-        <div class="icon">
-            <i class="fa fa-comments"></i>
         </div>
 
-        <span class="info">
-            {{ $conversation->replies->count() }} replies
+        <div class="body">
 
-            @if($conversation->hasCorrectAnswer())
+            <p class="owner">{{ $conversation->ownerName }}</p>
 
-                with 1 correct answer.
+            {!! nl2br($conversation->message) !!}
 
-            @else
-
-                with no correct answer yet.
-
-            @endif
-        </span>
+        </div>
 
     </div>
 
-</article>
+</div>
+
+
+
+
+
+            {{--<div class="bubble">--}}
+
+                {{--<div class="header">--}}
+
+                    {{--<h3>{{ $conversation->title }}</h3>--}}
+                    {{--<p class="owner">{{ $conversation->user->{config('forum.user.username')} }}</p>--}}
+
+                {{--</div>--}}
+
+                {{--<div class="body">--}}
+
+                    {{--{!! nl2br($conversation->message) !!}--}}
+
+                {{--</div>--}}
+
+            {{--</div>--}}
+
+
+
+{{--<div class="item">--}}
+
+    {{--<div class="bubble-footer tread-summary">--}}
+
+        {{----}}
+
+        {{--<span class="info">--}}
+            {{--{{ $conversation->replies->count() }} replies--}}
+
+            {{--@if($conversation->hasCorrectAnswer())--}}
+
+                {{--with 1 correct answer.--}}
+
+            {{--@else--}}
+
+                {{--with no correct answer yet.--}}
+
+            {{--@endif--}}
+        {{--</span>--}}
+
+    {{--</div>--}}
+
+{{--</div>--}}

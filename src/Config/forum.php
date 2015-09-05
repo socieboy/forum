@@ -106,6 +106,14 @@ return [
     ],
 
     /**
+     * Set your own icons of your prefer font
+     * By default we use icons from bootstrap
+     */
+    'icons' => [
+        'like'          => 'glyphicon glyphicon-thumbs-up',
+    ],
+
+    /**
      * Send an email to the conversation owner each time someone left a reply
      */
 
