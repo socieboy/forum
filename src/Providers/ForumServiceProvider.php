@@ -53,7 +53,7 @@ class ForumServiceProvider extends ServiceProvider
 
             __DIR__.'/../Config/forum.php' => base_path('config/forum.php'),
 
-            __DIR__.'/../Style/forum.less' => base_path('resources/assets/less/forum.less'),
+            __DIR__.'/../Style/forum' => base_path('resources/assets/less/forum'),
 
         ]);
     }
