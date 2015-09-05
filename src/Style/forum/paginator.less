@@ -1,0 +1,24 @@
+.pagination{
+
+  float: right;
+  border-radius: 4px;
+  margin-top: 0px;
+
+  li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  li:last-child>span {
+    margin-left: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  li.active span{
+    background: @theme-color;
+    border-color: lighten(@theme-color, 20);
+  }
+
+}

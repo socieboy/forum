@@ -1,0 +1,31 @@
+@import "variables";
+
+@theme-color: rgba(55, 84,181, 0.8);
+@text-color: rgba(0, 0, 0, .6);
+@list-background: rgba(250, 250,250, 0.1);
+
+.forum {
+
+  color: @text-color;
+
+  .header{
+    @import "header";
+  }
+
+  .body{
+
+    @import "conversation";
+
+    @import "open-conversation";
+
+    @import "topics";
+
+  }
+
+  .avatar{
+    width: 60px;
+    height: 60px;
+    padding: 3px;
+  }
+
+}

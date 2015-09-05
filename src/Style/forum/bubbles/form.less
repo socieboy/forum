@@ -1,0 +1,42 @@
+form{
+  width: 100%;
+  background: transparent;
+
+  textarea{
+    resize: none;
+  }
+
+  .btn{
+    padding: 10px 30px;
+  }
+
+  .btn-primary{
+    background: @theme-color;
+  }
+
+
+  &:after {
+    content:"";
+    position: absolute;
+    left: 110px;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 7px solid #FFF;
+    border-bottom: 10px solid transparent;
+  }
+
+  &:before {
+    content:"";
+    position: absolute;
+    left: 109px;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 7px solid darken(#FDFDFD, 20);
+    border-bottom: 10px solid transparent;
+  }
+
+}

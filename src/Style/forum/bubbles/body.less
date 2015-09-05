@@ -1,0 +1,27 @@
+.body{
+  padding: 20px 30px;
+  font-size: 1.1em;
+
+
+  .name{
+    color: rgba(0, 0, 0, .4);
+    font-size: 1.1em;
+
+    &:after{
+      content: " -";
+    }
+  }
+
+  .content{
+    margin: 20px 0px;
+
+    @import "markdown";
+  }
+
+  .time{
+    color: rgba(0, 0, 0, .2);
+    font-style: italic;
+    float: right;
+  }
+
+}
