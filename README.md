@@ -97,12 +97,7 @@ By the fault the forum include a simple user profile. If you want to implement y
 Now if the user is not log in, the button for start a conversation will redirect the user to your login page, just set the url of your login page in this key. 
 ```
 'auth' => [
-
-    /**
-     * Redirect to the login form.
-     */
     'login-url' => 'auth/login'
-
 ],
 ```
 
