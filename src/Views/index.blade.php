@@ -53,11 +53,17 @@
 
                 </ul>
 
-                {!! $conversations->render() !!}
 
             </div>
 
 
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                {!! $conversations->render() !!}
+            </div>
         </div>
 
     </div>

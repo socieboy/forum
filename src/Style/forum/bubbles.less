@@ -4,38 +4,13 @@
   width: 100%;
   border: 1px solid #CCCCCC;
   border-radius: 5px;
-  background: #FDFDFD;
+  background: #FFDFD;
 
   @import "bubbles/header";
 
   @import "bubbles/body";
 
   @import "bubbles/footer";
-
-  &:after {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 10px 7px 10px 0;
-    border-color: transparent #FDFDFD;
-    display: block;
-    z-index: 1;
-    left: 109px;
-    top: 20px;
-  }
-
-  &:before {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 10px 7px 10px 0;
-    border-color: transparent #CCCCCC;
-    display: block;
-    z-index: 0;
-    left: 108px;
-    top: 20px;
-  }
-
 
   .best-answer{
     margin-top: -20px;
@@ -56,14 +31,4 @@
     }
   }
 
-}
-
-.question{
-  &:after {
-    border-color: transparent darken(#FDFDFD, 3) !important;
-  }
-
-  &:before {
-    border-color: transparent #CCCCCC;
-  }
 }

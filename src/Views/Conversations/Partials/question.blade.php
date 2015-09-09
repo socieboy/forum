@@ -1,10 +1,10 @@
 <div class="col-md-12 item">
 
-    @include('Forum::Partials.avatar', ['user' => $conversation->user])
+    <div class="bubble">
 
-    <div class="bubble question">
+        <div class="header question">
 
-        <div class="header">
+            @include('Forum::Partials.avatar', ['user' => $conversation->user])
 
             <h3>{{ $conversation->title }}</h3>
 
@@ -13,8 +13,10 @@
         <div class="body">
 
             <span class="name">{{ $conversation->ownerName }}</span>
-
             <span class="hidden-xs time">{{ $conversation->created_at->diffForHumans() }}</span>
+
+            <hr/>
+
 
             <div class="content">
                 {!! nl2br($conversation->message) !!}

@@ -2,16 +2,17 @@
 
     <div class="col-md-12 item">
 
-        @include('Forum::Partials.avatar', ['user' => $reply->user])
+        <div class="bubble reply">
 
-        <div class="bubble">
+            <div class="header">
+                <span class="hidden-xs time">{{ $reply->created_at->diffForHumans() }}</span>
+                @include('Forum::Partials.avatar', ['user' => $reply->user])
+                <h3 class="name">{{ $reply->user->{config('forum.user.username')} }}</h3>
 
+            </div>
 
             <div class="body">
 
-                <span class="name">{{ $reply->user->{config('forum.user.username')} }}</span>
-
-                <span class="hidden-xs time">{{ $reply->created_at->diffForHumans() }}</span>
 
                 <div class="content">
 

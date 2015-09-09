@@ -8,96 +8,108 @@
 
 .conversations {
 
-  @import "paginator";
-
-  p.no-conversations{
+  p.no-conversations {
     text-align: center;
     margin: 50px;
     font-size: 1.3em;
 
-
-    small a{
+    small a {
       cursor: pointer;
       font-size: .9em;
 
-      &:hover{
+      &:hover {
         color: @theme-color !important;
       }
     }
   }
 
   ul {
+
     padding: 0px;
     list-style: none;
 
-    a {
-      color: @text-color;
-      text-decoration: none;
+    li {
+      background: @list-background;
+      border: 1px solid rgba(250, 250, 250, 0.9);
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      overflow: hidden;
 
-      li {
-        background: @list-background;
-        border: 1px solid rgba(250, 250,250, 0.9);
-        padding: 10px;
-        border-radius: 5px;
-        margin-bottom: 5px;
-        overflow: hidden;
+      .avatar{
+        width: 60px;
+      }
 
-        h3{
+      a {
+        color: @text-color;
+        text-decoration: none;
+
+        h3 {
           font-size: 1.4em;
           margin: 10px 10px 5px -10px;
           overflow: hidden;
+
+          &:hover{
+            color: @theme-color;
+            font-weight: bold;
+          }
+        }
+      }
+
+      span {
+        color: rgba(10, 10, 10, .4);
+        font-size: .9em;
+        margin-left: -10px;
+        a{
+          text-decoration: none;
+          color: @theme-color;
+        }
+      }
+
+      div.topic {
+        text-align: center;
+
+        margin-top: 15px;
+        float: right;
+        color: rgba(10, 10, 10, .3);
+
+        i {
+          font-size: .8em;
+          background: @theme-color;
+          color: #FFF;
+          padding: 8px;
+          border-radius: 50px;
         }
 
-        span{
-          color: rgba(10, 10, 10, .3);
-          font-size: .9em;
-          margin-left: -10px;
-        }
+      }
 
-        div.topic{
+      .replies-counter {
+        float: right;
+        margin-right: -20px !important;
+
+        h1 {
+          width: 80px;
+          position: relative;
+          margin: 0px;
           text-align: center;
-
-          margin-top: 15px;
-          float: right;
-          color: rgba(10, 10, 10, .3);
-
-          i{
-            font-size: .8em;
-            background: @theme-color;
-            color: #FFF;
-            padding: 8px;
-            border-radius: 50px;
-          }
-
+          font-size: 2.8em;
         }
 
-        &:hover{
-          background: darken(@list-background, 10);
-          border: 1px solid lighten(@theme-color, 40);
+        p {
+          width: 80px;
+          text-align: center;
+          margin: 0px;
         }
+      }
 
-        .replies-counter{
-          float: right;
-
-          h1{
-            width: 80px;
-            position: relative;
-            margin: 0px;
-            text-align: center;
-            font-size: 2.8em;
-          }
-
-          p{
-            width: 80px;
-            text-align: center;
-            margin: 0px;
-          }
-        }
-
+      &:hover {
+        background: darken(@list-background, 10);
+        border: 1px solid lighten(@theme-color, 40);
       }
 
     }
 
   }
+
 
 }

@@ -10,15 +10,12 @@
             @include('Forum::Conversations.Partials.question')
 
             <div class="divsor">
-                <i class="glyphicon glyphicon-refresh"></i>
-                <div>
                     {{
                         trans('Forum::messages.replies-counter', [
                             'replies' => $conversation->replies->count(),
                             'best-answer' => 0
                         ])
                     }}
-                </div>
             </div>
 
             @include('Forum::Conversations.Partials.correct-answer')

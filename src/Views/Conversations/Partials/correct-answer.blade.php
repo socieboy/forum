@@ -3,7 +3,6 @@
 
     <div class="col-md-12 item">
 
-            @include('Forum::Partials.avatar', ['user' => $conversation->correctAnswer()->user])
 
             <div class="bubble">
 
@@ -12,6 +11,9 @@
                 </div>
 
                 <div class="body">
+
+                    @include('Forum::Partials.avatar', ['user' => $conversation->correctAnswer()->user])
+
 
                     <span class="name">
                         {{ $conversation->correctAnswer()->user->{config('forum.user.username')} }}

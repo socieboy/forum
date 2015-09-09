@@ -1,15 +1,48 @@
 .header{
-
   padding: 20px 30px;
   border-bottom: 1px solid #CCCCCC;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background: darken(#FDFDFD, 3);
+  background: darken(#FDFDFD, 2);
 
   h3{
     margin: 0px;
     font-size: 1.3em;
     color: @theme-color;
     font-weight: bold;
+    overflow: hidden;
   }
+
+  .avatar{
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: -15px 20px -15px -15px;
+  }
+
+  span{
+    float: right;
+    color: rgba(0, 0, 0, .3);
+  }
+
 }
+
+
+.question{
+
+  padding: 30px 40px;
+  border: 1px solid darken(@theme-color, 5);
+  border-bottom: 0px;
+  background: @theme-color !important;
+
+  .avatar{
+    margin: -15px 20px -15px -15px;
+  }
+
+  h3{
+    color: #FFF;
+  }
+
+}
+
+
