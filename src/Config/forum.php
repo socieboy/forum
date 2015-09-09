@@ -38,7 +38,7 @@ return [
          * Path to your user model.
          */
 
-        'model'         => 'App\User',
+        'model'         => \App\User::class,
 
         /**
          * Define the field on your table user that the forum will use to display the identify user.
