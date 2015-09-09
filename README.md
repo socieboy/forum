@@ -66,7 +66,7 @@ The user configuration with the forum includes.
 
 The model key, set the namespace + class name of your users model. By default is App\User as Laravel uses.
 ```
-'model'         => App\User::class,
+'model'         => \App\User::class,
 ```
 
 The username key is the field on your users table that would be used to display the name of the user who post a conversation/reply. You can set any field like email, username, full_name, name, etc, (Must be a field on your users table).
