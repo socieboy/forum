@@ -9,7 +9,7 @@
 
 2.- After installing this package, you have to set the service provider on your config/app.php file
 ```
-'Socieboy\Forum\Providers\ForumServiceProvider',
+Socieboy\Forum\Providers\ForumServiceProvider::class,
 ```
 
 3.- Publish the forum config file on your config folder and publish the default template to your resources/assets/less/ folder, hit the follow command.
@@ -66,7 +66,7 @@ The user configuration with the forum includes.
 
 The model key, set the namespace + class name of your users model. By default is App\User as Laravel uses.
 ```
-'model'         => 'App\User',
+'model'         => App\User::class,
 ```
 
 The username key is the field on your users table that would be used to display the name of the user who post a conversation/reply. You can set any field like email, username, full_name, name, etc, (Must be a field on your users table).
