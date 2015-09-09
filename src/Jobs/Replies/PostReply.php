@@ -57,6 +57,7 @@ class PostReply extends Job implements SelfHandling
         $reply->fill($this->prepareData());
 
         $reply->save();
+
         if(config('config.forum.emails.fire')) {
 
             $this->sendEmail($mailer, $reply);
@@ -72,7 +73,7 @@ class PostReply extends Job implements SelfHandling
     public function prepareData()
     {
         return [
-            'user_id'   => Auth::User()->id,
+            'user_id'   => auth()->User()->id,
             'conversation_id' => $this->conversation_id,
             'message'   => $this->converter->convertToHtml($this->message),
         ];
