@@ -53,7 +53,7 @@ With those values the forum can be adapted to your project really easily and mat
 
 Define the array of topics for your forum.
 Now you can define the key for the topic, give a name and the representative icon for the topic, you can use any font class of your preference here.
-Also you can set the representative color for this topic in the las parameter.
+Also you can set the representative color for this topic in the las parameter (color is optional).
 ```
 'topics' => [
     'general' => ['name' => 'General', 'icon' => 'fa fa-tags', 'color' => 'rgb(78, 137, 218)']
