@@ -157,3 +157,9 @@ Also on the bottom of you app or where your scripts section is located add this 
 Now that's it, easy and you are ready to go!
 
 http://socieboy.com/forum
+
+
+### Help with translations
+
+Currently the forum is developed in English and Spanish language but it's already configured to support other languages, if you want to contribute in this package with your native language copy the folder
+src/Lang/en/ and translate all keys to your language and send a pull request.
