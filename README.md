@@ -1,5 +1,12 @@
 # Laravel 5.1 Forum Integration Package
 
+[![Build Status](https://travis-ci.org/socieboy/forum.svg)](https://travis-ci.org/packages/forum)
+[![Total Downloads](https://poser.pugx.org/socieboy/forum/d/total.svg)](https://packagist.org/packages/socieboy/forum)
+[![Latest Stable Version](https://poser.pugx.org/socieboy/forum/v/stable.svg)](https://packagist.org/packages/socieboy/forum)
+[![Latest Unstable Version](https://poser.pugx.org/socieboy/forum/v/unstable.svg)](https://packagist.org/packages/socieboy/forum)
+[![License](https://poser.pugx.org/socieboy/forum/license.svg)](https://packagist.org/packages/socieboy/forum)
+
+
 ## Installation
 
 1.- Add to composer.json file the package
