@@ -6,6 +6,14 @@ Package for Laravel 5.1
 [![Latest Unstable Version](https://poser.pugx.org/socieboy/forum/v/unstable.svg)](https://packagist.org/packages/socieboy/forum)
 [![License](https://poser.pugx.org/socieboy/forum/license.svg)](https://packagist.org/packages/socieboy/forum)
 
+## Features
+
+- Create conversations.
+- Reply existing conversations.
+- Support for gravatar and custom avatars.
+- Fire email to the conversation owner when some user left a reply.
+- Broadcast notifications to the conversation owner when someone left a reply.
+- Include LESS files.
 
 ## Installation
 
