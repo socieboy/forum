@@ -137,6 +137,7 @@ Finally just set the subject for the emails fired.
 ### Broadcasting events
 
 When some user left a reply on the conversation, the owner of the conversation will receive an notification on real time only if he is in the application.
+
 Set the key broadcasting to true on the forum config file and also add your Pusher keys to the broadcasting config file of Laravel.
 https://pusher.com/
 ```
