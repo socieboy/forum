@@ -74,12 +74,17 @@ The username key is the field on your users table that would be used to display 
     'username'    => 'name',
 ```
 
-Do you have avatars for the users on your project. (Set the key avatar to true if you want to use avatars).
+Do you have avatars for the users on your project? (Set the key avatar to true if you want to use avatars).
 ```
    'avatar'        => true,
 ```
 
-Then define the field on your users table where the url to the image (avatar) is stored.
+If you prefer to use gravatar for your avatars set the key gravatar to true.
+```
+'gravatar' => true,
+```
+
+If you want to use your own avatars, then define the field on your users table where the url to the image (avatar) is stored.
 ```
    'user-avatar'  => 'avatar',
 ```
