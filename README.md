@@ -142,6 +142,11 @@ Just set the key broadcasting to true and also add your Pusher keys to the broad
 'broadcasting' => false,
 ```
 
+Also on the bottom of you app or where your scripts section is located add this code.
+```
+@include('Forum::Broadcasting.index');
+```
+
 Now that's it, easy and you are ready to go!
 
 http://socieboy.com/forum
