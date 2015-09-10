@@ -39,6 +39,9 @@ class NewReply extends Event implements ShouldBroadcast
      */
     public function broadcastWith()
     {
-        return ['user' => $this->reply->user->{config('forum.user.username')}];
+        return [
+                'user' => $this->reply->user->{config('forum.user.username')},
+                'link' => route('forum.conversation.show', $this->reply->conversation->slug)
+        ];
     }
 }

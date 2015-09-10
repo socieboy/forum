@@ -64,7 +64,7 @@ class PostReply extends Job implements SelfHandling
             $this->sendEmail($mailer, $reply);
         }
 
-        if(config('forum.broadcasting') && auth()->user()->id != $reply->user_id)
+        if(config('forum.broadcasting'))
         {
             event(new NewReply($reply));
         }
