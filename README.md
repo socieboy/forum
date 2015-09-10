@@ -133,6 +133,15 @@ Finally just set the subject for the emails fired.
 'subject' => 'My app Forum - you have a new reply on your post',
 ```
 
+
+### Broadcasting events
+
+Now you can configure the forum to broadcast events, when some user left a reply on the conversation, the owner of the conversation if is in the app will receive an notification on real time.
+Just set the key broadcasting to true and also add your Pusher keys to the broadcasting config file of Laravel
+```
+'broadcasting' => false,
+```
+
 Now that's it, easy and you are ready to go!
 
 http://socieboy.com/forum

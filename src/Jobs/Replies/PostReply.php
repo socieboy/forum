@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use League\CommonMark\CommonMarkConverter;
 use Socieboy\Forum\Entities\Replies\Reply;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
+use Socieboy\Forum\Events\NewReply;
 
 class PostReply extends Job implements SelfHandling
 {
@@ -58,9 +59,14 @@ class PostReply extends Job implements SelfHandling
 
         $reply->save();
 
-        if(config('config.forum.emails.fire')) {
+        if(config('forum.emails.fire')) {
 
             $this->sendEmail($mailer, $reply);
+        }
+
+        if(config('forum.broadcasting') && auth()->user()->id != $reply->user_id)
+        {
+            event(new NewReply($reply));
         }
 
     }

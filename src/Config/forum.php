@@ -133,5 +133,10 @@ return [
 
     ],
 
+    /**
+     * For broadcasting events you must set pusher keys.
+     */
+    'broadcasting' => false,
+
 
 ];

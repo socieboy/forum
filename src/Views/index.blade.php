@@ -1,72 +1,37 @@
-@extends($template)
-@section($content)
+@extends('Forum::Template.master')
+@section('forum-content')
+
+<div class="hidden-xs hidden-sm col-md-3 topics">
+
+     @include('Forum::Topics.index')
+
+</div>
+
+<div class="col-md-9 conversations">
+
+    <ul>
+
+        @forelse($conversations as $conversation)
+
+            @include('Forum::Conversations.Partials.conversation')
+
+        @empty
+
+            @include('Forum::Partials.no-conversations')
+
+        @endforelse
+
+    </ul>
 
 
-    <div class="forum" id="socieboy">
+</div>
 
-        <div class="row header">
+<div class="col-md-12">
 
-            <div class="col-md-3">
+    {!! $conversations->render() !!}
 
-                @if(auth()->check())
+</div>
 
-                    @include('Forum::Conversations.create')
-
-                @else
-
-                    @include('Forum::Partials.login-button')
-
-                @endif
-
-            </div>
-
-            <div class="col-md-9">
-
-                @include('Forum::Partials.top-bar')
-
-            </div>
-
-        </div>
-
-
-        <div class="row body">
-
-            <div class="hidden-xs hidden-sm col-md-3 topics">
-
-                 @include('Forum::Topics.index')
-
-            </div>
-
-            <div class="col-md-9 conversations">
-
-                <ul>
-
-                    @forelse($conversations as $conversation)
-
-                        @include('Forum::Conversations.Partials.conversation')
-
-                    @empty
-
-                        @include('Forum::Partials.no-conversations')
-
-                    @endforelse
-
-                </ul>
-
-
-            </div>
-
-
-
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                {!! $conversations->render() !!}
-            </div>
-        </div>
-
-    </div>
 
 @stop
 
