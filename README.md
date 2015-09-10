@@ -4,7 +4,7 @@
 
 1.- Add to composer.json file the package
 ```
-"socieboy/forum" : "dev-master"
+"socieboy/forum" : "1.0.*"
 ```
 
 2.- After installing this package, you have to set the service provider on your config/app.php file
