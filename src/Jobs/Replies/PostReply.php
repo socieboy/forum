@@ -59,12 +59,12 @@ class PostReply extends Job implements SelfHandling
 
         $reply->save();
 
-        if(config('forum.emails.fire')) {
+        if(config('forum.emails.fire') && auth()->user()->id != $reply->user_id) {
 
             $this->sendEmail($mailer, $reply);
         }
 
-        if(config('forum.broadcasting'))
+        if(config('forum.broadcasting') && auth()->user()->id != $reply->user_id)
         {
             event(new NewReply($reply));
         }
