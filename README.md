@@ -38,12 +38,12 @@ On the config/forum.php file, set the right information of your app.
 
 This is the master template view of your project:
 ```
-    'template'  => 'app',
+'template'  => 'app',
 ```
 
 The key content is the name of your yield tag on your master template file where you would like to display the forum:
 ```
-    'content'   => 'content',
+'content'   => 'content',
 ```
 
 With those values the forum can be adapted to your project really easily and match your application design.
@@ -55,9 +55,9 @@ Define the array of topics for your forum.
 Now you can define the key for the topic, give a name and the representative icon for the topic, you can use any font class of your preference here.
 Also you can set the representative color for this topic in the las parameter.
 ```
-    'topics' => [
-        'general' => ['name' => 'General', 'icon' => 'fa fa-tags', 'color' => 'rgb(78, 137, 218)']
-    ],
+'topics' => [
+    'general' => ['name' => 'General', 'icon' => 'fa fa-tags', 'color' => 'rgb(78, 137, 218)']
+],
 ```
 
 ### User settings
@@ -71,12 +71,12 @@ The model key, set the namespace + class name of your users model. By default is
 
 The username key is the field on your users table that would be used to display the name of the user who post a conversation/reply. You can set any field like email, username, full_name, name, etc, (Must be a field on your users table).
 ```
-    'username'    => 'name',
+'username'    => 'name',
 ```
 
 Do you have avatars for the users on your project? (Set the key avatar to true if you want to use avatars).
 ```
-   'avatar'        => true,
+'avatar'        => true,
 ```
 
 If you prefer to use gravatar for your avatars set the key gravatar to true.
@@ -86,12 +86,12 @@ If you prefer to use gravatar for your avatars set the key gravatar to true.
 
 If you want to use your own avatars, then define the field on your users table where the url to the image (avatar) is stored.
 ```
-   'user-avatar'  => 'avatar',
+'user-avatar'  => 'avatar',
 ```
 
 If you want to include link to profile users, (When you hit the avatar or the name of other users display a user profile)
 ```
-   'profile' => true,
+'profile' => true,
 ```
 
 By the fault the forum include a simple user profile. If you want to implement your own just set the route name on this key, just make sure that the route name recive the ID of the user.
