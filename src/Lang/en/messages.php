@@ -24,5 +24,5 @@ return [
     'topic'                 => 'Select a chanel',
     'message'               => 'Describe your question...',
     'notification-reply'    => 'left a new reply on your question',
-
+    'best-answer-asker-choise' => 'Best answer - Asker choise'
 ];
