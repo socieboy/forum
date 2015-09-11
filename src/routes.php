@@ -53,6 +53,14 @@ Route::group(['prefix' => 'forum', 'namespace' => 'Socieboy\Forum\Controllers'],
         ]);
 
     /**
+     * Route POST to destroy a reply
+     */
+        post('/conversation/{slug}/reply/{reply_id}/destroy', [
+            'as' => 'forum.conversation.reply.destroy',
+            'uses' => 'RepliesController@destroy'
+        ]);
+
+    /**
      * Route POST to do like a reply
      */
         post('/conversation/{slug}/reply/like', [
