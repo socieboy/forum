@@ -1,9 +1,9 @@
 <?php
 namespace Socieboy\Forum\Entities\Conversations;
 
-use Illuminate\Database\Eloquent\Model;
+use Socieboy\Forum\Entities\BaseModel;
 
-class Conversation extends Model
+class Conversation extends BaseModel
 {
     /**
      * @var string

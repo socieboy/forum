@@ -1,9 +1,9 @@
 <?php
 namespace Socieboy\Forum\Entities\Likes;
 
-use Illuminate\Database\Eloquent\Model;
+use Socieboy\Forum\Entities\BaseModel;
 
-class Like extends Model
+class Like extends BaseModel
 {
     /**
      * @var string

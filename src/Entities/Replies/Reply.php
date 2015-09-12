@@ -1,10 +1,10 @@
 <?php
 namespace Socieboy\Forum\Entities\Replies;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Socieboy\Forum\Entities\BaseModel;
 
-class Reply extends Model
+class Reply extends BaseModel
 {
     /**
      * @var string

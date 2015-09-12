@@ -4,6 +4,7 @@ namespace Socieboy\Forum\Jobs\Conversations;
 use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use League\CommonMark\CommonMarkConverter;
 use EasySlug\EasySlug\EasySlugFacade as Slug;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
@@ -64,12 +65,14 @@ class StartConversation extends Job implements SelfHandling
      */
     public function prepareDate()
     {
+        $databasePrefix = (Config::get('forum.database.prefix') ? Config::get('forum.database.prefix') . '_' : '');
+
         return [
             'user_id' => Auth::User()->id,
             'title' => $this->title,
             'topic_id' => $this->topic_id,
             'message' => $this->converter->convertToHtml($this->message),
-            'slug' => Slug::generateUniqueSlug($this->title, 'conversations')
+            'slug' => Slug::generateUniqueSlug($this->title, $databasePrefix . 'conversations')
         ];
     }
 }
