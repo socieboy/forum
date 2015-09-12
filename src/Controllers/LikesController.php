@@ -1,5 +1,4 @@
 <?php
-
 namespace Socieboy\Forum\Controllers;
 
 use Socieboy\Forum\Entities\Likes\LikeManager;
@@ -9,7 +8,6 @@ use Socieboy\Forum\Requests\LikeRequest;
 
 class LikesController extends Controller
 {
-
     /**
      * @var LikeRepo
      */
@@ -21,7 +19,6 @@ class LikesController extends Controller
     function __construct(LikeRepo $likeRepo)
     {
         $this->middleware('auth');
-
         $this->likeRepo = $likeRepo;
     }
 
@@ -29,7 +26,7 @@ class LikesController extends Controller
      * User hit the like button.
      *
      * @param LikeRequest $request
-     * @param $slug
+     * @param string $slug
      * @return \Illuminate\Http\RedirectResponse
      */
     public function like(LikeRequest $request, $slug)
@@ -41,17 +38,14 @@ class LikesController extends Controller
 
     /**
      * @param LikeRequest $request
-     * @param $slug
+     * @param string $slug
      *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function unlike(LikeRequest $request, $slug)
     {
-
         $this->dispatchFrom('Socieboy\Forum\Jobs\UnLikeReply', $request);
 
         return redirect()->route('forum.conversation.show', $slug);
     }
-
-
-} 
+}

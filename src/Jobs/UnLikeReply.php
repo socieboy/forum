@@ -1,5 +1,4 @@
 <?php
-
 namespace Socieboy\Forum\Jobs;
 
 use App\Jobs\Job;
@@ -9,16 +8,15 @@ use Socieboy\Forum\Entities\Likes\LikeRepo;
 
 class UnLikeReply extends Job implements SelfHandling
 {
-
     /**
-     * @var
+     * @var int
      */
     protected $reply_id;
 
     /**
      * Create a new job instance.
      *
-     * @param $reply_id
+     * @param int $reply_id
      */
     public function __construct($reply_id)
     {
@@ -39,6 +37,5 @@ class UnLikeReply extends Job implements SelfHandling
             ->first();
 
         $like->delete();
-
     }
 }

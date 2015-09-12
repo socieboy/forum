@@ -1,12 +1,10 @@
 <?php
-
 namespace Socieboy\Forum\Entities\Conversations;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Conversation extends Model
 {
-
     /**
      * @var string
      */
@@ -15,7 +13,13 @@ class Conversation extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'title', 'message', 'topic_id', 'slug'];
+    protected $fillable = [
+        'user_id',
+        'title',
+        'message',
+        'topic_id',
+        'slug'
+    ];
 
     /**
      * Return the user owner of this conversation.
@@ -37,38 +41,43 @@ class Conversation extends Model
         return $this->hasMany('Socieboy\Forum\Entities\Replies\Reply')->latest();
     }
 
+    /**
+     * Get owner name attribute
+     * @return string
+     */
     public function getOwnerNameAttribute()
     {
         return $this->user->{config('forum.user.username')};
     }
+
     /**
      * Return the topic name.
      *
-     * @return mixed
+     * @return string
      */
     public function getTopicAttribute()
     {
-        return config('forum.topics.'.$this->topic_id)['name'];
+        return config('forum.topics.' . $this->topic_id)['name'];
     }
 
     /**
      * Return the topic icon.
      *
-     * @return mixed
+     * @return string
      */
     public function getTopicIconAttribute()
     {
-        return config('forum.topics.'.$this->topic_id)['icon'];
+        return config('forum.topics.' . $this->topic_id)['icon'];
     }
 
     /**
      * Return the topic color.
      *
-     * @return mixed
+     * @return string
      */
     public function getTopicColorAttribute()
     {
-        return config('forum.topics.'.$this->topic_id)['color'];
+        return config('forum.topics.' . $this->topic_id)['color'];
     }
 
     /**
@@ -78,24 +87,25 @@ class Conversation extends Model
      */
     public function hasCorrectAnswer()
     {
-        foreach($this->replies as $reply)
-        {
-            if($reply->isCorrect()) return true;
+        foreach ($this->replies as $reply) {
+            if ($reply->isCorrect()) {
+                return true;
+            }
         }
 
         return false;
     }
 
-
     /**
-     *
+     * Return correct answer
      * @return mixed
      */
     public function correctAnswer()
     {
-        foreach($this->replies as $reply)
-        {
-            if($reply->isCorrect()) return $reply;
+        foreach ($this->replies as $reply) {
+            if ($reply->isCorrect()) {
+                return $reply;
+            }
         }
     }
 }

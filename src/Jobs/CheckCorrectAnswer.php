@@ -1,5 +1,4 @@
 <?php
-
 namespace Socieboy\Forum\Jobs;
 
 use App\Jobs\Job;
@@ -12,12 +11,12 @@ class CheckCorrectAnswer extends Job implements SelfHandling
     use SerializesModels;
 
     /**
-     * @var
+     * @var int
      */
     protected $reply_id;
 
     /**
-     * @param $reply_id
+     * @param int $reply_id
      */
     function __construct($reply_id)
     {
@@ -30,11 +29,7 @@ class CheckCorrectAnswer extends Job implements SelfHandling
     public function handle(ReplyRepo $replyRepo)
     {
         $reply = $replyRepo->findOrFail($this->reply_id);
-
-        $reply->correct_answer = ! $reply->correct_answer;
-
+        $reply->correct_answer = !$reply->correct_answer;
         $reply->save();
     }
-
-
-} 
+}

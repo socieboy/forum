@@ -1,12 +1,10 @@
 <?php
-
 namespace Socieboy\Forum\Entities\Likes;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-
     /**
      * @var string
      */
@@ -32,5 +30,4 @@ class Like extends Model
     {
         return $this->belongsTo(config('forum.user.model'));
     }
-
-} 
+}

@@ -1,5 +1,4 @@
 <?php
-
 namespace Socieboy\Forum\Events;
 
 use App\Events\Event;
@@ -11,7 +10,11 @@ class NewReply extends Event implements ShouldBroadcast
 {
     use SerializesModels;
 
+    /**
+     * @var Reply
+     */
     public $reply;
+
     /**
      * Create a new event instance.
      *
@@ -29,7 +32,7 @@ class NewReply extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['socieboy-forum-channel-'.$this->reply->conversation->user->id];
+        return ['socieboy-forum-channel-' . $this->reply->conversation->user->id];
     }
 
     /**
@@ -40,8 +43,8 @@ class NewReply extends Event implements ShouldBroadcast
     public function broadcastWith()
     {
         return [
-                'user' => $this->reply->user->{config('forum.user.username')},
-                'link' => route('forum.conversation.show', $this->reply->conversation->slug)
+            'user' => $this->reply->user->{config('forum.user.username')},
+            'link' => route('forum.conversation.show', $this->reply->conversation->slug)
         ];
     }
 }
