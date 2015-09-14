@@ -64,7 +64,7 @@ The key content is the name of your yield tag on your master template file where
 With those values the forum can be adapted to your project really easily and match your application design.
 
 
-### Topics or Categories
+### Topics
 
 Define the array of topics for your forum.
 Now you can define the key for the topic, give a name and the representative icon for the topic, you can use any font class of your preference here.
