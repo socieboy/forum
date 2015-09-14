@@ -84,9 +84,6 @@ Also you can set the representative color for this topic in the las parameter (c
 Customatize your own prefix for the forum database tables.
 ```
 'database' => [
-    /**
-     * Prefix for your tables
-     */
     'prefix' => 'forum'
 ],
 ```
