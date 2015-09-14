@@ -71,7 +71,23 @@ Now you can define the key for the topic, give a name and the representative ico
 Also you can set the representative color for this topic in the las parameter (color is optional).
 ```
 'topics' => [
-    'general' => ['name' => 'General', 'icon' => 'fa fa-tags', 'color' => 'rgb(78, 137, 218)']
+    'general' => [
+        'name' => 'General',
+        'icon' => 'fa fa-tags',
+        'color' => 'rgb(78, 137, 218)'
+    ]
+],
+```
+
+### Configure your database table prefix
+
+Customatize your own prefix for the forum database tables.
+```
+'database' => [
+    /**
+     * Prefix for your tables
+     */
+    'prefix' => 'forum'
 ],
 ```
 
