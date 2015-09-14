@@ -6,10 +6,6 @@
 
             <div class="bubble">
 
-                <div class="best-answer">
-                    <i class="glyphicon glyphicon-ok"></i>
-                </div>
-
                 <div class="body">
 
                     @include('Forum::Partials.avatar', ['user' => $conversation->correctAnswer()->user])
@@ -17,6 +13,7 @@
 
                     <span class="name">
                         {{ $conversation->correctAnswer()->user->{config('forum.user.username')} }}
+                        <span><i class="glyphicon glyphicon-ok"></i> {{ trans('Forum::messages.best-answer-asker-choise') }}</span>
                     </span>
 
                     <span class="hidden-xs time">

@@ -104,8 +104,15 @@ return [
      * By default we use icons from bootstrap
      */
     'icons' => [
+<<<<<<< HEAD
         'like' => 'glyphicon glyphicon-thumbs-up',
         'correct-answer' => 'glyphicon glyphicon-ok',
+=======
+        'like'              => 'glyphicon glyphicon-thumbs-up',
+        'correct-answer'    => 'glyphicon glyphicon-ok',
+        'edit'              => 'glyphicon glyphicon-pencil',
+        'delete'            => 'glyphicon glyphicon-trash'
+>>>>>>> master
     ],
 
     /**

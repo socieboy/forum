@@ -24,5 +24,6 @@ return [
     'topic'                 => 'Selecciona una categoria',
     'message'               => 'Describe tu pregunta...',
     'notification-reply'    => 'Dejo una respuesta a tu pregunta',
+    'best-answer-asker-choise' => 'Mejor respuesta - Seleccionada por quien pregunta'
 
 ];

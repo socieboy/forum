@@ -30,7 +30,7 @@ class PostReply extends Job implements SelfHandling
     /**
      * Create a new job instance.
      *
-     * @param int $conversation_id
+     * @param int    $conversation_id
      * @param string $message
      */
     public function __construct($conversation_id, $message)
@@ -44,7 +44,8 @@ class PostReply extends Job implements SelfHandling
      * Execute the job.
      *
      * @param ReplyRepo $replyRepo
-     * @param Mailer $mailer
+     * @param Mailer    $mailer
+     *
      * @return void
      */
     public function handle(ReplyRepo $replyRepo, Mailer $mailer)
@@ -53,11 +54,11 @@ class PostReply extends Job implements SelfHandling
         $reply->fill($this->prepareData());
         $reply->save();
 
-        if (config('forum.emails.fire') && auth()->user()->id != $reply->user_id) {
+        if (config('forum.emails.fire') && !$this->authUserIsOwner($reply->conversation)) {
             $this->sendEmail($mailer, $reply);
         }
 
-        if (config('forum.broadcasting') && auth()->user()->id != $reply->user_id) {
+        if (config('forum.broadcasting') && !$this->authUserIsOwner($reply->conversation)) {
             event(new NewReply($reply));
         }
     }
@@ -70,9 +71,9 @@ class PostReply extends Job implements SelfHandling
     public function prepareData()
     {
         return [
-            'user_id' => auth()->User()->id,
+            'user_id'         => auth()->User()->id,
             'conversation_id' => $this->conversation_id,
-            'message' => $this->converter->convertToHtml($this->message),
+            'message'         => $this->converter->convertToHtml($this->message),
         ];
     }
 
@@ -86,22 +87,29 @@ class PostReply extends Job implements SelfHandling
     {
         $data = [
             'posted_by' => $reply->user->{config('forum.user.username')},
-            'link' => route('forum.conversation.show', $reply->conversation->slug)
+            'link'      => route('forum.conversation.show', $reply->conversation->slug)
         ];
 
-        $mailer->queue(
-            'Forum::Emails.template',
-            ['data' => $data],
-            function ($message) use ($reply) {
+        $mailer->queue('Forum::Emails.template', ['data' => $data], function ($message) use ($reply) {
 
                 $message->from(config('forum.emails.from'), config('forum.emails.from-name'));
 
-                $message->to(
-                    $reply->user->email,
-                    $reply->user->{config('forum.user.username')}
-                )
-                    ->subject(config('forum.emails.subject'));
-            }
-        );
+                $message->to($reply->user->email,
+                    $reply->user->{config('forum.user.username')})->subject(config('forum.emails.subject'));
+            });
     }
+
+
+    /**
+     * Return true if the auth user is the owner of the conversation where the reply was left
+     *
+     * @param $conversation
+     *
+     * @return bool
+     */
+    protected function authUserIsOwner($conversation)
+    {
+        return auth()->user()->id == $conversation->user_id;
+    }
+
 }
