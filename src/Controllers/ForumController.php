@@ -1,5 +1,4 @@
 <?php
-
 namespace Socieboy\Forum\Controllers;
 
 use \App\Http\Controllers\Controller;
@@ -8,7 +7,6 @@ use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 
 class ForumController extends Controller
 {
-
     /**
      * @var ConversationRepo
      */
@@ -39,7 +37,7 @@ class ForumController extends Controller
      * Display the main page of the forum.
      * All conversations are listed.
      *
-     * @param $topic_id
+     * @param string $topic_id
      * @return \Illuminate\View\View
      */
     public function topic($topic_id)
@@ -51,8 +49,9 @@ class ForumController extends Controller
 
 
     /**
-     * @param Request $request
+     * Search
      *
+     * @param Request $request
      * @return \Illuminate\View\View
      */
     public function search(Request $request)
@@ -61,7 +60,4 @@ class ForumController extends Controller
 
         return view('Forum::index', compact('conversations'));
     }
-
-
-
-} 
+}

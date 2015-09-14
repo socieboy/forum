@@ -1,5 +1,4 @@
 <?php
-
 namespace Socieboy\Forum\Jobs;
 
 use App\Jobs\Job;
@@ -13,14 +12,14 @@ class LikeReply extends Job implements SelfHandling
     use SerializesModels;
 
     /**
-     * @var
+     * @var int
      */
     protected $reply_id;
 
     /**
      * Create a new job instance.
      *
-     * @param $reply_id
+     * @param int $reply_id
      */
     public function __construct($reply_id)
     {
@@ -36,11 +35,8 @@ class LikeReply extends Job implements SelfHandling
     public function handle(LikeRepo $likeRepo)
     {
         $like = $likeRepo->model();
-
         $like->fill($this->prepareData());
-
         $like->save();
-
     }
 
     /**

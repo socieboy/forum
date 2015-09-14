@@ -1,5 +1,4 @@
 <?php
-
 namespace Socieboy\Forum\Jobs\Replies;
 
 use App\Jobs\Job;
@@ -13,14 +12,13 @@ use Socieboy\Forum\Events\NewReply;
 
 class PostReply extends Job implements SelfHandling
 {
-
     /**
-     * @var
+     * @var int
      */
     protected $conversation_id;
 
     /**
-     * @var
+     * @var string
      */
     protected $message;
 
@@ -32,15 +30,13 @@ class PostReply extends Job implements SelfHandling
     /**
      * Create a new job instance.
      *
-     * @param $conversation_id
-     * @param $message
+     * @param int $conversation_id
+     * @param string $message
      */
     public function __construct($conversation_id, $message)
     {
         $this->conversation_id = $conversation_id;
-
         $this->message = strip_tags($message);
-
         $this->converter = new CommonMarkConverter();
     }
 
@@ -54,21 +50,16 @@ class PostReply extends Job implements SelfHandling
     public function handle(ReplyRepo $replyRepo, Mailer $mailer)
     {
         $reply = $replyRepo->model();
-
         $reply->fill($this->prepareData());
-
         $reply->save();
 
-        if(config('forum.emails.fire') && auth()->user()->id != $reply->user_id) {
-
+        if (config('forum.emails.fire') && auth()->user()->id != $reply->user_id) {
             $this->sendEmail($mailer, $reply);
         }
 
-        if(config('forum.broadcasting') && auth()->user()->id != $reply->user_id)
-        {
+        if (config('forum.broadcasting') && auth()->user()->id != $reply->user_id) {
             event(new NewReply($reply));
         }
-
     }
 
     /**
@@ -79,9 +70,9 @@ class PostReply extends Job implements SelfHandling
     public function prepareData()
     {
         return [
-            'user_id'   => auth()->User()->id,
+            'user_id' => auth()->User()->id,
             'conversation_id' => $this->conversation_id,
-            'message'   => $this->converter->convertToHtml($this->message),
+            'message' => $this->converter->convertToHtml($this->message),
         ];
     }
 
@@ -95,18 +86,22 @@ class PostReply extends Job implements SelfHandling
     {
         $data = [
             'posted_by' => $reply->user->{config('forum.user.username')},
-            'link'      => route('forum.conversation.show', $reply->conversation->slug)
+            'link' => route('forum.conversation.show', $reply->conversation->slug)
         ];
 
-        $mailer->queue('Forum::Emails.template', ['data' => $data], function ($message) use ($reply) {
+        $mailer->queue(
+            'Forum::Emails.template',
+            ['data' => $data],
+            function ($message) use ($reply) {
 
-            $message->from(config('forum.emails.from'), config('forum.emails.from-name'));
+                $message->from(config('forum.emails.from'), config('forum.emails.from-name'));
 
-            $message->to($reply->user->email,
-                $reply->user->{config('forum.user.username')})
-                ->subject(config('forum.emails.subject'));
-
-        });
+                $message->to(
+                    $reply->user->email,
+                    $reply->user->{config('forum.user.username')}
+                )
+                    ->subject(config('forum.emails.subject'));
+            }
+        );
     }
-
 }

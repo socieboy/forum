@@ -1,12 +1,10 @@
 <?php
-
 namespace Socieboy\Forum\Entities\Replies;
 
 use Socieboy\Forum\Entities\Libs\BaseRepo;
 
 class ReplyRepo extends BaseRepo
 {
-
     /**
      * @return Reply
      */
@@ -14,5 +12,4 @@ class ReplyRepo extends BaseRepo
     {
         return new Reply;
     }
-
-} 
+}

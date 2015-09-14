@@ -1,13 +1,11 @@
 <?php
-
 namespace Socieboy\Forum\Entities\Replies;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Socieboy\Forum\Entities\BaseModel;
 
-class Reply extends Model
+class Reply extends BaseModel
 {
-
     /**
      * @var string
      */
@@ -16,7 +14,11 @@ class Reply extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'conversation_id', 'message'];
+    protected $fillable = [
+        'user_id',
+        'conversation_id',
+        'message'
+    ];
 
     /**
      * Return the conversation parent of this reply.
@@ -53,22 +55,21 @@ class Reply extends Model
      *
      * @return bool
      */
-
     public function userLiked()
     {
-        foreach($this->likes as $like)
-        {
-            if($like->user->id == Auth::User()->id)
-            {
+        foreach ($this->likes as $like) {
+            if ($like->user->id == Auth::User()->id) {
                 return true;
             }
         }
         return false;
     }
 
+    /**
+     * @return bool
+     */
     public function isCorrect()
     {
         return $this->correct_answer == 1;
     }
-
 }

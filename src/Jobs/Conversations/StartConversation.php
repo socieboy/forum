@@ -1,10 +1,10 @@
 <?php
-
 namespace Socieboy\Forum\Jobs\Conversations;
 
 use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use League\CommonMark\CommonMarkConverter;
 use EasySlug\EasySlug\EasySlugFacade as Slug;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
@@ -12,17 +12,17 @@ use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 class StartConversation extends Job implements SelfHandling
 {
     /**
-     * @var
+     * @var string
      */
     protected $topic_id;
 
     /**
-     * @var
+     * @var string
      */
     protected $title;
 
     /**
-     * @var
+     * @var string
      */
     protected $message;
 
@@ -33,21 +33,17 @@ class StartConversation extends Job implements SelfHandling
 
     /**
      * Create a new job instance.
-     * @param $topic_id
-     * @param $title
-     * @param $message
+     * @param string $topic_id
+     * @param string $title
+     * @param string $message
      */
     function __construct($topic_id, $title, $message)
     {
         $this->topic_id = $topic_id;
-
         $this->title = $title;
-
         $this->message = strip_tags($message);
-
         $this->converter = new CommonMarkConverter();
     }
-
 
     /**
      * Execute the job.
@@ -58,11 +54,8 @@ class StartConversation extends Job implements SelfHandling
     public function handle(ConversationRepo $conversationRepo)
     {
         $conversation = $conversationRepo->model();
-
         $conversation->fill( $this->prepareDate() );
-
         $conversation->save();
-
     }
 
     /**
@@ -72,14 +65,14 @@ class StartConversation extends Job implements SelfHandling
      */
     public function prepareDate()
     {
+        $databasePrefix = (Config::get('forum.database.prefix') ? Config::get('forum.database.prefix') . '_' : '');
+
         return [
             'user_id' => Auth::User()->id,
             'title' => $this->title,
             'topic_id' => $this->topic_id,
             'message' => $this->converter->convertToHtml($this->message),
-            'slug' => Slug::generateUniqueSlug($this->title, 'conversations')
+            'slug' => Slug::generateUniqueSlug($this->title, $databasePrefix . 'conversations')
         ];
     }
-
-
 }

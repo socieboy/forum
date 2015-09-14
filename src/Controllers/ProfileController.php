@@ -1,11 +1,10 @@
 <?php
-
 namespace Socieboy\Forum\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class ProfileController extends Controller{
-
+class ProfileController extends Controller
+{
     /**
      * Initialize profile controller.
      */
@@ -17,16 +16,14 @@ class ProfileController extends Controller{
     /**
      * Display forum profile user.
      *
-     * @param $id
+     * @param int $id
      * @return \Illuminate\View\View
      */
     public function show($id)
     {
         $userModel = config('forum.user.model');
-
         $user = $userModel::find($id);
 
         return view('Forum::User.profile', compact('user'));
     }
-
-} 
+}

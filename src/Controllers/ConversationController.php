@@ -1,5 +1,4 @@
 <?php
-
 namespace Socieboy\Forum\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -10,7 +9,6 @@ use Socieboy\Forum\Requests\ConversationRequest;
 
 class ConversationController extends Controller
 {
-
     /**
      * @var ConversationRepo
      */
@@ -22,21 +20,18 @@ class ConversationController extends Controller
     function __construct(ConversationRepo $conversationRepo)
     {
         $this->middleware('auth', ['only' => ['store']]);
-
         $this->conversationRepo = $conversationRepo;
-
     }
 
     /**
      * Display a conversation and replies
      *
-     * @param $slug
+     * @param string $slug
      * @return \Illuminate\View\View
      */
     public function show($slug)
     {
         $conversation = $this->conversationRepo->findBySlug($slug);
-
         $replies = $conversation->replies()->orderBy('created_at', 'DESC')->paginate(4);
 
         return view('Forum::Conversations.show', compact('conversation', 'replies'));
@@ -50,10 +45,8 @@ class ConversationController extends Controller
      */
     public function store(ConversationRequest $request)
     {
-
         $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
 
         return redirect()->route('forum');
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Socieboy\Forum\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -10,10 +9,6 @@ use Socieboy\Forum\Requests\CreateReplyRequest;
 
 class RepliesController extends Controller
 {
-
-    protected $replyRepo;
-
-
     /**
      * Implements the reply
      */
@@ -26,7 +21,7 @@ class RepliesController extends Controller
      * Store a new conversation.
      *
      * @param CreateReplyRequest $request
-     * @param $slug
+     * @param string $slug
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -50,5 +45,4 @@ class RepliesController extends Controller
 
         return redirect()->back();
     }
-
 }
