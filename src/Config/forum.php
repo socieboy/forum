@@ -21,7 +21,7 @@ return [
     'topics' => [
         'general' => [
             'name' => 'General',
-            'icon' => 'fa fa-tags',
+            'icon' => 'glyphicon glyphicon-tags',
             'color' => 'rgb(78, 137, 218)'
         ]
     ],
@@ -104,10 +104,11 @@ return [
      * By default we use icons from bootstrap
      */
     'icons' => [
-        'like'              => 'glyphicon glyphicon-thumbs-up',
         'correct-answer'    => 'glyphicon glyphicon-ok',
+        'delete'            => 'glyphicon glyphicon-trash',
         'edit'              => 'glyphicon glyphicon-pencil',
-        'delete'            => 'glyphicon glyphicon-trash'
+        'like'              => 'glyphicon glyphicon-thumbs-up',
+        'tags'              => 'glyphicon glyphicon-tags'
     ],
 
     /**
