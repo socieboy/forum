@@ -13,7 +13,7 @@
 
                     <span class="name">
                         {{ $conversation->correctAnswer()->user->{config('forum.user.username')} }}
-                        <span><i class="glyphicon glyphicon-ok"></i> {{ trans('Forum::messages.best-answer-asker-choise') }}</span>
+                        <span><i class="{{ config('forum.icons.correct-answer') }}"></i> {{ trans('Forum::messages.best-answer-asker-choise') }}</span>
                     </span>
 
                     <span class="hidden-xs time">
