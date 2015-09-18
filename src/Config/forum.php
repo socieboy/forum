@@ -21,7 +21,7 @@ return [
     'topics' => [
         'general' => [
             'name' => 'General',
-            'icon' => 'fa fa-tags',
+            'icon' => 'glyphicon glyphicon-tags',
             'color' => 'rgb(78, 137, 218)'
         ]
     ],
