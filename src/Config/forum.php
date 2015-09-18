@@ -104,10 +104,11 @@ return [
      * By default we use icons from bootstrap
      */
     'icons' => [
-        'like'              => 'glyphicon glyphicon-thumbs-up',
         'correct-answer'    => 'glyphicon glyphicon-ok',
+        'delete'            => 'glyphicon glyphicon-trash',
         'edit'              => 'glyphicon glyphicon-pencil',
-        'delete'            => 'glyphicon glyphicon-trash'
+        'like'              => 'glyphicon glyphicon-thumbs-up',
+        'tags'              => 'glypicon glyphicon-tags'
     ],
 
     /**
