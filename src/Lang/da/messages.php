@@ -24,5 +24,5 @@ return [
     'topic'                 => 'Vælg et emne',
     'message'               => 'Beskriv dit spørgsmål',
     'notification-reply'    => 'skrev et nyt svar til dit spørgsmål',
-
+    'best-answer-asker-choise' => 'Bedste svar - Valgt af opretteren'
 ];
