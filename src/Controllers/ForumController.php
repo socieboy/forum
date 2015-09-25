@@ -1,7 +1,7 @@
 <?php
 namespace Socieboy\Forum\Controllers;
 
-use \App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 
