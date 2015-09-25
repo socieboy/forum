@@ -2,7 +2,7 @@
     
     <a href="
         @if(config('forum.user.profile'))
-            {{ route(config('forum.user.profile-route'), $user->id) }}
+            {{ route(config('forum.user.profile-route'), $user->{config('forum.user.profile-slug')}) }}
         @else
             #
         @endif
