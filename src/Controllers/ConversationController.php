@@ -1,7 +1,6 @@
 <?php
 namespace Reflex\Forum\Controllers;
 
-use Reflex\Forum\Jobs\StartConversationJob;
 use Reflex\Forum\Requests\ConversationRequest;
 use Reflex\Forum\Jobs\Conversations\StartConversation;
 use Reflex\Forum\Entities\Conversations\ConversationRepo;
@@ -44,7 +43,7 @@ class ConversationController extends BaseController
      */
     public function store(ConversationRequest $request)
     {
-        $this->dispatch(new StartConversation($request));
+        $this->dispatchFrom('Reflex\Forum\Jobs\Conversations\StartConversation', $request);
 
         return redirect()->route('forum');
     }

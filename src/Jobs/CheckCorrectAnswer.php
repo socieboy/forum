@@ -1,8 +1,9 @@
 <?php
 namespace Reflex\Forum\Jobs;
 
-use Illuminate\Contracts\Bus\SelfHandling;
+use Reflex\Forum\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Bus\SelfHandling;
 use Reflex\Forum\Entities\Replies\ReplyRepo;
 
 class CheckCorrectAnswer extends Job implements SelfHandling

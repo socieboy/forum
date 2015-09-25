@@ -2,7 +2,6 @@
 namespace Reflex\Forum\Jobs\Conversations;
 
 use Reflex\Forum\Jobs\Job;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Contracts\Bus\SelfHandling;
 use League\CommonMark\CommonMarkConverter;
@@ -38,12 +37,14 @@ class StartConversation extends Job implements SelfHandling
      * @param string $title
      * @param string $message
      */
-    function __construct($request)
+    function __construct($topic_id, $title, $message)
     {
-        $this->topic_id = $request->input('topic_id');
-        $this->title = $request->input('title');
-        $this->message = strip_tags($request->input('message'));
+        $this->topic_id = $topic_id;
+        $this->title = $title;
+        $this->message = strip_tags($message);
         $this->converter = new CommonMarkConverter();
+        
+        parent::__construct();
     }
 
     /**

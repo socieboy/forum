@@ -58,7 +58,7 @@ class Reply extends BaseModel
     public function userLiked()
     {
         foreach ($this->likes as $like) {
-            if ($like->user->id == Auth::User()->id) {
+            if ($like->user->id == $this->auth->getActiveUser()->id) {
                 return true;
             }
         }

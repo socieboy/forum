@@ -1,15 +1,14 @@
 <?php namespace Reflex\Forum\Jobs;
 
-use Reflex\Forum\Entities\Auth\AuthRepositoryInterface;
+use App;
 
 abstract class Job
 {
 	protected $auth;
 
-	public function __construct(AuthRepositoryInterface $auth)
+	public function __construct()
 	{
-		$this->auth = $auth;
+		$this->auth = App::make(config('forum.auth-repo'));
 	}
 
-	
 }

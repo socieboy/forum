@@ -1,14 +1,14 @@
 <?php
 namespace Reflex\Forum\Jobs\Replies;
 
-use App\Jobs\Job;
-use Illuminate\Contracts\Bus\SelfHandling;
+use Reflex\Forum\Jobs\Job;
 use Illuminate\Mail\Mailer;
-use Illuminate\Support\Facades\Auth;
-use League\CommonMark\CommonMarkConverter;
-use Reflex\Forum\Entities\Replies\Reply;
-use Reflex\Forum\Entities\Replies\ReplyRepo;
 use Reflex\Forum\Events\NewReply;
+use Illuminate\Support\Facades\Auth;
+use Reflex\Forum\Entities\Replies\Reply;
+use Illuminate\Contracts\Bus\SelfHandling;
+use League\CommonMark\CommonMarkConverter;
+use Reflex\Forum\Entities\Replies\ReplyRepo;
 
 class PostReply extends Job implements SelfHandling
 {
@@ -33,11 +33,13 @@ class PostReply extends Job implements SelfHandling
      * @param int    $conversation_id
      * @param string $message
      */
-    public function __construct($conversation_id, $message, AuthRepositoryInterface $auth)
+    public function __construct($conversation_id, $message)
     {
         $this->conversation_id = $conversation_id;
         $this->message = strip_tags($message);
         $this->converter = new CommonMarkConverter();
+
+        parent::__construct();
     }
 
     /**
