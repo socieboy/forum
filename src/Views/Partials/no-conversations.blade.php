@@ -6,7 +6,7 @@
         <br/>
 
         <small>
-            @if(auth()->check())
+            @if($loggedIn)
                 <a data-toggle="modal" data-target="#start-conversation-modal">
                     {{ trans('Forum::messages.new-conversation') }}
                 </a>

@@ -2,11 +2,12 @@
 namespace Reflex\Forum\Jobs\Conversations;
 
 use App\Jobs\Job;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Contracts\Bus\SelfHandling;
 use League\CommonMark\CommonMarkConverter;
 use EasySlug\EasySlug\EasySlugFacade as Slug;
+use Reflex\Forum\Entities\Auth\AuthRepositoryInterface;
 use Reflex\Forum\Entities\Conversations\ConversationRepo;
 
 class StartConversation extends Job implements SelfHandling
@@ -37,12 +38,14 @@ class StartConversation extends Job implements SelfHandling
      * @param string $title
      * @param string $message
      */
-    function __construct($topic_id, $title, $message)
+    function __construct($topic_id, $title, $message, AuthRepositoryInterface $auth)
     {
         $this->topic_id = $topic_id;
         $this->title = $title;
         $this->message = strip_tags($message);
         $this->converter = new CommonMarkConverter();
+
+        parent::__construct($auth);
     }
 
     /**
@@ -68,7 +71,7 @@ class StartConversation extends Job implements SelfHandling
         $databasePrefix = (Config::get('forum.database.prefix') ? Config::get('forum.database.prefix') . '_' : '');
 
         return [
-            'user_id' => Auth::User()->id,
+            'user_id' => $this->auth->getActiveUser()->id,
             'title' => $this->title,
             'topic_id' => $this->topic_id,
             'message' => $this->converter->convertToHtml($this->message),

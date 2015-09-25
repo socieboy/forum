@@ -1,10 +1,11 @@
 <?php
 namespace Reflex\Forum\Jobs;
 
-use Illuminate\Contracts\Bus\SelfHandling;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Queue\SerializesModels;
 use Reflex\Forum\Entities\Likes\LikeRepo;
+use Illuminate\Contracts\Bus\SelfHandling;
+use Reflex\Forum\Entities\Auth\AuthRepositoryInterface;
 
 class LikeReply extends Job implements SelfHandling
 {
@@ -20,9 +21,11 @@ class LikeReply extends Job implements SelfHandling
      *
      * @param int $reply_id
      */
-    public function __construct($reply_id)
+    public function __construct($reply_id, AuthRepositoryInterface $auth)
     {
         $this->reply_id = $reply_id;
+
+        parent::__construct($auth);
     }
 
     /**
@@ -46,7 +49,7 @@ class LikeReply extends Job implements SelfHandling
     public function prepareData()
     {
         return [
-            'user_id' => Auth::User()->id,
+            'user_id' => $this->auth->getActiveUser()->id,
             'reply_id' => $this->reply_id
         ];
     }

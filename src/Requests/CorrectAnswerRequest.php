@@ -13,7 +13,7 @@ class CorrectAnswerRequest extends Request
      */
     public function authorize(Guard $auth)
     {
-        return $this->route('conversation_user_id') == $auth->user()->id;
+        return $this->route('conversation_user_id') == $this->auth->getActiveUser()->id;
     }
 
     /**

@@ -2,7 +2,6 @@
 
 namespace Reflex\Forum\Requests;
 
-use Illuminate\Auth\Guard;
 use Reflex\Forum\Entities\Replies\ReplyRepo;
 
 class DeleteReplyRequest extends Request
@@ -14,13 +13,13 @@ class DeleteReplyRequest extends Request
      * @param ReplyRepo $replyRepo
      * @return bool
      */
-    public function authorize(Guard $auth, ReplyRepo $replyRepo)
+    public function authorize(ReplyRepo $replyRepo)
     {
         $reply_id = $this->route('reply_id');
 
         $reply = $replyRepo->findOrFail($reply_id);
 
-        return  $reply->user_id == $auth->user()->id;
+        return  $reply->user_id == $this->auth->getActiveUser()->id;
     }
 
     /**

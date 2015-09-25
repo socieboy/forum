@@ -33,7 +33,7 @@ class PostReply extends Job implements SelfHandling
      * @param int    $conversation_id
      * @param string $message
      */
-    public function __construct($conversation_id, $message)
+    public function __construct($conversation_id, $message, AuthRepositoryInterface $auth)
     {
         $this->conversation_id = $conversation_id;
         $this->message = strip_tags($message);
@@ -71,7 +71,7 @@ class PostReply extends Job implements SelfHandling
     public function prepareData()
     {
         return [
-            'user_id'         => auth()->User()->id,
+            'user_id'         => $this->auth->getActiveUser()->id,
             'conversation_id' => $this->conversation_id,
             'message'         => $this->converter->convertToHtml($this->message),
         ];
@@ -109,7 +109,7 @@ class PostReply extends Job implements SelfHandling
      */
     protected function authUserIsOwner($conversation)
     {
-        return auth()->user()->id == $conversation->user_id;
+        return $this->auth->getActiveUser()->id == $conversation->user_id;
     }
 
 }

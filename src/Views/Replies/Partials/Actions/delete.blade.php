@@ -1,4 +1,4 @@
-@if(auth()->check() && $reply->user_id == auth()->user()->id)
+@if($loggedIn && $reply->user_id == $currentUser->id)
 
 	    <form action="{{ route('forum.conversation.reply.destroy', [$conversation->slug, $reply->id])}}" method="POST">
 

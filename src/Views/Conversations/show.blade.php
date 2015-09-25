@@ -29,7 +29,7 @@
                     {!! $replies->render() !!}
                 </div>
 
-                @if(auth()->check())
+                @if($loggedIn)
 
                     @include('Forum::Replies.form')
 

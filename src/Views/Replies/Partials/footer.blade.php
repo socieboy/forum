@@ -1,4 +1,4 @@
- @if(auth()->check())
+ @if($loggedIn)
 
     <div class="footer">
 

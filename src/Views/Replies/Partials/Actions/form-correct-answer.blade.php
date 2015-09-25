@@ -1,6 +1,6 @@
-@if(auth()->check())
+@if($loggedIn)
 
-	@if($reply->conversation->user->id == auth()->user()->id)
+	@if($reply->conversation->user->id == $currentUser->id)
 
 	    <form action="{{ route('forum.conversation.reply.correct-answer', [$conversation->slug, $conversation->user->id])}}" method="POST">
 

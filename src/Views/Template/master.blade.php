@@ -8,7 +8,7 @@
 
             <div class="col-md-3">
 
-                @if(auth()->check())
+                @if($loggedIn)
 
                     @include('Forum::Conversations.create')
 

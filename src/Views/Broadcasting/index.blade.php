@@ -1,4 +1,4 @@
-@if(auth()->check())
+@if($loggedIn)
     <div class="forum-notification">
         <a href="#">
             <span></span>
@@ -8,9 +8,9 @@
     <script>
         this.pusher = new Pusher('{{ env('PUSHER_KEY') }}');
 
-        this.pusherChannel = this.pusher.subscribe('socieboy-forum-channel-' + {{ auth()->user()->id }});
+        this.pusherChannel = this.pusher.subscribe('socieboy-forum-channel-' + {{ $currentUser->id }});
 
-        this.pusherChannel.bind('Socieboy\\Forum\\Events\\NewReply', function(message) {
+        this.pusherChannel.bind('Reflex\\Forum\\Events\\NewReply', function(message) {
              var user = message.user;
              var link = message.link;
              console.log(user);

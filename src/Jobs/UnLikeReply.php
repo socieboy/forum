@@ -1,9 +1,9 @@
 <?php
 namespace Reflex\Forum\Jobs;
 
-use Illuminate\Auth\Guard;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Reflex\Forum\Entities\Likes\LikeRepo;
+use Illuminate\Contracts\Bus\SelfHandling;
+use Reflex\Forum\Entities\Auth\AuthRepositoryInterface;
 
 class UnLikeReply extends Job implements SelfHandling
 {
@@ -17,9 +17,11 @@ class UnLikeReply extends Job implements SelfHandling
      *
      * @param int $reply_id
      */
-    public function __construct($reply_id)
+    public function __construct($reply_id, AuthRepositoryInterface $auth)
     {
         $this->reply_id = $reply_id;
+
+        parent::__construct($auth);
     }
 
     /**
@@ -29,9 +31,9 @@ class UnLikeReply extends Job implements SelfHandling
      * @param Guard $auth
      * @return void
      */
-    public function handle(LikeRepo $likeRepo, Guard $auth)
+    public function handle(LikeRepo $likeRepo)
     {
-        $like = $likeRepo->where('user_id', $auth->user()->id)
+        $like = $likeRepo->where('user_id', $this->auth->getActiveUser()->id)
             ->where('reply_id', $this->reply_id)
             ->first();
 
