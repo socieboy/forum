@@ -15,7 +15,6 @@ class ForumServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishFiles();
-        $this->shareGlobalVariables();
         $this->loadViewsFrom(__DIR__ . '/../Views', 'Forum');
         $this->loadTranslationsFrom(__DIR__ . '/../Lang', 'Forum');
 
@@ -23,6 +22,8 @@ class ForumServiceProvider extends ServiceProvider
           'Reflex\Forum\Entities\Auth\AuthRepositoryInterface',
           config('forum.auth-repo')
         );
+
+        $this->shareGlobalVariables();
     }
 
     /**
@@ -66,7 +67,7 @@ class ForumServiceProvider extends ServiceProvider
         view()->share('template', config('forum.template'));
         view()->share('content', config('forum.content'));
 
-        $auth = $this->app->make('Reflex\Forum\Entities\Auth\AuthRepositoryInterface');
+        $auth = $this->app->make(config('forum.auth-repo'));
         view()->share('loggedIn', $auth->check());
         view()->share('currentUser', $auth->getActiveUser());
     }
