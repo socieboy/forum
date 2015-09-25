@@ -1,10 +1,11 @@
 <?php
 namespace Reflex\Forum\Controllers;
 
-use Reflex\Forum\Entities\Conversations\ConversationRepo;
-use Reflex\Forum\Jobs\Conversations\CreateConversationThread;
 use Reflex\Forum\Jobs\StartConversationJob;
 use Reflex\Forum\Requests\ConversationRequest;
+use Reflex\Forum\Jobs\Conversations\StartConversation;
+use Reflex\Forum\Entities\Conversations\ConversationRepo;
+use Reflex\Forum\Jobs\Conversations\CreateConversationThread;
 
 class ConversationController extends BaseController
 {
@@ -18,7 +19,6 @@ class ConversationController extends BaseController
      */
     function __construct(ConversationRepo $conversationRepo)
     {
-        $this->middleware('auth', ['only' => ['store']]);
         $this->conversationRepo = $conversationRepo;
     }
 
@@ -44,7 +44,7 @@ class ConversationController extends BaseController
      */
     public function store(ConversationRequest $request)
     {
-        $this->dispatchFrom('Reflex\Forum\Jobs\Conversations\StartConversation', $request);
+        $this->dispatch(new StartConversation($request));
 
         return redirect()->route('forum');
     }

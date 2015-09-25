@@ -18,7 +18,6 @@ class RepliesController extends BaseController
      */
     function __construct(ReplyRepo $replyRepo)
     {
-        $this->middleware('auth');
         $this->replyRepo = $replyRepo;
     }
 

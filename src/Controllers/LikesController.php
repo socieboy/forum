@@ -17,7 +17,6 @@ class LikesController extends BaseController
      */
     function __construct(LikeRepo $likeRepo)
     {
-        $this->middleware('auth');
         $this->likeRepo = $likeRepo;
     }
 
