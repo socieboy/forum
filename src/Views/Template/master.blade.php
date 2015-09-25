@@ -1,6 +1,7 @@
 @extends($template)
 @section($content)
 
+<div class="well">
 
     <div class="forum" id="socieboy">
 
@@ -36,5 +37,7 @@
         </div>
 
     </div>
+
+</div>
 
 @stop
