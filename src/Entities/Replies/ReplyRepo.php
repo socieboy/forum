@@ -1,7 +1,7 @@
 <?php
-namespace Socieboy\Forum\Entities\Replies;
+namespace Reflex\Forum\Entities\Replies;
 
-use Socieboy\Forum\Entities\Libs\BaseRepo;
+use Reflex\Forum\Entities\Libs\BaseRepo;
 
 class ReplyRepo extends BaseRepo
 {

@@ -1,7 +1,7 @@
 <?php
 
 Route::group(
-    ['prefix' => 'forum', 'namespace' => 'Socieboy\Forum\Controllers'],
+    ['prefix' => 'forum', 'namespace' => 'Reflex\Forum\Controllers'],
     function () {
         /**
          * Route GET for the main page

@@ -1,11 +1,10 @@
 <?php
-namespace Socieboy\Forum\Controllers;
+namespace Reflex\Forum\Controllers;
 
-use \App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Socieboy\Forum\Entities\Conversations\ConversationRepo;
+use Reflex\Forum\Entities\Conversations\ConversationRepo;
 
-class ForumController extends Controller
+class ForumController extends BaseController
 {
     /**
      * @var ConversationRepo

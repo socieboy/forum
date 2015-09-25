@@ -1,12 +1,11 @@
 <?php
-namespace Socieboy\Forum\Controllers;
+namespace Reflex\Forum\Controllers;
 
-use Socieboy\Forum\Entities\Likes\LikeManager;
-use Socieboy\Forum\Entities\Likes\LikeRepo;
-use App\Http\Controllers\Controller;
-use Socieboy\Forum\Requests\LikeRequest;
+use Reflex\Forum\Entities\Likes\LikeManager;
+use Reflex\Forum\Entities\Likes\LikeRepo;
+use Reflex\Forum\Requests\LikeRequest;
 
-class LikesController extends Controller
+class LikesController extends BaseController
 {
     /**
      * @var LikeRepo
@@ -31,7 +30,7 @@ class LikesController extends Controller
      */
     public function like(LikeRequest $request, $slug)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\LikeReply', $request);
+        $this->dispatchFrom('Reflex\Forum\Jobs\LikeReply', $request);
 
         return redirect()->route('forum.conversation.show', $slug);
     }
@@ -44,7 +43,7 @@ class LikesController extends Controller
      */
     public function unlike(LikeRequest $request, $slug)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\UnLikeReply', $request);
+        $this->dispatchFrom('Reflex\Forum\Jobs\UnLikeReply', $request);
 
         return redirect()->route('forum.conversation.show', $slug);
     }

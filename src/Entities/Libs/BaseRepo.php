@@ -1,5 +1,5 @@
 <?php
-namespace Socieboy\Forum\Entities\Libs;
+namespace Reflex\Forum\Entities\Libs;
 
 abstract class BaseRepo
 {

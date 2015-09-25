@@ -1,13 +1,12 @@
 <?php
-namespace Socieboy\Forum\Controllers;
+namespace Reflex\Forum\Controllers;
 
-use App\Http\Controllers\Controller;
-use Socieboy\Forum\Entities\Conversations\ConversationRepo;
-use Socieboy\Forum\Jobs\Conversations\CreateConversationThread;
-use Socieboy\Forum\Jobs\StartConversationJob;
-use Socieboy\Forum\Requests\ConversationRequest;
+use Reflex\Forum\Entities\Conversations\ConversationRepo;
+use Reflex\Forum\Jobs\Conversations\CreateConversationThread;
+use Reflex\Forum\Jobs\StartConversationJob;
+use Reflex\Forum\Requests\ConversationRequest;
 
-class ConversationController extends Controller
+class ConversationController extends BaseController
 {
     /**
      * @var ConversationRepo
@@ -45,7 +44,7 @@ class ConversationController extends Controller
      */
     public function store(ConversationRequest $request)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
+        $this->dispatchFrom('Reflex\Forum\Jobs\Conversations\StartConversation', $request);
 
         return redirect()->route('forum');
     }

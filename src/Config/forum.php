@@ -4,6 +4,30 @@ return [
     /*
      * Define the path to your master view on your "resources/view" folder.
      */
+
+    /*
+    |--------------------------------------------------------------------------
+    | Auth Repository Class
+    |--------------------------------------------------------------------------
+    |
+    | Use package auth repository class, or use your own. This will
+    | automatically bind inside the service provider.
+    |
+    | Default Repository: Laraflock\Dashboard\Repositories\Auth\AuthRepository
+    |
+    | * NOTICE *
+    | If you would like to use your own repository class, be sure to implement
+    | the following interface and extend the base repository class:
+    |
+    | Base Repository: Laraflock\Dashboard\Repositories\Base\BaseRepository
+    | Auth Interface: Laraflock\Dashboard\Repositories\Auth\AuthRepositoryInterface
+    |
+    */
+    'auth-repo'       => 'Reflex\Forum\Entities\Auth\AuthRepository',
+
+    /*
+     * Define the path to your master view on your "resources/view" folder.
+     */
     'template' => 'app',
 
     /*

@@ -1,5 +1,5 @@
 <?php
-namespace Socieboy\Forum\Commands;
+namespace Reflex\Forum\Commands;
 
 use Illuminate\Console\Command;
 

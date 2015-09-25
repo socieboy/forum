@@ -1,5 +1,5 @@
 {
-    "name": "socieboy/forum",
+    "name": "team-reflex/forum",
     "description": "Laravel Forum Integration Pack",
     "type": "package",
     "license": "MIT",
@@ -7,6 +7,10 @@
         {
             "name": "Francisco Sepulveda",
             "email": "socieboy@gmail.com"
+        },
+        {
+            "name": "Kyle Ward",
+            "email": "kairu@team-reflex.com"
         }
     ],
     "minimum-stability": "dev",
@@ -17,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Socieboy\\Forum\\": "/src"
+            "Reflex\\Forum\\": "/src"
         }
     }
 }

@@ -1,10 +1,10 @@
 <?php
-namespace Socieboy\Forum\Events;
+namespace Reflex\Forum\Events;
 
 use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Socieboy\Forum\Entities\Replies\Reply;
+use Reflex\Forum\Entities\Replies\Reply;
 
 class NewReply extends Event implements ShouldBroadcast
 {
@@ -32,7 +32,7 @@ class NewReply extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['socieboy-forum-channel-' . $this->reply->conversation->user->id];
+        return ['reflex-forum-channel-' . $this->reply->conversation->user->id];
     }
 
     /**

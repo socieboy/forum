@@ -1,7 +1,5 @@
 <?php
-namespace Socieboy\Forum\Requests;
-
-use App\Http\Requests\Request;
+namespace Reflex\Forum\Requests;
 
 class LikeRequest extends Request
 {

@@ -1,7 +1,7 @@
 <?php
-namespace Socieboy\Forum\Entities\Conversations;
+namespace Reflex\Forum\Entities\Conversations;
 
-use Socieboy\Forum\Entities\Libs\BaseRepo;
+use Reflex\Forum\Entities\Libs\BaseRepo;
 
 class ConversationRepo extends BaseRepo
 {

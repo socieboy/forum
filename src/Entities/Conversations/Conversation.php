@@ -1,7 +1,7 @@
 <?php
-namespace Socieboy\Forum\Entities\Conversations;
+namespace Reflex\Forum\Entities\Conversations;
 
-use Socieboy\Forum\Entities\BaseModel;
+use Reflex\Forum\Entities\BaseModel;
 
 class Conversation extends BaseModel
 {
@@ -38,7 +38,7 @@ class Conversation extends BaseModel
      */
     public function replies()
     {
-        return $this->hasMany('Socieboy\Forum\Entities\Replies\Reply')->latest();
+        return $this->hasMany('Reflex\Forum\Entities\Replies\Reply')->latest();
     }
 
     /**

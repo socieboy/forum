@@ -1,10 +1,9 @@
 <?php
-namespace Socieboy\Forum\Jobs;
+namespace Reflex\Forum\Jobs;
 
-use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Queue\SerializesModels;
-use Socieboy\Forum\Entities\Replies\ReplyRepo;
+use Reflex\Forum\Entities\Replies\ReplyRepo;
 
 class CheckCorrectAnswer extends Job implements SelfHandling
 {

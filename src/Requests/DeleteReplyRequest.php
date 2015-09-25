@@ -1,10 +1,9 @@
 <?php
 
-namespace Socieboy\Forum\Requests;
+namespace Reflex\Forum\Requests;
 
-use App\Http\Requests\Request;
 use Illuminate\Auth\Guard;
-use Socieboy\Forum\Entities\Replies\ReplyRepo;
+use Reflex\Forum\Entities\Replies\ReplyRepo;
 
 class DeleteReplyRequest extends Request
 {

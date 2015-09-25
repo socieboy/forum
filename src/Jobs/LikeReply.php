@@ -1,11 +1,10 @@
 <?php
-namespace Socieboy\Forum\Jobs;
+namespace Reflex\Forum\Jobs;
 
-use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
-use Socieboy\Forum\Entities\Likes\LikeRepo;
+use Reflex\Forum\Entities\Likes\LikeRepo;
 
 class LikeReply extends Job implements SelfHandling
 {

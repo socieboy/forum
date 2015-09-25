@@ -1,9 +1,7 @@
 <?php
-namespace Socieboy\Forum\Controllers;
+namespace Reflex\Forum\Controllers;
 
-use App\Http\Controllers\Controller;
-
-class ProfileController extends Controller
+class ProfileController extends BaseController
 {
     /**
      * Initialize profile controller.

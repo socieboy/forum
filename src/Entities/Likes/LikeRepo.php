@@ -1,7 +1,7 @@
 <?php
-namespace Socieboy\Forum\Entities\Likes;
+namespace Reflex\Forum\Entities\Likes;
 
-use Socieboy\Forum\Entities\Libs\BaseRepo;
+use Reflex\Forum\Entities\Libs\BaseRepo;
 
 class LikeRepo extends BaseRepo
 {

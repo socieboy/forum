@@ -1,8 +1,8 @@
 <?php
-namespace Socieboy\Forum\Entities\Replies;
+namespace Reflex\Forum\Entities\Replies;
 
 use Illuminate\Support\Facades\Auth;
-use Socieboy\Forum\Entities\BaseModel;
+use Reflex\Forum\Entities\BaseModel;
 
 class Reply extends BaseModel
 {
@@ -27,7 +27,7 @@ class Reply extends BaseModel
      */
     public function conversation()
     {
-        return $this->belongsTo('Socieboy\Forum\Entities\Conversations\Conversation');
+        return $this->belongsTo('Reflex\Forum\Entities\Conversations\Conversation');
     }
 
     /**
@@ -47,7 +47,7 @@ class Reply extends BaseModel
      */
     public function likes()
     {
-        return $this->hasMany('Socieboy\Forum\Entities\Likes\Like');
+        return $this->hasMany('Reflex\Forum\Entities\Likes\Like');
     }
 
     /**

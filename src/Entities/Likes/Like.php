@@ -1,7 +1,7 @@
 <?php
-namespace Socieboy\Forum\Entities\Likes;
+namespace Reflex\Forum\Entities\Likes;
 
-use Socieboy\Forum\Entities\BaseModel;
+use Reflex\Forum\Entities\BaseModel;
 
 class Like extends BaseModel
 {
@@ -20,7 +20,7 @@ class Like extends BaseModel
      */
     public function reply()
     {
-        return $this->belongsTo('Socieboy\Forum\Entities\Replies\Reply');
+        return $this->belongsTo('Reflex\Forum\Entities\Replies\Reply');
     }
 
     /**

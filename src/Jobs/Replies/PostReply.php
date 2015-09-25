@@ -1,14 +1,14 @@
 <?php
-namespace Socieboy\Forum\Jobs\Replies;
+namespace Reflex\Forum\Jobs\Replies;
 
 use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Mail\Mailer;
 use Illuminate\Support\Facades\Auth;
 use League\CommonMark\CommonMarkConverter;
-use Socieboy\Forum\Entities\Replies\Reply;
-use Socieboy\Forum\Entities\Replies\ReplyRepo;
-use Socieboy\Forum\Events\NewReply;
+use Reflex\Forum\Entities\Replies\Reply;
+use Reflex\Forum\Entities\Replies\ReplyRepo;
+use Reflex\Forum\Events\NewReply;
 
 class PostReply extends Job implements SelfHandling
 {

@@ -1,7 +1,6 @@
 <?php
-namespace Socieboy\Forum\Requests;
+namespace Reflex\Forum\Requests;
 
-use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Config;
 
 class CreateReplyRequest extends Request

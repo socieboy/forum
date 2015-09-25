@@ -1,16 +1,15 @@
 <?php
-namespace Socieboy\Forum\Controllers;
+namespace Reflex\Forum\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Socieboy\Forum\Entities\Replies\ReplyRepo;
-use Socieboy\Forum\Jobs\Replies\SubscribeUserToThread;
-use Socieboy\Forum\Jobs\SetCorrectAnswerStatus;
-use Socieboy\Forum\Requests\CorrectAnswerRequest;
-use Socieboy\Forum\Requests\CreateReplyRequest;
-use Socieboy\Forum\Requests\DeleteReplyRequest;
+use Reflex\Forum\Entities\Replies\ReplyRepo;
+use Reflex\Forum\Jobs\Replies\SubscribeUserToThread;
+use Reflex\Forum\Jobs\SetCorrectAnswerStatus;
+use Reflex\Forum\Requests\CorrectAnswerRequest;
+use Reflex\Forum\Requests\CreateReplyRequest;
+use Reflex\Forum\Requests\DeleteReplyRequest;
 
-class RepliesController extends Controller
+class RepliesController extends BaseController
 {
     /**
      * Implements the reply
@@ -33,7 +32,7 @@ class RepliesController extends Controller
      */
     public function store(CreateReplyRequest $request, $slug)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\Replies\PostReply', $request);
+        $this->dispatchFrom('Reflex\Forum\Jobs\Replies\PostReply', $request);
 
         return redirect()->route('forum.conversation.show', $slug);
     }
@@ -47,7 +46,7 @@ class RepliesController extends Controller
      */
     public function correctAnswer(CorrectAnswerRequest $request)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\CheckCorrectAnswer', $request);
+        $this->dispatchFrom('Reflex\Forum\Jobs\CheckCorrectAnswer', $request);
 
         return redirect()->back();
     }

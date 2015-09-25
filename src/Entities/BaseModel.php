@@ -1,5 +1,5 @@
 <?php
-namespace Socieboy\Forum\Entities;
+namespace Reflex\Forum\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;

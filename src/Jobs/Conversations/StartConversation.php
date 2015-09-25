@@ -1,5 +1,5 @@
 <?php
-namespace Socieboy\Forum\Jobs\Conversations;
+namespace Reflex\Forum\Jobs\Conversations;
 
 use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use League\CommonMark\CommonMarkConverter;
 use EasySlug\EasySlug\EasySlugFacade as Slug;
-use Socieboy\Forum\Entities\Conversations\ConversationRepo;
+use Reflex\Forum\Entities\Conversations\ConversationRepo;
 
 class StartConversation extends Job implements SelfHandling
 {
