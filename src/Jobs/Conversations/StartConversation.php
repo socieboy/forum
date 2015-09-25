@@ -1,7 +1,7 @@
 <?php
 namespace Reflex\Forum\Jobs\Conversations;
 
-use App\Jobs\Job;
+use Reflex\Forum\Jobs\Job;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -38,14 +38,12 @@ class StartConversation extends Job implements SelfHandling
      * @param string $title
      * @param string $message
      */
-    function __construct($topic_id, $title, $message, AuthRepositoryInterface $auth)
+    function __construct($request)
     {
-        $this->topic_id = $topic_id;
-        $this->title = $title;
-        $this->message = strip_tags($message);
+        $this->topic_id = $request->input('topic_id');
+        $this->title = $request->input('title');
+        $this->message = strip_tags($request->input('message'));
         $this->converter = new CommonMarkConverter();
-
-        parent::__construct($auth);
     }
 
     /**
