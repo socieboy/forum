@@ -3,7 +3,7 @@ namespace Socieboy\Forum\Controllers;
 
 use Socieboy\Forum\Entities\Likes\LikeManager;
 use Socieboy\Forum\Entities\Likes\LikeRepo;
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Socieboy\Forum\Requests\LikeRequest;
 
 class LikesController extends Controller
