@@ -60,27 +60,31 @@ return [
         'username' => 'name',
 
         /*
-         * If you don't want to use gravatar
-         * Place this key to true to use your own avatars.
+         * Place this key to true to use an avatar in the forum
          */
         'avatar' => false,
 
         /**
-         * Need avatars on your forum.
-         */
-        'user-avatar' => 'avatar',
-
-        /**
          * By default the forum uses gravatar.
          *
-         * Set this to false to use your own avatars on the users table
+         * Set this key false to use your own avatars on the users table
          */
         'gravatar' => true,
+
+        /**
+         * If you are using your own avatars specify the name of the column on your users table where the path to the avatar is stored.
+         */
+        'user-avatar' => 'avatar',
 
         /**
          * Require links to user profile
          */
         'profile' => false,
+
+        /**
+         * Specify the slug or identifier of your users for the profile.
+         */
+        'profile-slug' => 'id',
 
         /**
          * Route name to user profile.

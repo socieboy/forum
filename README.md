@@ -118,14 +118,20 @@ If you want to use your own avatars, then define the field on your users table w
 'user-avatar' => 'avatar',
 ```
 
-If you want to include link to profile users, (When you hit the avatar or the name of other users display a user profile)
+Include link to profile users.
 ```
 'profile' => true,
 ```
 
-By the fault the forum include a simple user profile. If you want to implement your own just set the route name on this key, just make sure that the route name recive the ID of the user.
+By default the forum include a simple user profile. If you want to implement your own just set the route name on this key,
+the route should receive one parameter as slug.
 ```
 'profile-route' => 'forum.user.profile'
+```
+
+Specify the column of the users table that will be used as slug, by default the forum use the user id.
+```
+'profile-slug' => 'id',
 ```
 
 Now if the user is not log in, the button for start a conversation will redirect the user to your login page, just set the url of your login page in this key. 
