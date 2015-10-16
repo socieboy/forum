@@ -16,6 +16,7 @@ return [
     'all'                   => 'All',
     'no-conversations'      => 'There are no conversations for this query',
     'replies-counter'       => ':replies replies in this conversation',
+    'replies'               => 'reply|replies',
     'post'                  => 'Post your reply',
     'post-conversation'     => 'Post conversation',
     'cancel'                => 'Cancel',

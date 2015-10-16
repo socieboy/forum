@@ -17,6 +17,7 @@ return [
     'no-conversations'      => 'Ingen tråde blev fundet',
     'replies-counter'       => ':replies svar i denne tråd',
     'post'                  => 'Indsend svar',
+    'replies'               => 'reply|svar',
     'post-conversation'     => 'Opret tråd',
     'cancel'                => 'Annullér',
     'text-like'             => 'Synes godt om',

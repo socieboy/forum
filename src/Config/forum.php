@@ -33,7 +33,7 @@ return [
         /**
          * Prefix for your tables
          */
-        'prefix' => 'forum'
+        'prefix' => ''
     ],
 
     /**
