@@ -32,7 +32,8 @@ Socieboy\Forum\Providers\ForumServiceProvider::class,
 php artisan vendor:publish
 ```
 
-4.- Create migrations for the forum, make sure you have a migration already created for users. Type the command:
+4.- Create migrations for the forum, make sure you have a migration already created for users.
+(Before to do this step, you may want to add a prefix to your forum database tables, see the config file)
 ```
 php artisan forum:migrate
 ```
@@ -45,7 +46,7 @@ php artisan migrate
 
 ### General
 
-The forum provides a simple custom template, this is published on the resoruces/assets directory, feel free to edit.
+The forum provides a simple custom template, this is published on the resources/assets directory, feel free to edit.
 
 On the config/forum.php file, set the right information of your app.
 
@@ -81,7 +82,7 @@ Also you can set the representative color for this topic in the las parameter (c
 
 ### Database
 
-Customatize your own prefix for the forum database tables.
+Customize your own prefix for the forum database tables.
 ```
 'database' => [
     'prefix' => 'forum'
@@ -94,17 +95,17 @@ The user configuration with the forum includes.
 
 The model key, set the namespace + class name of your users model. By default is App\User as Laravel uses.
 ```
-'model'         => \App\User::class,
+'model' => \App\User::class,
 ```
 
 The username key is the field on your users table that would be used to display the name of the user who post a conversation/reply. You can set any field like email, username, full_name, name, etc, (Must be a field on your users table).
 ```
-'username'    => 'name',
+'username' => 'name',
 ```
 
 Do you have avatars for the users on your project? (Set the key avatar to true if you want to use avatars).
 ```
-'avatar'        => true,
+'avatar' => true,
 ```
 
 If you prefer to use gravatar for your avatars set the key gravatar to true.
@@ -114,7 +115,7 @@ If you prefer to use gravatar for your avatars set the key gravatar to true.
 
 If you want to use your own avatars, then define the field on your users table where the url to the image (avatar) is stored.
 ```
-'user-avatar'  => 'avatar',
+'user-avatar' => 'avatar',
 ```
 
 If you want to include link to profile users, (When you hit the avatar or the name of other users display a user profile)
@@ -137,8 +138,11 @@ Now if the user is not log in, the button for start a conversation will redirect
 If you want you can change the icons to do like and choise the best answer on replies.
 ```
 'icons' => [
+    'tags'              => 'glyphicon glyphicon-tags',
     'like'              => 'glyphicon glyphicon-thumbs-up',
     'correct-answer'    => 'glyphicon glyphicon-ok',
+    'edit'              => 'glyphicon glyphicon-pencil',
+    'delete'            => 'glyphicon glyphicon-trash'
 ],
 ```
 
@@ -187,7 +191,10 @@ Now that's it, easy and you are ready to go!
 http://socieboy.com/forum
 
 
-### Help with translations
+### Translations
+- [x] English
+- [x] Spanish
+- [x] Danish
 
-Currently the forum is developed in English and Spanish language but it's already configured to support other languages, if you want to contribute in this package with your native language copy the folder
-src/Lang/en/ and translate all keys to your language and send a pull request.
+If you want to contribute in this package with your native language copy the folder
+src/Lang/en/ translate all keys to your language and send a pull request.
