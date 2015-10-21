@@ -1,10 +1,7 @@
-# Socieboy Forum
+# Reflex Forum
 Package for Laravel 5.1
 
-[![Total Downloads](https://poser.pugx.org/socieboy/forum/d/total.svg)](https://packagist.org/packages/socieboy/forum)
-[![Latest Stable Version](https://poser.pugx.org/socieboy/forum/v/stable.svg)](https://packagist.org/packages/socieboy/forum)
-[![Latest Unstable Version](https://poser.pugx.org/socieboy/forum/v/unstable.svg)](https://packagist.org/packages/socieboy/forum)
-[![License](https://poser.pugx.org/socieboy/forum/license.svg)](https://packagist.org/packages/socieboy/forum)
+[Based on/forked from socieboy/forum.](https://github.com/socieboy/forum)
 
 ## Features
 
@@ -19,12 +16,12 @@ Package for Laravel 5.1
 
 1.- Add to composer.json file the package
 ```
-"socieboy/forum" : "1.0.*"
+"teamreflex/forum" : "1.0.*"
 ```
 
 2.- After installing this package, you have to set the service provider on your config/app.php file
 ```
-Socieboy\Forum\Providers\ForumServiceProvider::class,
+Reflex\Forum\Providers\ForumServiceProvider::class,
 ```
 
 3.- Publish the forum config file on your config folder and publish the default template to your resources/assets/less/ folder, hit the follow command.
@@ -66,18 +63,7 @@ With those values the forum can be adapted to your project really easily and mat
 
 ### Topics
 
-Define the array of topics for your forum.
-Now you can define the key for the topic, give a name and the representative icon for the topic, you can use any font class of your preference here.
-Also you can set the representative color for this topic in the las parameter (color is optional).
-```
-'topics' => [
-    'general' => [
-        'name' => 'General',
-        'icon' => 'fa fa-tags',
-        'color' => 'rgb(78, 137, 218)'
-    ]
-],
-```
+Topics/categories can be either be seeded into the database before deployment, or you can add something in your admin CMS to edit them.
 
 ### Database
 
@@ -95,6 +81,11 @@ The user configuration with the forum includes.
 The model key, set the namespace + class name of your users model. By default is App\User as Laravel uses.
 ```
 'model'         => \App\User::class,
+```
+
+We have included auth repositories for Laravel built-in auth, as well as Sentinel. Default is Laravel.
+```
+'auth-repo'       => 'Reflex\Forum\Entities\Auth\LaravelAuthRepository',
 ```
 
 The username key is the field on your users table that would be used to display the name of the user who post a conversation/reply. You can set any field like email, username, full_name, name, etc, (Must be a field on your users table).
@@ -125,6 +116,11 @@ If you want to include link to profile users, (When you hit the avatar or the na
 By the fault the forum include a simple user profile. If you want to implement your own just set the route name on this key, just make sure that the route name recive the ID of the user.
 ```
 'profile-route' => 'forum.user.profile'
+```
+
+Some users may use different primary keys for their users, and you can set the column that gets passed as the route parameter here.
+```
+'profile-slug' => 'id',
 ```
 
 Now if the user is not log in, the button for start a conversation will redirect the user to your login page, just set the url of your login page in this key. 
