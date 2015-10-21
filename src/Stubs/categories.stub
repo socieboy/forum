@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Config;
 
-class CreateConversationsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,23 +15,16 @@ class CreateConversationsTable extends Migration
     {
         $databasePrefix = (Config::get('forum.database.prefix') ? Config::get('forum.database.prefix') . '_' : '');
 
-        // Create conversations table.
+        // Create categories table.
         Schema::create(
-            $databasePrefix . 'conversations',
+            $databasePrefix . 'categories',
             function (Blueprint $table) {
                 $table->engine = 'InnoDB';
 
                 $table->increments('id');
-                $table->string('title');
-                $table->text('message');
-                $table->integer('category_id')->unsigned();
-                $table->foreign('category_id')
-                    ->references('id')->on($databasePrefix . 'categories')->onDelete('cascade');
-
-                $table->integer('user_id')->unsigned();
-                $table->foreign('user_id')
-                    ->references('id')->on('users')->onDelete('cascade');
-
+                $table->string('name');
+                $table->string('icon');
+                $table->string('color');
                 $table->string('slug');
                 $table->timestamps();
             }
@@ -47,7 +40,7 @@ class CreateConversationsTable extends Migration
     {
         $databasePrefix = (Config::get('forum.database.prefix') ? Config::get('forum.database.prefix') . '_' : '');
 
-        // Delete conversations table.
-        Schema::drop($databasePrefix . 'conversations');
+        // Delete categories table.
+        Schema::drop($databasePrefix . 'categories');
     }
 }

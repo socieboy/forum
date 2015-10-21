@@ -42,42 +42,22 @@ class Conversation extends BaseModel
     }
 
     /**
+     * Return the category this conversation belongs in.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function topic()
+    {
+        return $this->belongsTo('Reflex\Forum\Entities\Categories\Category', 'topic_id');
+    }
+
+    /**
      * Get owner name attribute
      * @return string
      */
     public function getOwnerNameAttribute()
     {
         return $this->user->{config('forum.user.username')};
-    }
-
-    /**
-     * Return the topic name.
-     *
-     * @return string
-     */
-    public function getTopicAttribute()
-    {
-        return config('forum.topics.' . $this->topic_id)['name'];
-    }
-
-    /**
-     * Return the topic icon.
-     *
-     * @return string
-     */
-    public function getTopicIconAttribute()
-    {
-        return config('forum.topics.' . $this->topic_id)['icon'];
-    }
-
-    /**
-     * Return the topic color.
-     *
-     * @return string
-     */
-    public function getTopicColorAttribute()
-    {
-        return config('forum.topics.' . $this->topic_id)['color'];
     }
 
     /**

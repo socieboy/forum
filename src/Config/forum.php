@@ -18,21 +18,6 @@ return [
      */
     'content' => 'content',
 
-    /*
-     * Define topics for the forum.
-     *
-     * Create the key for each topic and assign an array with the name and the icon
-     * The icon can be anyone of your prefer css framework like glyphicon or Font Awesome
-     * Also you can and the key color, with the value of the representative color of the topic.
-     */
-    'topics' => [
-        'general' => [
-            'name' => 'General',
-            'icon' => 'glyphicon glyphicon-tags',
-            'color' => 'rgb(78, 137, 218)'
-        ]
-    ],
-
     /**
      * Database configurations
      */

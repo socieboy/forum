@@ -6,13 +6,13 @@
 
             @include('Forum::Partials.avatar', ['user' => $conversation->user])
 
-            <h3>{{ $conversation->title }}</h3>
+            <h3>{{ $conversation->ownerName }}</h3>
 
         </div>
 
         <div class="body">
 
-            <span class="name">{{ $conversation->ownerName }}</span>
+            <span class="name">{{ $conversation->title }}</span>
             <span class="hidden-xs time">{{ $conversation->created_at->diffForHumans() }}</span>
 
             <hr/>

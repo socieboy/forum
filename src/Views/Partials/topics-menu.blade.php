@@ -1,5 +1,5 @@
-@foreach(config('forum.topics') as $key => $value)
+@foreach($categories as $category)
     <ul>
-        <a href=""><li>{{ $value }}</li></a>
+        <a href=""><li>{{ $category->slug }}</li></a>
     </ul>
 @endforeach

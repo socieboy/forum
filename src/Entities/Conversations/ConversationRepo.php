@@ -21,7 +21,10 @@ class ConversationRepo extends BaseRepo
      */
     public function topic($topic_id)
     {
-        return $this->model->where('topic_id', $topic_id)->latest()->paginate(10);
+        return $this->model->join('categories', 'conversations.topic_id', '=', 'categories.id')
+                ->where('categories.slug', $topic_id)
+                ->select('conversations.*', 'categories.id', 'categories.slug')
+                ->latest()->paginate(10);
     }
 
     /**

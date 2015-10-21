@@ -1,22 +1,22 @@
 <?php
+
 namespace Reflex\Forum\Providers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 use Reflex\Forum\Commands\MigrateForumCommand;
-use Illuminate\Support\Facades\App;
+use Reflex\Forum\Entities\Categories\CategoryRepo;
 
 class ForumServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
-     *
-     * @return void
      */
     public function boot()
     {
         $this->publishFiles();
-        $this->loadViewsFrom(__DIR__ . '/../Views', 'Forum');
-        $this->loadTranslationsFrom(__DIR__ . '/../Lang', 'Forum');
+        $this->loadViewsFrom(__DIR__.'/../Views', 'Forum');
+        $this->loadTranslationsFrom(__DIR__.'/../Lang', 'Forum');
 
         $this->app->bind(
           'Reflex\Forum\Entities\Auth\AuthRepositoryInterface',
@@ -24,12 +24,11 @@ class ForumServiceProvider extends ServiceProvider
         );
 
         $this->shareGlobalVariables();
+        $this->shareTemplateVariables();
     }
 
     /**
      * Register the application services.
-     *
-     * @return void
      */
     public function register()
     {
@@ -43,7 +42,7 @@ class ForumServiceProvider extends ServiceProvider
         );
 
         $this->commands('command.forum.table');
-        include __DIR__ . '/../routes.php';
+        include __DIR__.'/../routes.php';
     }
 
     /**
@@ -53,8 +52,8 @@ class ForumServiceProvider extends ServiceProvider
     {
         $this->publishes(
             [
-                __DIR__ . '/../Config/forum.php' => base_path('config/forum.php'),
-                __DIR__ . '/../Style/forum' => base_path('resources/assets/less/forum'),
+                __DIR__.'/../Config/forum.php' => base_path('config/forum.php'),
+                __DIR__.'/../Style/forum' => base_path('resources/assets/less/forum'),
             ]
         );
     }
@@ -70,5 +69,22 @@ class ForumServiceProvider extends ServiceProvider
         $auth = $this->app->make(config('forum.auth-repo'));
         view()->share('loggedIn', $auth->check());
         view()->share('currentUser', $auth->getActiveUser());
+    }
+
+    /**
+     * Share template variables.
+     */
+    public function shareTemplateVariables()
+    {
+        $views = [
+            'Forum::Partials.topics-menu',
+            'Forum::Topics.index',
+            'Forum::Conversations.Partials.form',
+        ];
+        view()->composer($views, function ($view) {
+            $repo = new CategoryRepo();
+            $categories = $repo->all();
+            $view->with('categories', $categories);
+        });
     }
 }

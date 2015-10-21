@@ -10,8 +10,8 @@
 
         <div class="hidden-xs topic">
 
-            <i  class="{{ $conversation->topicIcon }}"
-                style="background: {{ $conversation->topicColor }}">
+            <i  class="{{ $conversation->topic->icon }}"
+                style="background: {{ $conversation->topic->color }}">
             </i>
 
             {{--{{ $conversation->topic}}--}}

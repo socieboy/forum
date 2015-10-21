@@ -9,16 +9,16 @@
     </li>
     </a>
 
-    @foreach(config('forum.topics') as $key => $topic)
-        <a href="{{ route('forum.topic', $key) }}">
+    @foreach($categories as $category)
+        <a href="{{ route('forum.topic', $category->slug) }}">
             <li>
                 <span>
-                    <i  class="{{ $topic['icon'] }}"
-                        @if(isset($topic['color']))
-                            style="background: {{ $topic['color'] }}"
+                    <i  class="{{ $category->icon }}"
+                        @if(isset($category->color))
+                            style="background: {{ $category->color }}"
                         @endif >
                     </i>
-                    {{ $topic['name'] }}
+                    {{ $category->name }}
                 </span>
             </li>
         </a>

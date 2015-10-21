@@ -10,8 +10,8 @@
     <label for="title">{{ trans('Forum::messages.topic') }}</label>
     <select name="topic_id" class="form-control">
 
-        @foreach(config('forum.topics') as $key => $topic)
-            <option value="{{ $key }}">{{ $topic['name'] }}</option>
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
         @endforeach
 
     </select>

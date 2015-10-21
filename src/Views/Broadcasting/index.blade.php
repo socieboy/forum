@@ -8,7 +8,7 @@
     <script>
         this.pusher = new Pusher('{{ env('PUSHER_KEY') }}');
 
-        this.pusherChannel = this.pusher.subscribe('socieboy-forum-channel-' + {{ $currentUser->id }});
+        this.pusherChannel = this.pusher.subscribe('reflex-forum-channel-' + {{ $currentUser->id }});
 
         this.pusherChannel.bind('Reflex\\Forum\\Events\\NewReply', function(message) {
              var user = message.user;

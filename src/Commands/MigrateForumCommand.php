@@ -25,9 +25,13 @@ class MigrateForumCommand extends Command
      */
     public function fire()
     {
+        $this->createMigration('categories');
+
+        sleep(1);
+        
         $this->createMigration('conversations');
         $this->createMigration('replies');
-
+        
         sleep(1);
 
         $this->createMigration('likes');
