@@ -16,6 +16,7 @@ return [
     'all'                   => 'Todos',
     'no-conversations'      => 'No se encontraron resultados para esta consulta',
     'replies-counter'       => ':replies respuestas para esta conversacion',
+    'replies'               => 'respuesta|respuestas',
     'post'                  => 'Enviar respuesta',
     'post-conversation'     => 'Publicar conversacion',
     'cancel'                => 'Cancelar',

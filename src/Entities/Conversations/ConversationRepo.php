@@ -23,7 +23,7 @@ class ConversationRepo extends BaseRepo
     {
         return $this->model->join('categories', 'conversations.topic_id', '=', 'categories.id')
                 ->where('categories.slug', $topic_id)
-                ->select('conversations.*', 'categories.id', 'categories.slug')
+                ->select('conversations.*', 'categories.id', 'categories.slug as cat_slug')
                 ->latest()->paginate(10);
     }
 

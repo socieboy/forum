@@ -16,6 +16,7 @@ return [
     'all'                   => 'All',
     'no-conversations'      => 'No threads found!',
     'replies-counter'       => ':replies replies in this thread',
+    'replies'               => 'reply|replies',
     'post'                  => 'Post your reply',
     'post-conversation'     => 'Post thread',
     'cancel'                => 'Cancel',
