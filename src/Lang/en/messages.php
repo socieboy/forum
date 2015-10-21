@@ -10,19 +10,19 @@ return [
 
     'forum'                 => 'Forum',
     'general'               => 'General',
-    'new-conversation'      => 'Start a Conversation',
+    'new-conversation'      => 'Start a Thread',
     'log-in'                => 'Login',
     'search'                => 'Search',
     'all'                   => 'All',
-    'no-conversations'      => 'There are no conversations for this query',
-    'replies-counter'       => ':replies replies in this conversation',
+    'no-conversations'      => 'No threads found!',
+    'replies-counter'       => ':replies replies in this thread',
     'post'                  => 'Post your reply',
-    'post-conversation'     => 'Post conversation',
+    'post-conversation'     => 'Post thread',
     'cancel'                => 'Cancel',
     'text-like'             => 'Like',
-    'title'                 => 'What\'s your question?',
-    'topic'                 => 'Select a channel',
-    'message'               => 'Describe your question...',
-    'notification-reply'    => 'left a new reply on your question',
-    'best-answer-asker-choise' => 'Best answer - Asker\'s Choice'
+    'title'                 => 'Title',
+    'topic'                 => 'Select a category',
+    'message'               => 'Post body',
+    'notification-reply'    => 'left a new reply on your thread',
+    'best-answer-asker-choise' => 'Best Answer - Asker\'s Choice'
 ];
