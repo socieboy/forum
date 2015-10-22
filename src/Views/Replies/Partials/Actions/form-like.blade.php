@@ -4,7 +4,7 @@
 
         <input type="hidden" name="reply_id" value="{{ $reply->id }}"/>
 
-        <button type="submit" class="{{ config('forum.icons.like') }}"></button>
+        <button type="submit" class="{{ config('forum.icons.like') }} like-button"></button>
 
         @if($reply->likes()->count())
 

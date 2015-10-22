@@ -110,6 +110,14 @@ Route::group(
             'uses' => 'RepliesController@destroy'
         ]);
 
+        /**
+         * Route POST to edit a reply
+         */
+        post('/conversation/{slug}/reply/{reply_id}/edit', [
+            'as' => 'forum.conversation.reply.edit',
+            'uses' => 'RepliesController@edit'
+        ]);
+
 
         /**
          * Route to profile.

@@ -2,12 +2,13 @@
 namespace Reflex\Forum\Controllers;
 
 use Illuminate\Http\Request;
+use Reflex\Forum\Requests\EditReplyRequest;
 use Reflex\Forum\Entities\Replies\ReplyRepo;
-use Reflex\Forum\Jobs\Replies\SubscribeUserToThread;
 use Reflex\Forum\Jobs\SetCorrectAnswerStatus;
-use Reflex\Forum\Requests\CorrectAnswerRequest;
 use Reflex\Forum\Requests\CreateReplyRequest;
 use Reflex\Forum\Requests\DeleteReplyRequest;
+use Reflex\Forum\Requests\CorrectAnswerRequest;
+use Reflex\Forum\Jobs\Replies\SubscribeUserToThread;
 
 class RepliesController extends BaseController
 {
@@ -56,6 +57,15 @@ class RepliesController extends BaseController
         $reply = $this->replyRepo->findOrFail($reply_id);
 
         $reply->delete();
+
+        return redirect()->route('forum.conversation.show', $slug);
+    }
+
+    public function edit(EditReplyRequest $request, $slug, $reply_id)
+    {
+        $reply = $this->replyRepo->findOrFail($reply_id);
+
+        $this->dispatchFrom('Reflex\Forum\Jobs\Replies\EditReply', $request);
 
         return redirect()->route('forum.conversation.show', $slug);
     }

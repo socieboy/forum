@@ -1,6 +1,6 @@
  @if($loggedIn)
 
-    <div class="footer">
+    <div class="footer" style="display:flex;">
 
         {{-- LIKE BUTTONS --}}
         @if(!$reply->userLiked())
@@ -21,8 +21,7 @@
 
         @endif
 
-
-{{--        @include('Forum::Replies.Partials.Actions.edit')--}}
+        @include('Forum::Replies.Partials.Actions.edit')
 
         @include('Forum::Replies.Partials.Actions.delete')
 

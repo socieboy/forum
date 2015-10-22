@@ -6,6 +6,19 @@
   border-bottom-right-radius: 5px;
   background: darken(#FDFDFD, 2);
 
+  .edit-reply {
+    opacity: .5;
+    margin: 0px;
+    background: transparent;
+    border: none;
+    font-size: 1.4em;
+    display: block;
+    
+    &:hover{
+      color: @theme-color;
+    }
+  }
+
   form{
 
     button {
@@ -18,7 +31,6 @@
     }
 
     .best-answer{
-      margin-top: -25px;
       float: right;
 
       &:hover{
@@ -27,7 +39,7 @@
     }
 
     .delete-reply{
-      margin: -25px 40px 0px 0px;
+      margin: 0px 40px 0px 0px;
       float: right;
 
       &:hover{
@@ -38,6 +50,12 @@
     .text-like-count{
       margin-top: -23px;
       margin-left: 35px;
+    }
+
+    .like-button {
+      &:hover{
+        color: @theme-color;
+      }
     }
 
     .has-like{
