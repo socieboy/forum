@@ -16,7 +16,7 @@ Package for Laravel 5.1
 
 1.- Add to composer.json file the package
 ```
-"teamreflex/forum" : "1.0.*"
+"team-reflex/forum" : "^1.1"
 ```
 
 2.- After installing this package, you have to set the service provider on your config/app.php file
