@@ -1,4 +1,4 @@
-@if($loggedIn && $reply->user_id == $currentUser->id)
+@if($loggedIn && ($reply->user_id == $currentUser->id || $auth->can('forum-delete-post')))
 
 	    <form action="{{ route('forum.conversation.reply.destroy', [$conversation->slug, $reply->id])}}" method="POST">
 

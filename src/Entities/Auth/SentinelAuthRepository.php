@@ -20,4 +20,9 @@ class SentinelAuthRepository implements AuthRepositoryInterface
     {
         return $this->sentinel->check();
     }
+
+    public function can($permission)
+    {
+        return $this->sentinel->hasAccess($permission);
+    }
 }

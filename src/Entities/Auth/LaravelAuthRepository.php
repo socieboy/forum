@@ -20,4 +20,9 @@ class LaravelAuthRepository implements AuthRepositoryInterface
     {
         return $this->auth->check();
     }
+
+    public function can($permission)
+    {
+        return $this->auth->user->can($permission);
+    }
 }

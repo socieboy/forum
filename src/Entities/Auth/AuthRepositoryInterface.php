@@ -5,4 +5,6 @@ interface AuthRepositoryInterface
     public function getActiveUser();
 
     public function check();
+
+    public function can($permission);
 }
