@@ -113,5 +113,4 @@ class PostReply extends Job implements SelfHandling
     {
         return $this->auth->getActiveUser()->id == $conversation->user_id;
     }
-
 }

@@ -6,9 +6,8 @@ class ProfileController extends BaseController
     /**
      * Initialize profile controller.
      */
-    function __construct()
+    public function __construct()
     {
-        
     }
 
     /**

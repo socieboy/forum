@@ -68,5 +68,4 @@ class MigrateForumCommand extends Command
 
         throw new \Exception('We could not create the migration!');
     }
-
 }

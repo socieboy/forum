@@ -17,7 +17,7 @@ class RepliesController extends BaseController
      *
      * @param ReplyRepo $replyRepo
      */
-    function __construct(ReplyRepo $replyRepo)
+    public function __construct(ReplyRepo $replyRepo)
     {
         $this->replyRepo = $replyRepo;
     }
@@ -69,5 +69,4 @@ class RepliesController extends BaseController
 
         return redirect()->route('forum.conversation.show', $slug);
     }
-
 }

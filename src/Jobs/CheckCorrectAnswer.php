@@ -18,7 +18,7 @@ class CheckCorrectAnswer extends Job implements SelfHandling
     /**
      * @param int $reply_id
      */
-    function __construct($reply_id)
+    public function __construct($reply_id)
     {
         $this->reply_id = $reply_id;
     }

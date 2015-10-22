@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Config;
 
 class BaseModel extends Model
 {
-	protected $auth;
+    protected $auth;
 
     /**
      * Set table prefix if any

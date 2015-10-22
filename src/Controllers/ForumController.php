@@ -14,7 +14,7 @@ class ForumController extends BaseController
     /**
      * @param ConversationRepo $conversationRepo
      */
-    function __construct(ConversationRepo $conversationRepo)
+    public function __construct(ConversationRepo $conversationRepo)
     {
         $this->conversationRepo = $conversationRepo;
     }

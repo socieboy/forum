@@ -4,11 +4,10 @@ use App;
 
 abstract class Job
 {
-	protected $auth;
+    protected $auth;
 
-	public function __construct()
-	{
-		$this->auth = App::make(config('forum.auth-repo'));
-	}
-
+    public function __construct()
+    {
+        $this->auth = App::make(config('forum.auth-repo'));
+    }
 }

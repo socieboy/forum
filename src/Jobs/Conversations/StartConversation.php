@@ -37,7 +37,7 @@ class StartConversation extends Job implements SelfHandling
      * @param string $title
      * @param string $message
      */
-    function __construct($topic_id, $title, $message)
+    public function __construct($topic_id, $title, $message)
     {
         $this->topic_id = $topic_id;
         $this->title = $title;
@@ -56,7 +56,7 @@ class StartConversation extends Job implements SelfHandling
     public function handle(ConversationRepo $conversationRepo)
     {
         $conversation = $conversationRepo->model();
-        $conversation->fill( $this->prepareDate() );
+        $conversation->fill($this->prepareDate());
         $conversation->save();
     }
 

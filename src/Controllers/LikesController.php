@@ -15,7 +15,7 @@ class LikesController extends BaseController
     /**
      * @param LikeRepo $likeRepo
      */
-    function __construct(LikeRepo $likeRepo)
+    public function __construct(LikeRepo $likeRepo)
     {
         $this->likeRepo = $likeRepo;
     }

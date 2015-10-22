@@ -19,5 +19,4 @@ class Category extends BaseModel
         'color',
         'slug'
     ];
-
 }
