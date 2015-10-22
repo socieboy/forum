@@ -1,6 +1,6 @@
 <div class="col-md-12 item form-reply">
 
-        <form action="{{ route('forum.conversation.reply.store', $conversation->slug) }}" method="POST">
+        <form class="reply-form" action="{{ route('forum.conversation.reply.store', $conversation->slug) }}" method="POST">
 
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
