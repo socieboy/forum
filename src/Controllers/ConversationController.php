@@ -6,9 +6,11 @@ use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 use Socieboy\Forum\Jobs\Conversations\CreateConversationThread;
 use Socieboy\Forum\Jobs\StartConversationJob;
 use Socieboy\Forum\Requests\ConversationRequest;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class ConversationController extends Controller
 {
+    use DispatchesJobs;
     /**
      * @var ConversationRepo
      */
