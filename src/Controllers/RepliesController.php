@@ -9,9 +9,13 @@ use Socieboy\Forum\Jobs\SetCorrectAnswerStatus;
 use Socieboy\Forum\Requests\CorrectAnswerRequest;
 use Socieboy\Forum\Requests\CreateReplyRequest;
 use Socieboy\Forum\Requests\DeleteReplyRequest;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class RepliesController extends Controller
 {
+
+    use DispatchesJobs;
+
     /**
      * Implements the reply
      *
