@@ -94,8 +94,8 @@ class PostReply extends Job implements SelfHandling
 
                 $message->from(config('forum.emails.from'), config('forum.emails.from-name'));
 
-                $message->to($reply->user->email,
-                    $reply->user->{config('forum.user.username')})->subject(config('forum.emails.subject'));
+                $message->to($reply->conversation->user->email,
+                    $reply->conversation->user->{config('forum.user.username')})->subject(config('forum.emails.subject'));
             });
     }
 
