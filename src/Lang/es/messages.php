@@ -15,7 +15,7 @@ return [
     'search'                => 'Buscar',
     'all'                   => 'Todos',
     'no-conversations'      => 'No se encontrarón conversaciones que coincidan con tú búsqueda',
-    'replies-counter'       => ':replies respuestas para esta conversacion',
+    'replies-counter'       => ':replies respuestas para esta conversación',
     'replies'               => 'respuesta|respuestas',
     'post'                  => 'Enviar respuesta',
     'post-conversation'     => 'Publicar conversacion',
