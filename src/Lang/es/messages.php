@@ -10,21 +10,21 @@ return [
 
     'forum'                 => 'Foro',
     'general'               => 'General',
-    'new-conversation'      => 'Nueva Conversacion',
-    'log-in'                => 'Iniciar Sesion',
+    'new-conversation'      => 'Nueva Conversación',
+    'log-in'                => 'Iniciar Sesión',
     'search'                => 'Buscar',
     'all'                   => 'Todos',
-    'no-conversations'      => 'No se encontraron resultados para esta consulta',
+    'no-conversations'      => 'No se encontrarón conversaciones que coincidan con tú búsqueda',
     'replies-counter'       => ':replies respuestas para esta conversacion',
     'replies'               => 'respuesta|respuestas',
     'post'                  => 'Enviar respuesta',
     'post-conversation'     => 'Publicar conversacion',
     'cancel'                => 'Cancelar',
-    'text-like'             => 'Like',
-    'title'                 => 'Cual es tu pregunta?',
-    'topic'                 => 'Selecciona una categoria',
-    'message'               => 'Describe tu pregunta...',
-    'notification-reply'    => 'Dejo una respuesta a tu pregunta',
-    'best-answer-asker-choise' => 'Mejor respuesta - Seleccionada por quien pregunta'
+    'text-like'             => 'Me gusta',
+    'title'                 => '¿Cuál es tú pregunta?',
+    'topic'                 => 'Selecciona una categoría',
+    'message'               => 'Explica tu pregunta...',
+    'notification-reply'    => 'Dejó una respuesta a tú pregunta',
+    'best-answer-asker-choise' => 'Mejor respuesta - Elegida por quien pregunta'
 
 ];
