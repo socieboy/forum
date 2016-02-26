@@ -60,5 +60,9 @@ class ForumServiceProvider extends ServiceProvider
     {
         view()->share('template', config('forum.template'));
         view()->share('content', config('forum.content'));
+
+        view()->composer('Forum::Topics.index', function ($view) {
+            $view->with('all', config('forum.icons.all'));
+        });
     }
 }
