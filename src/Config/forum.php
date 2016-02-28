@@ -112,7 +112,8 @@ return [
         'delete'            => 'glyphicon glyphicon-trash',
         'edit'              => 'glyphicon glyphicon-pencil',
         'like'              => 'glyphicon glyphicon-thumbs-up',
-        'tags'              => 'glyphicon glyphicon-tags'
+        'tags'              => 'glyphicon glyphicon-tags',
+        'home'              => 'glyphicon glyphicon-thome',
     ],
 
     /**
