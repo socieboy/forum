@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Config;
 use League\CommonMark\CommonMarkConverter;
 use EasySlug\EasySlug\EasySlugFacade as Slug;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
+use Socieboy\Forum\Events\NewConversation;
 
 class StartConversation extends Job implements SelfHandling
 {
@@ -56,6 +57,10 @@ class StartConversation extends Job implements SelfHandling
         $conversation = $conversationRepo->model();
         $conversation->fill( $this->prepareDate() );
         $conversation->save();
+
+        if (config('forum.broadcasting') && !$this->authUserIsOwner($conversation)) {
+            event(new NewConversation($conversation));
+        }
     }
 
     /**
@@ -74,5 +79,17 @@ class StartConversation extends Job implements SelfHandling
             'message' => $this->converter->convertToHtml($this->message),
             'slug' => Slug::generateUniqueSlug($this->title, $databasePrefix . 'conversations')
         ];
+    }
+
+    /**
+     * Return true if the auth user is the owner of the conversation where the reply was left
+     *
+     * @param $conversation
+     *
+     * @return bool
+     */
+    protected function authUserIsOwner($conversation)
+    {
+        return auth()->user()->id == $conversation->user_id;
     }
 }
