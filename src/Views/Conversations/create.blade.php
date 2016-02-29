@@ -1,5 +1,7 @@
-
-<button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#start-conversation-modal">
+<a type="button" href="{{ route('forum') }}" class="btn btn-primary">
+    <i class="{{ config('forum.icons.home') }}"></i>
+</a>
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#start-conversation-modal">
     {{ trans('Forum::messages.new-conversation') }}
 </button>
 

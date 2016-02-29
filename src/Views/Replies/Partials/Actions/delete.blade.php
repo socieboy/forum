@@ -1,6 +1,6 @@
 @if(auth()->check() && $reply->user_id == auth()->user()->id)
 
-	    <form action="{{ route('forum.conversation.reply.destroy', [$conversation->slug, $reply->id])}}" method="POST">
+	    <form action="{{ route('forum.conversation.reply.destroy', [$conversation->slug, $reply->id])}}" method="POST" class="reply-delete">
 
 	        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 

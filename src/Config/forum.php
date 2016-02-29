@@ -9,7 +9,7 @@ return [
     /*
      * Define @yield( $content ) area where the forum views will be displayed on your app.
      */
-    'content' => 'content',
+    'content'  => 'content',
 
     /*
      * Define topics for the forum.
@@ -18,12 +18,12 @@ return [
      * The icon can be anyone of your prefer css framework like glyphicon or Font Awesome
      * Also you can and the key color, with the value of the representative color of the topic.
      */
-    'topics' => [
+    'topics'   => [
         'general' => [
-            'name' => 'General',
-            'icon' => 'glyphicon glyphicon-tags',
-            'color' => 'rgb(78, 137, 218)'
-        ]
+            'name'  => 'General',
+            'icon'  => 'glyphicon glyphicon-tags',
+            'color' => 'rgb(78, 137, 218)',
+        ],
     ],
 
     /**
@@ -33,17 +33,17 @@ return [
         /**
          * Prefix for your tables
          */
-        'prefix' => ''
+        'prefix' => '',
     ],
 
     /**
      * User settings
      */
-    'user' => [
+    'user'     => [
         /**
          * Path to your user model.
          */
-        'model' => \App\User::class,
+        'model'         => \App\User::class,
 
         /**
          * Define the field on your table user that the forum will use to display the identify user.
@@ -57,34 +57,34 @@ return [
          *
          *  etc...
          */
-        'username' => 'name',
+        'username'      => 'name',
 
         /*
          * Place this key to true to use an avatar in the forum
          */
-        'avatar' => false,
+        'avatar'        => false,
 
         /**
          * By default the forum uses gravatar.
          *
          * Set this key false to use your own avatars on the users table
          */
-        'gravatar' => true,
+        'gravatar'      => true,
 
         /**
          * If you are using your own avatars specify the name of the column on your users table where the path to the avatar is stored.
          */
-        'user-avatar' => 'avatar',
+        'user-avatar'   => 'avatar',
 
         /**
          * Require links to user profile
          */
-        'profile' => false,
+        'profile'       => false,
 
         /**
          * Specify the slug or identifier of your users for the profile.
          */
-        'profile-slug' => 'id',
+        'profile-slug'  => 'id',
 
         /**
          * Route name to user profile.
@@ -96,40 +96,44 @@ return [
     /**
      * User authentication
      */
-    'auth' => [
+    'auth'     => [
         /**
          * Redirect to the login form.
          */
-        'login-url' => 'auth/login'
+        'login-url' => 'auth/login',
     ],
 
     /**
      * Set your own icons of your prefer font
      * By default we use icons from bootstrap
      */
-    'icons' => [
-        'correct-answer'    => 'glyphicon glyphicon-ok',
-        'delete'            => 'glyphicon glyphicon-trash',
-        'edit'              => 'glyphicon glyphicon-pencil',
-        'like'              => 'glyphicon glyphicon-thumbs-up',
-        'tags'              => 'glyphicon glyphicon-tags'
+    'icons'    => [
+        'correct-answer' => 'glyphicon glyphicon-ok',
+        'delete'         => 'glyphicon glyphicon-trash',
+        'edit'           => 'glyphicon glyphicon-pencil',
+        'like'           => 'glyphicon glyphicon-thumbs-up',
+        'tags'           => 'glyphicon glyphicon-tags',
+        'home'           => 'glyphicon glyphicon-thome',
     ],
 
     /**
      * Send an email to the conversation owner each time someone left a reply
      */
-    'emails' => [
-        'fire' => false,
+    'emails'   => [
+        'fire'      => false,
         /**
          * Set the email from
          */
-        'from' => '',
+        'from'      => '',
         'from-name' => 'Admin',
-        'subject' => 'Forum'
+        'subject'   => 'Forum',
     ],
 
     /**
-     * For broadcasting events you must set pusher keys.
+     * Fire events and broadcast them.
      */
-    'broadcasting' => false,
+    'events'   => [
+        'fire'      => true,
+        'broadcast' => false,
+    ],
 ];

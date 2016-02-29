@@ -4,25 +4,25 @@ namespace Socieboy\Forum\Events;
 use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Socieboy\Forum\Entities\Replies\Reply;
+use Socieboy\Forum\Entities\Conversations\Conversation;
 
-class NewReply extends Event implements ShouldBroadcast
+class NewConversation extends Event implements ShouldBroadcast
 {
     use SerializesModels;
 
     /**
-     * @var Reply
+     * @var \Socieboy\Forum\Entities\Conversations\Conversation
      */
-    public $reply;
+    public $conversation;
 
     /**
      * Create a new event instance.
      *
-     * @param Reply $reply
+     * @param \Socieboy\Forum\Entities\Conversations\Conversation $conversation
      */
-    public function __construct(Reply $reply)
+    public function __construct(Conversation $conversation)
     {
-        $this->reply = $reply;
+        $this->conversation = $conversation;
     }
 
     /**
@@ -33,7 +33,7 @@ class NewReply extends Event implements ShouldBroadcast
     public function broadcastOn()
     {
         if (config('forum.events.broadcast') == true) {
-            return ['socieboy-forum-channel-' . $this->reply->conversation->user->id];
+            return ['socieboy-forum-channel-' . $this->conversation->user->id];
         }
     }
 
@@ -46,8 +46,8 @@ class NewReply extends Event implements ShouldBroadcast
     {
         if (config('forum.events.broadcast') == true) {
             return [
-                'user' => $this->reply->user->{config('forum.user.username')},
-                'link' => route('forum.conversation.show', $this->reply->conversation->slug)
+                'user' => $this->conversation->user->{config('forum.user.username')},
+                'link' => route('forum.conversation.show', $this->conversation->slug)
             ];
         }
     }

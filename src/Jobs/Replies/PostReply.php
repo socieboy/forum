@@ -58,7 +58,7 @@ class PostReply extends Job implements SelfHandling
             $this->sendEmail($mailer, $reply);
         }
 
-        if (config('forum.broadcasting') && !$this->authUserIsOwner($reply->conversation)) {
+        if (config('forum.events.fire')) {
             event(new NewReply($reply));
         }
     }
