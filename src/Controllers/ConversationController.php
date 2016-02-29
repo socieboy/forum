@@ -7,6 +7,7 @@ use Socieboy\Forum\Jobs\Conversations\CreateConversationThread;
 use Socieboy\Forum\Jobs\StartConversationJob;
 use Socieboy\Forum\Requests\ConversationRequest;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Socieboy\Forum\Requests\UpdateReplyRequest;
 
 class ConversationController extends Controller
 {
@@ -50,5 +51,33 @@ class ConversationController extends Controller
         $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
 
         return redirect()->route('forum');
+    }
+
+    /**
+     * Display the conversation edit form.
+     *
+     * @param string $slug
+     * @return \Illuminate\View\View
+     */
+    public function edit($slug)
+    {
+        $conversation = $this->conversationRepo->findBySlug($slug);
+
+        return view('Forum::Conversations.edit')->with(compact('conversation'));
+    }
+
+    /**
+     * Update an existing conversation.
+     *
+     * @param UpdateReplyRequest $request
+     * @param                    $slug
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(UpdateReplyRequest $request, $slug)
+    {
+        $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\UpdateConversation', $request);
+
+        return redirect()->route('forum.conversation.show', $slug);
     }
 }

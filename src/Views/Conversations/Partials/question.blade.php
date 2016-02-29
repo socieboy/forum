@@ -24,6 +24,8 @@
 
         </div>
 
+        @include('Forum::Conversations.Partials.footer')
+
     </div>
 
 </div>

@@ -59,6 +59,22 @@ Route::group(
         );
 
         /**
+         * Route GET to edit a conversation
+         */
+        get('/conversation/{slug}/edit', [
+            'as' => 'forum.conversation.edit',
+            'uses' => 'ConversationController@edit'
+        ]);
+
+        /**
+         * Route POST to edit a conversation
+         */
+        post('/conversation/{slug}/edit', [
+            'as' => 'forum.conversation.edit',
+            'uses' => 'ConversationController@update'
+        ]);
+
+        /**
          * Route POST to store a new reply
          */
         post(
@@ -101,6 +117,22 @@ Route::group(
                 'uses' => 'RepliesController@correctAnswer'
             ]
         );
+
+        /**
+         * Route GET to edit a reply
+         */
+        get('/conversation/{slug}/reply/{reply_id}/edit', [
+            'as' => 'forum.conversation.reply.edit',
+            'uses' => 'RepliesController@edit'
+        ]);
+
+        /**
+         * Route POST to edit a reply
+         */
+        post('/conversation/{slug}/reply/{reply_id}/edit', [
+            'as' => 'forum.conversation.reply.edit',
+            'uses' => 'RepliesController@update'
+        ]);
 
         /**
          * Route POST to destroy a reply

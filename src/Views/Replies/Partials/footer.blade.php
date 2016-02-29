@@ -24,6 +24,7 @@
 
 {{--        @include('Forum::Replies.Partials.Actions.edit')--}}
 
+        @include('Forum::Replies.Partials.Actions.edit')
         @include('Forum::Replies.Partials.Actions.delete')
 
     </div>
