@@ -1,12 +1,12 @@
 <?php
 
 Route::group(
-    ['prefix' => 'forum', 'namespace' => 'Socieboy\Forum\Controllers'],
+    ['prefix' => 'forum', 'namespace' => 'Socieboy\Forum\Controllers', 'middleware' => 'web'],
     function () {
         /**
          * Route GET for the main page
          */
-        get(
+        Route::get(
             '/',
             [
                 'as' => 'forum',
@@ -17,7 +17,7 @@ Route::group(
         /**
          * Route GET to filter conversations by topic
          */
-        get(
+        Route::get(
             '/topic/{topic}',
             [
                 'as' => 'forum.topic',
@@ -28,7 +28,7 @@ Route::group(
         /**
          * Route POST to search or filter conversations
          */
-        post(
+        Route::post(
             '/search',
             [
                 'as' => 'forum.search',
@@ -39,7 +39,7 @@ Route::group(
         /**
          * Route POST to store a new conversation
          */
-        post(
+        Route::post(
             '/conversation',
             [
                 'as' => 'forum.conversation.store',
@@ -50,7 +50,7 @@ Route::group(
         /**
          * Route GET to show a conversation
          */
-        get(
+        Route::get(
             '/conversation/{slug}',
             [
                 'as' => 'forum.conversation.show',
@@ -61,7 +61,7 @@ Route::group(
         /**
          * Route POST to store a new reply
          */
-        post(
+        Route::post(
             '/conversation/{slug}/reply',
             [
                 'as' => 'forum.conversation.reply.store',
@@ -72,7 +72,7 @@ Route::group(
         /**
          * Route POST to do like a reply
          */
-        post(
+        Route::post(
             '/conversation/{slug}/reply/like',
             [
                 'as' => 'forum.conversation.reply.like',
@@ -83,7 +83,7 @@ Route::group(
         /**
          * Route POST to do unlike a reply
          */
-        post(
+        Route::post(
             '/conversation/{slug}/reply/unlike',
             [
                 'as' => 'forum.conversation.reply.unlike',
@@ -94,7 +94,7 @@ Route::group(
         /**
          * Route POST to check correct answer
          */
-        post(
+        Route::post(
             '/conversation/{slug}/reply/{conversation_user_id}/correct-answer',
             [
                 'as' => 'forum.conversation.reply.correct-answer',
@@ -105,7 +105,7 @@ Route::group(
         /**
          * Route POST to destroy a reply
          */
-        post('/conversation/{slug}/reply/{reply_id}/destroy', [
+        Route::post('/conversation/{slug}/reply/{reply_id}/destroy', [
             'as' => 'forum.conversation.reply.destroy',
             'uses' => 'RepliesController@destroy'
         ]);
@@ -114,7 +114,7 @@ Route::group(
         /**
          * Route to profile.
          */
-        get(
+        Route::post(
             '/{id}/profile',
             [
                 'as' => 'forum.user.profile',

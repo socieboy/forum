@@ -29,7 +29,7 @@ class ForumServiceProvider extends ServiceProvider
     {
         App::register(\EasySlug\EasySlug\EasySlugServiceProvider::class);
 
-        $this->app->bindShared(
+        $this->app->bind(
             'command.forum.table',
             function ($app) {
                 return new MigrateForumCommand();
