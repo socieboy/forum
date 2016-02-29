@@ -32,7 +32,9 @@ class NewConversation extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['socieboy-forum-channel-' . $this->conversation->user->id];
+        if (config('forum.events.broadcast') == true) {
+            return ['socieboy-forum-channel-' . $this->conversation->user->id];
+        }
     }
 
     /**
@@ -42,9 +44,11 @@ class NewConversation extends Event implements ShouldBroadcast
      */
     public function broadcastWith()
     {
-        return [
-            'user' => $this->conversation->user->{config('forum.user.username')},
-            'link' => route('forum.conversation.show', $this->conversation->slug)
-        ];
+        if (config('forum.events.broadcast') == true) {
+            return [
+                'user' => $this->conversation->user->{config('forum.user.username')},
+                'link' => route('forum.conversation.show', $this->conversation->slug)
+            ];
+        }
     }
 }

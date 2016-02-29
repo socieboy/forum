@@ -2,8 +2,6 @@
 namespace Socieboy\Forum\Events;
 
 use App\Events\Event;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Socieboy\Forum\Entities\Replies\Reply;
 
 class BestAnswer extends Event implements ShouldBroadcast
@@ -32,7 +30,9 @@ class BestAnswer extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['socieboy-forum-channel-' . $this->reply->conversation->user->id];
+        if (config('forum.events.broadcast') == true) {
+            return ['socieboy-forum-channel-' . $this->reply->conversation->user->id];
+        }
     }
 
     /**
@@ -42,9 +42,11 @@ class BestAnswer extends Event implements ShouldBroadcast
      */
     public function broadcastWith()
     {
-        return [
-            'user' => $this->reply->user->{config('forum.user.username')},
-            'link' => route('forum.conversation.show', $this->reply->conversation->slug)
-        ];
+        if (config('forum.events.broadcast') == true) {
+            return [
+                'user' => $this->reply->user->{config('forum.user.username')},
+                'link' => route('forum.conversation.show', $this->reply->conversation->slug)
+            ];
+        }
     }
 }
