@@ -2,8 +2,8 @@
 
 namespace Socieboy\Forum\Requests;
 
-use App\Http\Requests\Request;
 use Illuminate\Auth\Guard;
+use App\Http\Requests\Request;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
 
 class DeleteReplyRequest extends Request

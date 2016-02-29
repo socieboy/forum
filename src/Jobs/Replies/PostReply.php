@@ -3,9 +3,9 @@ namespace Socieboy\Forum\Jobs\Replies;
 
 use App\Jobs\Job;
 use Illuminate\Mail\Mailer;
+use Socieboy\Forum\Events\NewReply;
 use Socieboy\Forum\Entities\Replies\Reply;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
-use Socieboy\Forum\Events\NewReply;
 
 class PostReply extends Job
 {
