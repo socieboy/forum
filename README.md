@@ -19,7 +19,7 @@ Package for Laravel 5.2
 
 1.- Add to composer.json file the package
 ```
-"socieboy/forum" : "1.0.*"
+"socieboy/forum" : "2.0.*"
 ```
 
 2.- After installing this package, you have to set the service provider on your config/app.php file
