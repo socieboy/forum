@@ -2,7 +2,6 @@
 namespace Socieboy\Forum\Requests;
 
 use App\Http\Requests\Request;
-use Illuminate\Support\Facades\Config;
 
 class CreateReplyRequest extends Request
 {
@@ -23,7 +22,7 @@ class CreateReplyRequest extends Request
      */
     public function rules()
     {
-        $databasePrefix = (Config::get('forum.database.prefix') ? Config::get('forum.database.prefix') . '_' : '');
+        $databasePrefix = (config('forum.database.prefix') ? config('forum.database.prefix') . '_' : '');
 
         return [
             'conversation_id' => 'required|exists:'.$databasePrefix.'conversations,id',
