@@ -1,5 +1,5 @@
 # Socieboy Forum
-Package for Laravel 5.1
+Package for Laravel 5.2
 
 [![Total Downloads](https://poser.pugx.org/socieboy/forum/d/total.svg)](https://packagist.org/packages/socieboy/forum)
 [![Latest Stable Version](https://poser.pugx.org/socieboy/forum/v/stable.svg)](https://packagist.org/packages/socieboy/forum)
