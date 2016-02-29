@@ -2,15 +2,14 @@
 namespace Socieboy\Forum\Jobs\Conversations;
 
 use App\Jobs\Job;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use League\CommonMark\CommonMarkConverter;
+use Socieboy\Forum\Events\NewConversation;
 use EasySlug\EasySlug\EasySlugFacade as Slug;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
-use Socieboy\Forum\Events\NewConversation;
 
-class StartConversation extends Job implements SelfHandling
+class StartConversation extends Job
 {
     /**
      * @var string

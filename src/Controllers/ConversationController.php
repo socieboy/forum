@@ -2,11 +2,11 @@
 namespace Socieboy\Forum\Controllers;
 
 use Illuminate\Routing\Controller;
-use Socieboy\Forum\Entities\Conversations\ConversationRepo;
-use Socieboy\Forum\Jobs\Conversations\CreateConversationThread;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Socieboy\Forum\Jobs\StartConversationJob;
 use Socieboy\Forum\Requests\ConversationRequest;
-use Illuminate\Foundation\Bus\DispatchesJobs;
+use Socieboy\Forum\Entities\Conversations\ConversationRepo;
+use Socieboy\Forum\Jobs\Conversations\CreateConversationThread;
 
 class ConversationController extends Controller
 {

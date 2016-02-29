@@ -1,11 +1,11 @@
 <?php
 namespace Socieboy\Forum\Controllers;
 
-use Socieboy\Forum\Entities\Likes\LikeManager;
-use Socieboy\Forum\Entities\Likes\LikeRepo;
 use Illuminate\Routing\Controller;
 use Socieboy\Forum\Requests\LikeRequest;
+use Socieboy\Forum\Entities\Likes\LikeRepo;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Socieboy\Forum\Entities\Likes\LikeManager;
 
 class LikesController extends Controller
 {

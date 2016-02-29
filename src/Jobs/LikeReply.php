@@ -2,12 +2,11 @@
 namespace Socieboy\Forum\Jobs;
 
 use App\Jobs\Job;
-use Illuminate\Contracts\Bus\SelfHandling;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Queue\SerializesModels;
 use Socieboy\Forum\Entities\Likes\LikeRepo;
 
-class LikeReply extends Job implements SelfHandling
+class LikeReply extends Job
 {
     use SerializesModels;
 

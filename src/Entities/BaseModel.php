@@ -1,8 +1,8 @@
 <?php
 namespace Socieboy\Forum\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Database\Eloquent\Model;
 
 class BaseModel extends Model
 {

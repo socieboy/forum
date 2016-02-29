@@ -2,14 +2,13 @@
 namespace Socieboy\Forum\Controllers;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
-use Socieboy\Forum\Jobs\Replies\SubscribeUserToThread;
 use Socieboy\Forum\Jobs\SetCorrectAnswerStatus;
-use Socieboy\Forum\Requests\CorrectAnswerRequest;
 use Socieboy\Forum\Requests\CreateReplyRequest;
 use Socieboy\Forum\Requests\DeleteReplyRequest;
-use Illuminate\Foundation\Bus\DispatchesJobs;
+use Socieboy\Forum\Requests\CorrectAnswerRequest;
+use Socieboy\Forum\Jobs\Replies\SubscribeUserToThread;
 
 class RepliesController extends Controller
 {

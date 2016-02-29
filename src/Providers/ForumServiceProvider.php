@@ -1,9 +1,9 @@
 <?php
 namespace Socieboy\Forum\Providers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 use Socieboy\Forum\Commands\MigrateForumCommand;
-use Illuminate\Support\Facades\App;
 
 class ForumServiceProvider extends ServiceProvider
 {

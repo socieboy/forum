@@ -2,15 +2,13 @@
 namespace Socieboy\Forum\Jobs\Replies;
 
 use App\Jobs\Job;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Mail\Mailer;
-use Illuminate\Support\Facades\Auth;
+use Socieboy\Forum\Events\NewReply;
 use League\CommonMark\CommonMarkConverter;
 use Socieboy\Forum\Entities\Replies\Reply;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
-use Socieboy\Forum\Events\NewReply;
 
-class PostReply extends Job implements SelfHandling
+class PostReply extends Job
 {
     /**
      * @var int
