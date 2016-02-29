@@ -25,6 +25,7 @@
         <label for="message">{{ trans('Forum::messages.message') }}</label>
 
         <textarea name="message" class="form-control" cols="30" rows="10">{{ $conversation->message }}</textarea>
+        @include('Forum::Partials.markdown-supported')
 
         @if($errors->has('message'))
           <p class="help-block">

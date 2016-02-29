@@ -13,6 +13,7 @@
       <div class="form-group @if($errors->has('message')) has-error @endif">
 
         <textarea name="message" class="form-control" cols="30" rows="10">{{ $reply->message }}</textarea>
+        @include('Forum::Partials.markdown-supported')
 
         @if($errors->has('message'))
           <p class="help-block">
