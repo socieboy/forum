@@ -4,6 +4,9 @@ namespace Socieboy\Forum\Controllers;
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
+use Socieboy\Forum\Jobs\CheckCorrectAnswer;
+use Socieboy\Forum\Jobs\Replies\PostReply;
+use Socieboy\Forum\Jobs\Replies\UpdateReply;
 use Socieboy\Forum\Jobs\SetCorrectAnswerStatus;
 use Socieboy\Forum\Requests\CreateReplyRequest;
 use Socieboy\Forum\Requests\DeleteReplyRequest;
@@ -37,9 +40,9 @@ class RepliesController extends Controller
      */
     public function store(CreateReplyRequest $request, $slug)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\Replies\PostReply', $request);
+        $this->dispatch(new PostReply($request));
 
-        return redireroute('forum.conversation', $slug);
+        return redirect()->route('forum.conversation.show', $slug);
     }
 
     /**
@@ -55,7 +58,7 @@ class RepliesController extends Controller
         $reply        = $this->replyRepo->find($reply_id);
         $conversation = $reply->conversation;
 
-        return view('Forum::Replies . edit')->with(compact('reply', 'conversation'));
+        return view('Forum::Replies.edit')->with(compact('reply', 'conversation'));
     }
 
     /**
@@ -69,9 +72,8 @@ class RepliesController extends Controller
      */
     public function update(UpdateReplyRequest $request, $slug, $reply_id)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\Replies\UpdateReply', $request);
-
-        return redirect()->route('forum . conversation . show', $slug);
+        $this->dispatch(new UpdateReply($request));
+        return redirect()->route('forum.conversation.show', $slug);
     }
 
     /**
@@ -83,7 +85,7 @@ class RepliesController extends Controller
      */
     public function correctAnswer(CorrectAnswerRequest $request)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\CheckCorrectAnswer', $request);
+        $this->dispatch(new CheckCorrectAnswer($request));
 
         return redirect()->back();
     }
@@ -92,10 +94,8 @@ class RepliesController extends Controller
     public function destroy(DeleteReplyRequest $request, $slug, $reply_id)
     {
         $reply = $this->replyRepo->findOrFail($reply_id);
-
         $reply->delete();
-
-        return redirect()->route('forum . conversation . show', $slug);
+        return redirect()->route('forum.conversation.show', $slug);
     }
 
 }

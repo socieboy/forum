@@ -11,17 +11,16 @@ class DeleteReplyRequest extends Request
     /**
      * Determine if the user is authorized to make this request.
      *
-     * @param Guard $auth
      * @param ReplyRepo $replyRepo
      * @return bool
      */
-    public function authorize(Guard $auth, ReplyRepo $replyRepo)
+    public function authorize(ReplyRepo $replyRepo)
     {
         $reply_id = $this->route('reply_id');
 
         $reply = $replyRepo->findOrFail($reply_id);
 
-        return  $reply->user_id == $auth->user()->id;
+        return  $reply->user_id == auth()->user()->id;
     }
 
     /**

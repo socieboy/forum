@@ -127,9 +127,9 @@ Route::group(
         ]);
 
         /**
-         * Route POST to edit a reply
+         * Route put to edit a reply
          */
-        Route::post('/conversation/{slug}/reply/{reply_id}/edit', [
+        Route::put('/conversation/{slug}/reply/{reply_id}/edit', [
             'as' => 'forum.conversation.reply.edit',
             'uses' => 'RepliesController@update'
         ]);
@@ -137,7 +137,7 @@ Route::group(
         /**
          * Route POST to destroy a reply
          */
-        Route::post('/conversation/{slug}/reply/{reply_id}/destroy', [
+        Route::delete('/conversation/{slug}/reply/{reply_id}/destroy', [
             'as' => 'forum.conversation.reply.destroy',
             'uses' => 'RepliesController@destroy'
         ]);

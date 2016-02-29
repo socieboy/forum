@@ -16,11 +16,11 @@ class CheckCorrectAnswer extends Job
     protected $reply_id;
 
     /**
-     * @param int $reply_id
+     * @param Request $request
      */
-    function __construct($reply_id)
+    function __construct($request)
     {
-        $this->reply_id = $reply_id;
+        $this->reply_id = $request->reply_id;
     }
 
     /**

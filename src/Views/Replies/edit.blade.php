@@ -6,6 +6,8 @@
 
   <div class="modal-body">
 
+      <input type="hidden" name="_method" value="PUT"/>
+
       <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
       <input type="hidden" name="id" value="{{ $reply->id }}"/>

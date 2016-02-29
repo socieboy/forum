@@ -2,11 +2,15 @@
 namespace Socieboy\Forum\Jobs\Replies;
 
 use App\Jobs\Job;
-use Illuminate\Contracts\Bus\SelfHandling;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
 
-class UpdateReply extends Job implements SelfHandling
+class UpdateReply extends Job implements ShouldQueue
 {
+    use InteractsWithQueue, SerializesModels;
+
     /**
      * @var int
      */
@@ -20,13 +24,12 @@ class UpdateReply extends Job implements SelfHandling
     /**
      * Create a new job instance.
      *
-     * @param int    $id
-     * @param string $message
+     * @param request   $request
      */
-    public function __construct($id, $message)
+    public function __construct($request)
     {
-        $this->id      = $id;
-        $this->message = strip_tags($message);
+        $this->id      = $request->id;
+        $this->message = strip_tags($request->message);
     }
 
     /**

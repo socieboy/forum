@@ -2,6 +2,8 @@
 namespace Socieboy\Forum\Controllers;
 
 use Illuminate\Routing\Controller;
+use Socieboy\Forum\Jobs\LikeReply;
+use Socieboy\Forum\Jobs\UnLikeReply;
 use Socieboy\Forum\Requests\LikeRequest;
 use Socieboy\Forum\Entities\Likes\LikeRepo;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -34,7 +36,7 @@ class LikesController extends Controller
      */
     public function like(LikeRequest $request, $slug)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\LikeReply', $request);
+        $this->dispatch(new LikeReply($request));
 
         return redirect()->route('forum.conversation.show', $slug);
     }
@@ -47,7 +49,7 @@ class LikesController extends Controller
      */
     public function unlike(LikeRequest $request, $slug)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\UnLikeReply', $request);
+        $this->dispatch(new UnLikeReply($request));
 
         return redirect()->route('forum.conversation.show', $slug);
     }

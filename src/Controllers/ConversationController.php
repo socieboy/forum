@@ -4,6 +4,8 @@ namespace Socieboy\Forum\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Socieboy\Forum\Jobs\Conversations\StartConversation;
+use Socieboy\Forum\Jobs\Conversations\UpdateConversation;
 use Socieboy\Forum\Jobs\StartConversationJob;
 use Socieboy\Forum\Requests\ConversationRequest;
 use Socieboy\Forum\Requests\UpdateReplyRequest;
@@ -52,7 +54,7 @@ class ConversationController extends Controller
      */
     public function store(ConversationRequest $request)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\StartConversation', $request);
+        $this->dispatch(new StartConversation($request));
 
         return redirect()->route('forum');
     }
@@ -81,8 +83,7 @@ class ConversationController extends Controller
      */
     public function update(UpdateReplyRequest $request, $slug)
     {
-        $this->dispatchFrom('Socieboy\Forum\Jobs\Conversations\UpdateConversation', $request);
-
+        $this->dispatch(new UpdateConversation($request));
         return redirect()->route('forum.conversation.show', $slug);
     }
 }

@@ -4,11 +4,16 @@ namespace Socieboy\Forum\Jobs\Replies;
 use App\Jobs\Job;
 use Illuminate\Mail\Mailer;
 use Socieboy\Forum\Events\NewReply;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
 use Socieboy\Forum\Entities\Replies\Reply;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
 
-class PostReply extends Job
+class PostReply extends Job implements ShouldQueue
 {
+    use InteractsWithQueue, SerializesModels;
+
     /**
      * @var int
      */
@@ -22,13 +27,12 @@ class PostReply extends Job
     /**
      * Create a new job instance.
      *
-     * @param int    $conversation_id
-     * @param string $message
+     * @param Request $request
      */
-    public function __construct($conversation_id, $message)
+    public function __construct($request)
     {
-        $this->conversation_id = $conversation_id;
-        $this->message = strip_tags($message);
+        $this->conversation_id = $request->conversation_id;
+        $this->message = strip_tags($request->message);
     }
 
     /**

@@ -2,12 +2,17 @@
 namespace Socieboy\Forum\Jobs\Conversations;
 
 use App\Jobs\Job;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
 use Socieboy\Forum\Events\NewConversation;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use EasySlug\EasySlug\EasySlugFacade as Slug;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 
-class StartConversation extends Job
+class StartConversation extends Job implements ShouldQueue
 {
+    use InteractsWithQueue, SerializesModels;
+
     /**
      * @var string
      */
@@ -26,15 +31,13 @@ class StartConversation extends Job
     /**
      * Create a new job instance.
      *
-     * @param string $topic_id
-     * @param string $title
-     * @param string $message
+     * @param Request $request
      */
-    function __construct($topic_id, $title, $message)
+    function __construct($request)
     {
-        $this->topic_id  = $topic_id;
-        $this->title     = strip_tags($title);
-        $this->message   = strip_tags($message);
+        $this->topic_id  = $request->topic_id;
+        $this->title     = strip_tags($request->title);
+        $this->message   = strip_tags($request->message);
     }
 
     /**

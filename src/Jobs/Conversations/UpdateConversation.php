@@ -2,11 +2,19 @@
 namespace Socieboy\Forum\Jobs\Conversations;
 
 use App\Jobs\Job;
-use Illuminate\Contracts\Bus\SelfHandling;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 
-class UpdateConversation extends Job implements SelfHandling
+class UpdateConversation extends Job implements ShouldQueue
 {
+    use InteractsWithQueue, SerializesModels;
+
+    /**
+     * @var string
+     */
+    protected $title;
     /**
      * @var int
      */
@@ -24,11 +32,11 @@ class UpdateConversation extends Job implements SelfHandling
      * @param string $message
      * @param string $title
      */
-    public function __construct($slug, $message, $title)
+    public function __construct($request)
     {
-        $this->slug    = $slug;
-        $this->title   = strip_tags($title);
-        $this->message = strip_tags($message);
+        $this->slug    = $request->slug;
+        $this->title   = strip_tags($request->title);
+        $this->message = strip_tags($request->message);
     }
 
     /**

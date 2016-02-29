@@ -3,11 +3,13 @@ namespace Socieboy\Forum\Jobs;
 
 use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Socieboy\Forum\Entities\Likes\LikeRepo;
 
-class LikeReply extends Job
+class LikeReply extends Job implements ShouldQueue
 {
-    use SerializesModels;
+    use InteractsWithQueue, SerializesModels;
 
     /**
      * @var int
@@ -19,9 +21,9 @@ class LikeReply extends Job
      *
      * @param int $reply_id
      */
-    public function __construct($reply_id)
+    public function __construct($request)
     {
-        $this->reply_id = $reply_id;
+        $this->reply_id = $request->reply_id;
     }
 
     /**

@@ -2,11 +2,15 @@
 namespace Socieboy\Forum\Jobs;
 
 use App\Jobs\Job;
-use Illuminate\Auth\Guard;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Socieboy\Forum\Entities\Likes\LikeRepo;
 
-class UnLikeReply extends Job
+class UnLikeReply extends Job implements ShouldQueue
 {
+    use InteractsWithQueue, SerializesModels;
+
     /**
      * @var int
      */
@@ -15,23 +19,22 @@ class UnLikeReply extends Job
     /**
      * Create a new job instance.
      *
-     * @param int $reply_id
+     * @param Request $request
      */
-    public function __construct($reply_id)
+    public function __construct($request)
     {
-        $this->reply_id = $reply_id;
+        $this->reply_id = $request->reply_id;
     }
 
     /**
      * Execute the job.
      *
      * @param LikeRepo $likeRepo
-     * @param Guard $auth
      * @return void
      */
-    public function handle(LikeRepo $likeRepo, Guard $auth)
+    public function handle(LikeRepo $likeRepo)
     {
-        $like = $likeRepo->where('user_id', $auth->user()->id)
+        $like = $likeRepo->where('user_id', auth()->user()->id)
             ->where('reply_id', $this->reply_id)
             ->first();
 
