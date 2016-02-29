@@ -58,7 +58,7 @@ class StartConversation extends Job implements SelfHandling
         $conversation->fill( $this->prepareDate() );
         $conversation->save();
 
-        if (config('forum.broadcasting') && !$this->authUserIsOwner($conversation)) {
+        if (config('forum.events.fire')) {
             event(new NewConversation($conversation));
         }
     }

@@ -33,7 +33,7 @@ class CheckCorrectAnswer extends Job implements SelfHandling
         $reply->correct_answer = !$reply->correct_answer;
         $reply->save();
 
-        if (config('forum.broadcasting') && !$this->authUserIsOwner($reply->conversation)) {
+        if (config('forum.events.fire')) {
             event(new BestAnswer($reply));
         }
     }
