@@ -19,7 +19,7 @@
 
 
             <div class="content">
-                {!! nl2br($conversation->message) !!}
+                {!! nl2br($commonMark->convertToHtml($conversation->message)) !!}
             </div>
 
         </div>
