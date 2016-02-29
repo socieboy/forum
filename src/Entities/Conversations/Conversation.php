@@ -38,7 +38,7 @@ class Conversation extends BaseModel
      */
     public function replies()
     {
-        return $this->hasMany('Socieboy\Forum\Entities\Replies\Reply')->latest();
+        return $this->hasMany('Socieboy\Forum\Entities\Replies\Reply');
     }
 
     /**

@@ -26,7 +26,7 @@ class ConversationController extends Controller
     }
 
     /**
-     * Display a conversation and replies
+     * Display a conversation and replies.
      *
      * @param string $slug
      * @return \Illuminate\View\View
@@ -34,7 +34,7 @@ class ConversationController extends Controller
     public function show($slug)
     {
         $conversation = $this->conversationRepo->findBySlug($slug);
-        $replies = $conversation->replies()->orderBy('created_at', 'DESC')->paginate(4);
+        $replies = $conversation->replies()->orderBy('created_at', 'asc')->paginate(4);
 
         return view('Forum::Conversations.show', compact('conversation', 'replies'));
     }
