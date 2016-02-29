@@ -4,7 +4,6 @@ namespace Socieboy\Forum\Requests;
 
 use Illuminate\Auth\Guard;
 use App\Http\Requests\Request;
-use Illuminate\Support\Facades\Config;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
 
 class DeleteReplyRequest extends Request
@@ -32,7 +31,7 @@ class DeleteReplyRequest extends Request
      */
     public function rules()
     {
-        $databasePrefix = (Config::get('forum.database.prefix') ? Config::get('forum.database.prefix') . '_' : '');
+        $databasePrefix = (config('forum.database.prefix') ? config('forum.database.prefix') . '_' : '');
 
         return [
             'reply_id' => 'required|exists:'.$databasePrefix.'replies,id'

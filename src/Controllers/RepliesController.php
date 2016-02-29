@@ -8,6 +8,7 @@ use Socieboy\Forum\Jobs\SetCorrectAnswerStatus;
 use Socieboy\Forum\Requests\CreateReplyRequest;
 use Socieboy\Forum\Requests\DeleteReplyRequest;
 use Socieboy\Forum\Requests\CorrectAnswerRequest;
+use Socieboy\Forum\Requests\UpdateReplyRequest;
 use Socieboy\Forum\Jobs\Replies\SubscribeUserToThread;
 
 class RepliesController extends Controller
@@ -38,7 +39,39 @@ class RepliesController extends Controller
     {
         $this->dispatchFrom('Socieboy\Forum\Jobs\Replies\PostReply', $request);
 
-        return redirect()->route('forum.conversation.show', $slug);
+        return redireroute('forum.conversation', $slug);
+    }
+
+    /**
+     * Display the reply edit form.
+     *
+     * @param string $slug
+     * @param int    $reply_id
+     *
+     * @return \Illuminate\View\View
+     */
+    public function edit($slug, $reply_id)
+    {
+        $reply        = $this->replyRepo->find($reply_id);
+        $conversation = $reply->conversation;
+
+        return view('Forum::Replies . edit')->with(compact('reply', 'conversation'));
+    }
+
+    /**
+     * Update an existing reply.
+     *
+     * @param UpdateReplyRequest $request
+     * @param string             $slug
+     * @param int                $reply_id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(UpdateReplyRequest $request, $slug, $reply_id)
+    {
+        $this->dispatchFrom('Socieboy\Forum\Jobs\Replies\UpdateReply', $request);
+
+        return redirect()->route('forum . conversation . show', $slug);
     }
 
     /**
@@ -62,7 +95,7 @@ class RepliesController extends Controller
 
         $reply->delete();
 
-        return redirect()->route('forum.conversation.show', $slug);
+        return redirect()->route('forum . conversation . show', $slug);
     }
 
 }

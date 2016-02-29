@@ -9,6 +9,7 @@
             <div class="form-group @if($errors->has('message')) has-error @endif">
 
                 <textarea name="message" class="form-control" cols="30" rows="10"></textarea>
+                @include('Forum::Partials.markdown-supported')
 
                 @if($errors->has('message'))
                     <p class="help-block">
@@ -17,6 +18,7 @@
                 @endif
 
             </div>
+
 
             <a class="btn btn-default" href="{{ route('forum') }}">
                 {{ trans('Forum::messages.cancel') }}

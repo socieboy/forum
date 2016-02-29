@@ -21,5 +21,6 @@
 <div class="form-group @if($errors->has('message')) has-error @endif">
     <label for="message">{{ trans('Forum::messages.message') }}</label>
     <textarea class="form-control"  cols="30" rows="14" style="resize:none" name="message"></textarea>
+    @include('Forum::Partials.markdown-supported')
     @if($errors->has('title')) <p class="help-block">{{ $errors->first('message') }}</p> @endif
 </div>

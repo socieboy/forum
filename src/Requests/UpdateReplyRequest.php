@@ -3,7 +3,7 @@ namespace Socieboy\Forum\Requests;
 
 use App\Http\Requests\Request;
 
-class CreateReplyRequest extends Request
+class UpdateReplyRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,8 @@ class CreateReplyRequest extends Request
      */
     public function rules()
     {
-        $databasePrefix = (config('forum.database.prefix') ? config('forum.database.prefix') . '_' : '');
-
         return [
-            'conversation_id' => 'required|exists:'.$databasePrefix.'conversations,id',
-            'message' => 'required'
+            'message' => 'required',
         ];
     }
 }
