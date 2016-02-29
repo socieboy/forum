@@ -149,6 +149,7 @@ If you want you can change the icons to do like and choise the best answer on re
     'correct-answer'    => 'glyphicon glyphicon-ok',
     'edit'              => 'glyphicon glyphicon-pencil',
     'delete'            => 'glyphicon glyphicon-trash'
+    'home'              => 'glyphicon glyphicon-home',
 ],
 ```
 
@@ -177,14 +178,19 @@ Finally just set the subject for the emails fired.
 ```
 
 
-### Broadcasting events
+### Events
 
-When some user left a reply on the conversation, the owner of the conversation will receive an notification on real time only if he is in the application.
+When some user left a reply on the conversation, starts a new conversation or marks a reply as the best answer,  an event will fire and broadcast depending on your settings..
 
-Set the key broadcasting to true on the forum config file and also add your Pusher keys to the broadcasting config file of Laravel.
+The key fire is set by the default true.  As long as it is true, an event will be fired for new replies, new conversations and chosing a best answer.
+```
+'fire' => true,
+```
+
+Set the key broadcast to true on the forum config file and also add your Pusher keys to the broadcasting config file of Laravel.  Once set to true, the events will also send out broadcasts that you can pick up.
 https://pusher.com/
 ```
-'broadcasting' => false,
+'broadcas' => false,
 ```
 
 Also on the bottom of you app or where your scripts section is located add this code.
