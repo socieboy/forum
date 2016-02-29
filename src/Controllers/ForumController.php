@@ -1,8 +1,8 @@
 <?php
 namespace Socieboy\Forum\Controllers;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Socieboy\Forum\Entities\Conversations\ConversationRepo;
 
 class ForumController extends Controller

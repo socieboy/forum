@@ -1,10 +1,10 @@
 <?php
 namespace Socieboy\Forum\Providers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 use League\CommonMark\CommonMarkConverter;
 use Socieboy\Forum\Commands\MigrateForumCommand;
-use Illuminate\Support\Facades\App;
 
 class ForumServiceProvider extends ServiceProvider
 {
@@ -30,7 +30,7 @@ class ForumServiceProvider extends ServiceProvider
     {
         App::register(\EasySlug\EasySlug\EasySlugServiceProvider::class);
 
-        $this->app->bindShared(
+        $this->app->bind(
             'command.forum.table',
             function ($app) {
                 return new MigrateForumCommand();

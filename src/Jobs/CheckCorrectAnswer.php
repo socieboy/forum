@@ -2,12 +2,11 @@
 namespace Socieboy\Forum\Jobs;
 
 use App\Jobs\Job;
-use Illuminate\Contracts\Bus\SelfHandling;
+use Socieboy\Forum\Events\BestAnswer;
 use Illuminate\Queue\SerializesModels;
 use Socieboy\Forum\Entities\Replies\ReplyRepo;
-use Socieboy\Forum\Events\BestAnswer;
 
-class CheckCorrectAnswer extends Job implements SelfHandling
+class CheckCorrectAnswer extends Job
 {
     use SerializesModels;
 

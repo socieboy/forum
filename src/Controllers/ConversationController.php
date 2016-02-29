@@ -1,17 +1,19 @@
 <?php
+
 namespace Socieboy\Forum\Controllers;
 
 use Illuminate\Routing\Controller;
-use Socieboy\Forum\Entities\Conversations\ConversationRepo;
-use Socieboy\Forum\Jobs\Conversations\CreateConversationThread;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Socieboy\Forum\Jobs\StartConversationJob;
 use Socieboy\Forum\Requests\ConversationRequest;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Socieboy\Forum\Requests\UpdateReplyRequest;
+use Socieboy\Forum\Entities\Conversations\ConversationRepo;
+use Socieboy\Forum\Jobs\Conversations\CreateConversationThread;
 
 class ConversationController extends Controller
 {
     use DispatchesJobs;
+
     /**
      * @var ConversationRepo
      */
@@ -30,12 +32,13 @@ class ConversationController extends Controller
      * Display a conversation and replies.
      *
      * @param string $slug
+     *
      * @return \Illuminate\View\View
      */
     public function show($slug)
     {
         $conversation = $this->conversationRepo->findBySlug($slug);
-        $replies = $conversation->replies()->orderBy('created_at', 'asc')->paginate(4);
+        $replies      = $conversation->replies()->orderBy('created_at', 'asc')->paginate(4);
 
         return view('Forum::Conversations.show', compact('conversation', 'replies'));
     }
@@ -44,6 +47,7 @@ class ConversationController extends Controller
      * Store the new conversation.
      *
      * @param ConversationRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(ConversationRequest $request)
@@ -57,6 +61,7 @@ class ConversationController extends Controller
      * Display the conversation edit form.
      *
      * @param string $slug
+     *
      * @return \Illuminate\View\View
      */
     public function edit($slug)
