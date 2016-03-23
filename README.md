@@ -208,6 +208,7 @@ http://socieboy.com/forum
 - [x] Spanish
 - [x] Danish
 - [x] French
+- [x] Arabic
 
 If you want to contribute in this package with your native language copy the folder
 src/Lang/en/ translate all keys to your language and send a pull request.
