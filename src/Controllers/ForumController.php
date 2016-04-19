@@ -44,7 +44,7 @@ class ForumController extends Controller
     {
         $conversations = $this->conversationRepo->topic($topic_id);
 
-        return view('Forum::index', compact('conversations'));
+        return view('Forum::index', compact('conversations', 'topic_id'));
     }
 
 
