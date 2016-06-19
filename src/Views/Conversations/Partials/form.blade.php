@@ -11,7 +11,11 @@
     <select name="topic_id" class="form-control">
 
         @foreach(config('forum.topics') as $key => $topic)
-            <option value="{{ $key }}">{{ $topic['name'] }}</option>
+            @if(isset($topic_id) && $topic_id == $key)
+                <option value="{{ $key }}" selected>{{ $topic['name'] }}</option>
+            @else
+                <option value="{{ $key }}">{{ $topic['name'] }}</option>
+            @endif
         @endforeach
 
     </select>
