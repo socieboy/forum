@@ -22,6 +22,6 @@ return [
     'topic'                    => 'اختر قناة',
     'message'                  => 'اذكر سؤالك ...',
     'notification-reply'       => 'اترك رد جديد على سؤالك',
-    'best-answer-asker-choise' => 'أفضل اختيار (حسب السائل)',
+    'best-answer-asker-choise' => 'أفضل إجابة - اختيار السائل',
     'commonmark-support'       => 'مدعوم.',
 ];
