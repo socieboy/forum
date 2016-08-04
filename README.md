@@ -141,7 +141,7 @@ Now if the user is not log in, the button for start a conversation will redirect
 ],
 ```
 
-If you want you can change the icons to do like and choise the best answer on replies.
+If you want you can change the icons to do like and choose the best answer on replies.
 ```
 'icons' => [
     'tags'              => 'glyphicon glyphicon-tags',
@@ -162,7 +162,7 @@ The key fire is set by the default false, no email would be fired when someone l
 'fire' => false,
 ```
 
-The from key is the email of the admin of your app or whatever account that wouldbe used to send the emails.
+The from key is the email of the admin of your app or whatever account that would be used to send the emails.
 ```
 'from' => '',
 ```
@@ -182,7 +182,7 @@ Finally just set the subject for the emails fired.
 
 When some user left a reply on the conversation, starts a new conversation or marks a reply as the best answer,  an event will fire and broadcast depending on your settings..
 
-The key fire is set by the default true.  As long as it is true, an event will be fired for new replies, new conversations and chosing a best answer.
+The key fire is set by the default true.  As long as it is true, an event will be fired for new replies, new conversations and choosing a best answer.
 ```
 'fire' => true,
 ```
@@ -190,7 +190,7 @@ The key fire is set by the default true.  As long as it is true, an event will b
 Set the key broadcast to true on the forum config file and also add your Pusher keys to the broadcasting config file of Laravel.  Once set to true, the events will also send out broadcasts that you can pick up.
 https://pusher.com/
 ```
-'broadcas' => false,
+'broadcast' => false,
 ```
 
 Also on the bottom of you app or where your scripts section is located add this code.
