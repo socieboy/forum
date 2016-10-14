@@ -1,3 +1,5 @@
+No taking care of this package anymore.
+
 # Socieboy Forum
 Package for Laravel 5.2
 
