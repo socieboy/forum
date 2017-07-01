@@ -202,8 +202,6 @@ Also on the bottom of you app or where your scripts section is located add this 
 
 Now that's it, easy and you are ready to go!
 
-http://socieboy.com/forum
-
 
 ### Translations
 - [x] English
